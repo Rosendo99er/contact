@@ -413,6 +413,7 @@ html, body {
   font-family: var(--company-font-family);
   font-size: var(--media-font-size-text);
   font-style: italic;
+  font-weight: normal;
   padding-left: 0px;
 }
 
@@ -669,7 +670,7 @@ html, body {
 }
 
 #contact-form-title-container {
-  display: block;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -688,11 +689,13 @@ html, body {
 
 #contact-form-title-container .contact-form-title-content {
     position: relative;
-    width: 100%;
+    width: 1000px;
     padding: 0px;
     margin: 0px;
     text-align: center;
     justify-content: center;
+    border: 0px solid #fff;
+    border-radius: 0;
 }
 
 
@@ -714,6 +717,251 @@ html, body {
 #clara-image {
   display: none;
 }
+
+
+
+
+#contact-form-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-background-color);
+  border: 0px solid var(--secondary-border-color);
+  border-radius: 0;
+  overflow: hidden; 
+  box-sizing: border-box; 
+  width: 100%;
+  z-index: 1;  
+}
+
+
+
+#contact-form-container {
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 0px solid var(--secondary-border-color);
+  border-radius: 0;
+  padding: 0px 9px 0px 8px;
+  position: relative;
+  }
+
+
+
+
+#contact-form-aktennummer {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 42px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#contact-form-aktennummer,
+#contact-form-aktennummer:focus,
+#contact-form-aktennummer:valid {
+    background-color: var(--primary-background-color);
+}
+
+
+#contact-form-aktennummer::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+
+#contact-form-name {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 42px; 
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#contact-form-name,
+#contact-form-name:focus,
+#contact-form-name:valid {
+    background-color: var(--primary-background-color);
+}
+
+
+
+#contact-form-name::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+
+#contact-form-email {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-background-color);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 42px; 
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+#contact-form-email::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+
+#contact-form-nachricht {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-background-color);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  box-sizing: border-box;
+  overflow: auto;
+  white-space: normal;
+  max-height: calc(1.5em * 6 + 20px);
+}
+
+
+
+
+#modalMessage {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-background-color);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none; 
+  box-sizing: border-box;
+  overflow: auto;
+  white-space: normal;
+  max-height: calc(1.5em * 6 + 20px);
+}
+
+
+
+
+
+#contact-form-nachricht,
+#contact-form-nachricht:focus,
+#contact-form-nachricht:valid {
+    background-color: var(--primary-background-color);
+}
+
+#modalMessage,
+#modalMessage:focus,
+#modalMessage:valid {
+    background-color: var(--primary-background-color);
+}
+
+
+
+
+
+
+
+
+#contact-form-nachricht::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+#modalMessage::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  padding-left: 0px;
+}
+
+
+
+
+
+
+
+
 
 #contact-form-container {
   display: block;
@@ -925,8 +1173,27 @@ color: var(--secondary-font-color);
 font-family: var(--company-font-family);
 font-size: var(--media-font-size-text);
 font-style: italic;
+font-weight: normal;
 padding-left: 0px;
 }
+
+
+
+#contact-form-container {
+  flex-direction: column;
+  align-items: center;
+  width: 100% !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 0px solid var(--secondary-border-color);
+  border-radius: 0;
+  padding: 0px 9px 0px 8px;
+  position: relative;
+  }
+
+
+
+
 
 
 
@@ -1423,220 +1690,6 @@ body.modal-open {
   color: var(--website-standard-font-color-dark);
 }
 
-
-/* Stil für den Contact Form Container */
-#contact-form-container {
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden; /* Verhindert ungewolltes Scrollen */
-  padding: 0px 9px 0px 8px;
-  position: relative;
-  }
-
-
-
-/* Stil für das Eingabefeld Aktennummer im Contact Form */
-#contact-form-aktennummer {
-  font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
-  color: var(--primary-font-color);
-  font-weight: normal;
-  flex: 1;
-  padding: 10px 10px 10px 30px;
-  border: 2px solid var(--tertiary-border-color);
-  border-radius: var(--primary-border-radius);
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
-  resize: none;
-  height: 42px; /* Minimale Höhe */
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  position: relative;
-}
-
-#contact-form-aktennummer,
-#contact-form-aktennummer:focus,
-#contact-form-aktennummer:valid {
-    background-color: var(--primary-background-color);
-}
-
-
-/* Stil für den Platzhaltertext im Eingabefeld */
-#contact-form-aktennummer::placeholder {
-  color: var(--secondary-font-color);
-  font-size: var(--font-size-text);
-  font-style: italic;
-  padding-left: 0px;
-}
-
-
-
-/* Stil für das Eingabefeld Name im Contact Form */
-#contact-form-name {
-  font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
-  color: var(--primary-font-color);
-  font-weight: normal;
-  flex: 1;
-  padding: 10px 10px 10px 30px;
-  border: 2px solid var(--tertiary-border-color);
-  border-radius: var(--primary-border-radius);
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
-  resize: none;
-  height: 42px; /* Minimale Höhe */
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  position: relative;
-}
-
-#contact-form-name,
-#contact-form-name:focus,
-#contact-form-name:valid {
-    background-color: var(--primary-background-color);
-}
-
-
-/* Stil für den Platzhaltertext im Eingabefeld */
-#contact-form-name::placeholder {
-  color: var(--secondary-font-color);
-  font-size: var(--font-size-text);
-  font-style: italic;
-  padding-left: 0px;
-}
-
-
-
-/* Stil für das Eingabefeld email im Contact Form */
-#contact-form-email {
-  font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
-  color: var(--primary-font-color);
-  font-weight: normal;
-  flex: 1;
-  padding: 10px 10px 10px 30px;
-  border: 2px solid var(--tertiary-border-color);
-  border-radius: var(--primary-border-radius);
-  background-color: var(--primary-background-color);
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
-  resize: none;
-  height: 42px; /* Minimale Höhe */
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  position: relative;
-}
-
-/* Stil für den Platzhaltertext im Eingabefeld */
-#contact-form-email::placeholder {
-  color: var(--secondary-font-color);
-  font-size: var(--font-size-text);
-  font-style: italic;
-  padding-left: 0px;
-}
-
-
-
-/* Stil für das Eingabefeld Nachricht im Contact Form */
-#contact-form-nachricht {
-  font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
-  color: var(--primary-font-color);
-  font-weight: normal;
-  flex: 1;
-  padding: 10px 10px 10px 30px;
-  border: 2px solid var(--tertiary-border-color);
-  border-radius: var(--primary-border-radius);
-  background-color: var(--primary-background-color);
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
-  resize: none; /* Kein manuelles Vergrößern des Feldes */
-  box-sizing: border-box;
-  overflow: auto; /* Scrollbar erscheint bei mehr als 6 Zeilen Text */
-  white-space: normal; /* Mehrzeiliger Text zulassen */
-  max-height: calc(1.5em * 6 + 20px); /* Maximalhöhe auf 6 Zeilen beschränkt + Padding */
-}
-
-
-
-/* Stil für das Eingabefeld Nachricht im Modaldialog*/
-#modalMessage {
-  font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
-  color: var(--primary-font-color);
-  font-weight: normal;
-  flex: 1;
-  padding: 10px 10px 10px 30px;
-  border: 2px solid var(--tertiary-border-color);
-  border-radius: var(--primary-border-radius);
-  background-color: var(--primary-background-color);
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
-  resize: none; /* Kein manuelles Vergrößern des Feldes */
-  box-sizing: border-box;
-  overflow: auto; /* Scrollbar erscheint bei mehr als 6 Zeilen Text */
-  white-space: normal; /* Mehrzeiliger Text zulassen */
-  max-height: calc(1.5em * 6 + 20px); /* Maximalhöhe auf 6 Zeilen beschränkt + Padding */
-}
-
-
-
-
-
-#contact-form-nachricht,
-#contact-form-nachricht:focus,
-#contact-form-nachricht:valid {
-    background-color: var(--primary-background-color);
-}
-
-#modalMessage,
-#modalMessage:focus,
-#modalMessage:valid {
-    background-color: var(--primary-background-color);
-}
-
-
-
-
-
-
-
-/* Stil für den Platzhaltertext im Nachrichtenfeld */
-#contact-form-nachricht::placeholder {
-  color: var(--secondary-font-color);
-  font-size: var(--font-size-text);
-  font-style: italic;
-  padding-left: 0px;
-}
-
-
-/* Stil für den Platzhaltertext im Nachrichtenfeld im Modaldialog */
-#modalMessage::placeholder {
-  color: var(--secondary-font-color);
-  font-size: var(--font-size-text);
-  font-style: italic;
-  padding-left: 0px;
-}
 
 
 
@@ -2190,6 +2243,7 @@ body.modal-open {
   font-family: var(--company-font-family);
   font-size: var(--font-size-text);
   font-style: italic;
+  font-weight: normal;
   padding-left: 0px;
 }
 
@@ -2971,19 +3025,21 @@ textarea:-webkit-autofill {
 
 </div>
 
+<div id="contact-form-section-container">
 
 <div id="contact-form-container">
 
-  <input type="text" id="contact-form-aktennummer" name="aktennummer" placeholder="Bitte Aktennummer eingeben, wenn vorhanden." maxlength="500" autocomplete="name" required />
+  <input type="text" id="contact-form-aktennummer" name="aktennummer" placeholder="Aktennummer" maxlength="500" autocomplete="name" required />
 
-  <input type="text" id="contact-form-name" name="name" placeholder="Bitte Vor- und Nachnamen eingeben." maxlength="500" autocomplete="name" required />
+  <input type="text" id="contact-form-name" name="name" placeholder="Vor- und Nachname" maxlength="500" autocomplete="name" required />
 
-  <input type="email" id="contact-form-email" name="email" placeholder="Ihre E-Mail-Adresse" maxlength="100" autocomplete="email" required />
+  <input type="email" id="contact-form-email" name="email" placeholder="E-Mail-Adresse" maxlength="100" autocomplete="email" required />
 
-  <textarea id="contact-form-nachricht" name="Kontaktnachricht" rows="6" placeholder="Bitte beschreiben Sie Ihr Anliegen." maxlength="2000" required></textarea>
+  <textarea id="contact-form-nachricht" name="Kontaktnachricht" rows="6" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000" required></textarea>
 
 </div>
 
+</div>
 
 
 <div id="section-container">
