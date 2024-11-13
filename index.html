@@ -2365,7 +2365,7 @@ body.modal-open {
   width: 30px;
   height: 30px;
   margin-left:10px;
-  margin-right: 0px;
+  margin-right: 10px;
   cursor: pointer;    
 }
 
@@ -3031,9 +3031,10 @@ body.modal-open {
 
 
 .icon {
-    width: 30px;             /* Standardgröße (Breite) des Icons */
-    height: 30px;            /* Standardgröße (Höhe) des Icons */
-    stroke: var(--primary-font-color);
+    width: 40px;             /* Standardgröße (Breite) des Icons */
+    height: 40px;            /* Standardgröße (Höhe) des Icons */
+    stroke: var(--primary-company-color);
+    stroke-width: 1.5;
     fill: none;
     cursor: pointer;         /* Zeiger als Cursor, geeignet für klickbare Icons */
     transition: all 0.3s ease; /* Weiche Übergänge für alle Änderungen (Größe, Farbe etc.) */
@@ -3854,7 +3855,7 @@ textarea:-webkit-autofill {
                 <div id="input-right"> 
 
                     <button id="input-right" aria-label="Frage an Chatbot senden" style="background:none;border:none;cursor:pointer;height:45px;width:45px" onclick="sendMessage()">
-                    <svg class="icon hover-scale" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" title="Frage an Chatbot senden">  
+                    <svg class="icon hover-scale" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" title="Frage an Chatbot senden">  
                     <title>Frage an Chatbot senden</title>
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5">
                     </path>
