@@ -1880,7 +1880,7 @@ body.modal-open {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-height: 100px; /* Mindesthöhe für den Container */
+  min-height: 0px; /* Mindesthöhe für den Container */
   box-sizing: border-box;
   overflow-x: hidden; /* Verhindert ungewolltes Scrollen */
   padding: 0px 9px 0px 8px;
@@ -3218,7 +3218,14 @@ textarea:-webkit-autofill {
 
 
 .collapsed {
-    max-height: 0; /* Höhe im zugeklappten Zustand */
+    max-height: 0 !important; /* Höhe im zugeklappten Zustand */
+    min-width: 0 !important; /* Höhe im zugeklappten Zustand */
+    height: 0 !important;
+    padding: 0;
+    margin: 0;
+    border: none;
+    overflow: hidden;
+    box-sizing: border-box; 
 }
 
 
@@ -3256,7 +3263,7 @@ textarea:-webkit-autofill {
 
 <div id="open-close-button-container">
 
-  <button onclick="opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer()">anzeigen</button>
+  <button onclick="opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton()">anzeigen</button>
 
 </div>
 
@@ -3324,7 +3331,7 @@ textarea:-webkit-autofill {
     
 <div id="instant-answer-dialog-button-container" class="collapsible-container">
      
-    <button id="instant-answer-dialog-button" onclick="transferMessageToChatbot()">Sofortantwort erhalten</button>
+    <button id="instant-answer-dialog-button" class="collapsible-container" onclick="transferMessageToChatbot()">Sofortantwort erhalten</button>
     <button id="message-send-button" onclick="openConfirmationModal()">Nachricht senden</button>
 
 
@@ -6036,6 +6043,12 @@ function opencloseInstantAnswerDialogButtonContainer() {
     const container3 = document.getElementById('instant-answer-dialog-button-container');
     container3.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
 }
+
+function opencloseInstantAnswerDialogButton() {
+    const container4 = document.getElementById('instant-answer-dialog-button');
+    container4.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
+}
+
 
 
 
