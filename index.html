@@ -1020,7 +1020,7 @@ html, body {
 
 
 #chatbot-container {
-  display: none;
+  /*display: none;*/
   margin-top: -80px;
 }
 
@@ -1109,6 +1109,9 @@ html, body {
 }
 
 
+
+
+
 .contact-form-title-content .contact-form-custom0c-p {
   display: block;
   font-family: var(--company-font-family);
@@ -1118,6 +1121,7 @@ html, body {
   margin: 0 !important;
   text-align: center;
   justify-content: center;  
+  padding-left: 0px;
 }
 
 
@@ -1131,7 +1135,7 @@ html, body {
   border: 1px solid var(--tertiary-border-color);
   border-radius: var(--primary-border-radius);
   margin-bottom: 5px;
-  margin-top: 0px;
+  margin-top: 5px;
   margin-left: 0px;
   margin-right: 0px;
   width: 100%;
@@ -3234,6 +3238,15 @@ textarea:-webkit-autofill {
 
 </div>
 
+
+<div id="open-close-button-container">
+
+  <button onclick="opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer()">anzeigen</button>
+
+</div>
+
+
+
 <div id="contact-form-section-container">
 
 <div id="contact-form-container">
@@ -3881,7 +3894,7 @@ textarea:-webkit-autofill {
 
     <div id="input-button-container">
 
-        <button id="everythingOK" class="okAndnotOK-Button" onclick="openDeleteConfirmation3()">Alle Fragen beantwortet</button>
+        <button id="everythingOK" class="okAndnotOK-Button" onclick="openDeleteConfirmation3()">Dialog schließen</button>
         <button id="notOK" class="okAndnotOK-Button" onclick="openConfirmationModal()">E-Mail senden</button>
 
     </div>
@@ -4044,7 +4057,7 @@ const textTranslations = {
         "confirm2Button": "OK",
         "confirm3Button": "OK",
         "confirm4Button": "OK",
-        "everythingOK": "Alle Fragen beantwortet",
+        "everythingOK": "Dialog schließen",
         "notOK": "Nachricht senden",
         "resetPageText1": "Wir freuen uns, dass wir Ihnen mit diesem Service helfen konnten.",
         "resetPageText2": "Ihre Chat-Historie wird gelöscht und die Nachricht verworfen.",
@@ -4092,7 +4105,7 @@ const textTranslations = {
         "confirm2Button": "OK",
         "confirm3Button": "OK",
         "confirm4Button": "OK",
-        "everythingOK": "All questions answered",
+        "everythingOK": "Close dialog",
         "notOK": "Send message",
         "resetPageText1": "We are glad that we could assist you with this service.",
         "resetPageText2": "Your chat history will be deleted and the message discarded.",
@@ -4140,7 +4153,7 @@ const textTranslations = {
         "confirm2Button": "OK",
         "confirm3Button": "OK",
         "confirm4Button": "OK",
-        "everythingOK": "¡Todas las preguntas respondidas",
+        "everythingOK": "Cerrar diálogo",
         "notOK": "Enviar mensaje",
         "resetPageText1": "Nos alegra haber podido ayudarle con este servicio.",
         "resetPageText2": "Su historial de chat será eliminado y el mensaje descartado.",
@@ -4188,7 +4201,7 @@ const textTranslations = {
     "confirm2Button": "Tamam",
     "confirm3Button": "Tamam",
     "confirm4Button": "Tamam",
-    "everythingOK": "Tüm sorular yanıtlandı",
+    "everythingOK": "Diyaloğu kapat",
     "notOK": "Mesaj gönder",
     "resetPageText1": "Bu hizmetle size yardımcı olabildiğimiz için mutluyuz.",
     "resetPageText2": "Sohbet geçmişiniz silinecek ve mesaj iptal edilecektir.",
@@ -4235,7 +4248,7 @@ const textTranslations = {
     "confirm2Button": "موافق",
    "confirm3Button": "موافق",
    "confirm4Button": "موافق",
-  "everythingOK": "تمت الإجابة على جميع الأسئلة",
+  "everythingOK": "إغلاق الحوار",
     "notOK": "إرسال الرسالة",
     "resetPageText1": "نحن سعداء لأننا تمكنا من مساعدتك بهذه الخدمة.",
     "resetPageText2": "سيتم حذف سجل المحادثة الخاص بك وسيتم تجاهل الرسالة.",    
@@ -4283,7 +4296,7 @@ const textTranslations = {
     "confirm2Button": "ОК",
     "confirm3Button": "OK",
     "confirm4Button": "OK",
-    "everythingOK": "Все вопросы отвечены",
+    "everythingOK": "Закрыть диалог",
     "notOK": "Отправить сообщение",
     "resetPageText1": "Мы рады, что смогли помочь вам с этой услугой.",
     "resetPageText2": "История чата будет удалена, а сообщение отменено.",
@@ -4332,7 +4345,7 @@ const textTranslations = {
     "confirm2Button": "OK",
     "confirm3Button": "OK",
     "confirm4Button": "OK",
-    "everythingOK": "Wszystkie pytania zostały odpowiedziane",
+    "everythingOK": "Zamknij dialog",
     "notOK": "Wyślij wiadomość",
     "resetPageText1": "Cieszymy się, że mogliśmy pomóc Ci w tej usłudze.",
     "resetPageText2": "Historia czatu zostanie usunięta, a wiadomość odrzucona.",
@@ -4381,7 +4394,7 @@ const textTranslations = {
     "confirm2Button": "OK",
     "confirm3Button": "OK",
     "confirm4Button": "OK",
-    "everythingOK": "Toate întrebările au fost răspunse",
+    "everythingOK": "Închide dialogul",
     "notOK": "Trimite mesaj",
     "resetPageText1": "Ne bucurăm că v-am putut ajuta cu acest serviciu.",
     "resetPageText2": "Istoricul dvs. de chat va fi șters și mesajul va fi anulat.",
@@ -4429,7 +4442,7 @@ const textTranslations = {
     "confirm2Button": "Εντάξει",
     "confirm3Button": "Εντάξει", 
     "confirm4Button": "Εντάξει",
-    "everythingOK": "Όλες οι ερωτήσεις απαντήθηκαν",
+    "everythingOK": "Κλείσιμο διαλόγου",
     "notOK": "Αποστολή μηνύματος",
     "resetPageText1": "Χαιρόμαστε που μπορέσαμε να σας βοηθήσουμε με αυτή την υπηρεσία.",
     "resetPageText2": "Το ιστορικό συνομιλιών σας θα διαγραφεί και το μήνυμα θα απορριφθεί.",
@@ -4476,7 +4489,7 @@ const textTranslations = {
     "confirm2Button": "OK",
     "confirm3Button": "OK",
     "confirm4Button": "OK",
-    "everythingOK": "Tutte le domande sono state risposte",
+    "everythingOK": "Chiudi dialogo",
     "notOK": "Invia messaggio",
     "resetPageText1": "Siamo felici di aver potuto aiutarvi con questo servizio.",
     "resetPageText2": "La cronologia della chat verrà cancellata e il messaggio verrà eliminato.",
@@ -5991,6 +6004,31 @@ const companyMainUrl = getComputedStyle(document.documentElement)
 
 // Füge die URL zum Link hinzu
 document.getElementById('company-main-url').href = companyMainUrl;
+
+
+
+function opencloseChatbotConsentContainer() {
+    const container1 = document.getElementById('chatbot-consent-container');
+    
+    if (container1.style.maxHeight === '0px' || !container1.style.maxHeight) {
+        container1.style.maxHeight = container.scrollHeight + 'px';
+    } else {
+        container1.style.maxHeight = '0px'; // Höhe für zugeklappten Zustand
+    }
+}
+
+
+
+function opencloseContactFormSectionContainer() {
+    const container1 = document.getElementById('contact-form-section-container');
+    
+    if (container1.style.maxHeight === '0px' || !container1.style.maxHeight) {
+        container1.style.maxHeight = container.scrollHeight + 'px';
+    } else {
+        container1.style.maxHeight = '0px'; // Höhe für zugeklappten Zustand
+    }
+}
+
 
 
 
