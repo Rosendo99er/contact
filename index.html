@@ -267,7 +267,7 @@ html, body {
     background-repeat: no-repeat;
     background-position: center; 
     width: 200px; 
-    height: 80px;
+    height: 40px;
   }
 
   #section-container {
@@ -655,7 +655,7 @@ html, body {
     background-size: contain;
     background-repeat: no-repeat;
     width: 200px; 
-    height: 60px;
+    height: 80px;
     
 }
 
@@ -1614,6 +1614,7 @@ padding-left: 0px;
 
 
 .hmd-content {
+    z-index: 10000001 !important;
     flex: 1; /* Nimmt den verfügbaren Platz ein */
     overflow-y: auto; /* Vertikales Scrollen erlauben */
     max-height: calc(100% - 80px); /* Höchstens so hoch wie der Dialog minus Platz für Buttons */
@@ -2430,7 +2431,7 @@ body.modal-open {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 1000 !important;
 
   /* Größe des Modals */
   width: 80%;
@@ -2528,8 +2529,7 @@ body.modal-open {
   height: auto;
   padding: 0px;
   margin-top: 0px;
-  z-index: 2;
-  }
+}
 
 
 
@@ -2542,8 +2542,7 @@ body.modal-open {
   height: auto;
   padding: 0px;
   margin-top: 15px;
-  z-index: 2;
-  }
+}
 
 
 
@@ -2594,7 +2593,6 @@ body.modal-open {
 
 /* BackToContactForm Button */
 .okAndnotOK-Button {
-  z-index: 1000;
   width: 100%;
   font-family: var(--company-font-family);
   font-size: var(--font-size-button);
@@ -2726,6 +2724,7 @@ body.modal-open {
 
 
 .hmd-content {
+    z-index: 10000001 !important;
     flex: 1; /* Nimmt den verfügbaren Platz ein */
     overflow-y: auto; /* Vertikales Scrollen erlauben */
     max-height: calc(100% - 80px); /* Höchstens so hoch wie der Dialog minus Platz für Buttons */
@@ -2824,6 +2823,7 @@ body.modal-open {
 /* Stile für das confirm-and-close-modal (ccm) */
 .ccm-dialog {
     display: none;
+    z-index: 1000000 !important;
     border: 2px solid black;
     border-radius: var(--primary-border-radius);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Schatten für besseren Effekt */
@@ -2838,6 +2838,7 @@ body.modal-open {
 }
 
 .ccm-content {
+    z-index: 1000001 !important;
     background-color: var(--primary-background-color);
     padding: 20px;
     border-radius: var(--primary-border-radius);
@@ -2939,7 +2940,7 @@ body.modal-open {
     width: 100%;
     text-align: left;
     margin-bottom: 20px;
-    border: 2px solid var(--primary-border-color);
+    border: 0px solid var(--primary-border-color);
     border-radius: var(--primary-border-radius);
 }
 
@@ -2980,7 +2981,7 @@ body.modal-open {
   color: var(--primary-font-color);
   font-weight: normal;
   padding: 10px 10px 10px 30px;
-  border: 2px solid var(--tertiary-border-color);
+  border: 0px solid var(--tertiary-border-color);
   border-radius: var(--primary-border-radius);
   background-color: var(--primary-background-color);
   margin-bottom: 10px;
@@ -3109,8 +3110,10 @@ body.modal-open {
     background-color: var(--modal-background);
     box-sizing: border-box;
     pointer-events: auto;
-
 }
+
+
+
 
 
 /* Standard-Modaldialog */
@@ -5755,21 +5758,23 @@ function insertParagraphs(text) {
 
 
 
+
 // Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
 function openDeleteConfirmation() {
-    document.getElementById('delete-confirmation-modal').style.display = 'flex';
-}
-
-
-//12345
-
-// Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie und Schließen des Chatbots
-function openDeleteConfirmation2() {
-    document.getElementById('delete-history-and-close-chatbot-background').style.display = 'flex';
+    const modal = document.getElementById("delete-confirmation-modal");
+    modal.style.display = "flex";
     document.body.classList.add("modal-open"); // Modalität aktivieren
-
+    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
 }
 
+
+// Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
+function openDeleteConfirmation2() {
+    const modal = document.getElementById("delete-history-and-close-chatbot-background");
+    modal.style.display = "flex";
+    document.body.classList.add("modal-open"); // Modalität aktivieren
+    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
+}
 
 
 
@@ -5780,7 +5785,7 @@ function closeDeleteConfirmation() {
     document.getElementById('delete-confirmation-modal3').style.display = 'none';
     document.getElementById('delete-history-and-close-chatbot-background').style.display = 'none';
     document.body.classList.remove("modal-open"); // Modalität deaktivieren
-
+    document.body.style.overflow = ''; // Hintergrundscrolling wieder aktivieren
 }
 
 
@@ -5996,10 +6001,15 @@ function resetPage() {
 
 
 
-// Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie und Reset der Nachricht
+// Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
 function openDeleteConfirmation3() {
-    document.getElementById('delete-confirmation-modal3').style.display = 'flex';
+    const modal = document.getElementById("delete-confirmation-modal3");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open"); // Modalität aktivieren
+    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
 }
+
+
 
 
 
