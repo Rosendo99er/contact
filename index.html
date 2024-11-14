@@ -1021,7 +1021,7 @@ html, body {
 
 #chatbot-container {
   display: none;
-  margin-top: -80px;
+  margin-top: 10px;
 }
 
 #instant-answer-dialog-button-container {
@@ -3331,7 +3331,7 @@ textarea:-webkit-autofill {
     
 <div id="instant-answer-dialog-button-container" class="collapsible-container">
      
-    <button id="instant-answer-dialog-button" class="collapsible-container" onclick="transferMessageToChatbot()">Sofortantwort erhalten</button>
+    <button id="instant-answer-dialog-button" class="collapsible-container" onclick="transferMessageToChatbot(); opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton()">Sofortantwort erhalten</button>
     <button id="message-send-button" onclick="openConfirmationModal()">Nachricht senden</button>
 
 
