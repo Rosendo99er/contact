@@ -3219,6 +3219,14 @@ textarea:-webkit-autofill {
     box-sizing: border-box; 
 }
 
+
+#open-close-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Setzt den Container als Bezugspunkt */
+}
+
 .arrow-button {
     width: 30px;
     height: 30px;
@@ -3226,6 +3234,9 @@ textarea:-webkit-autofill {
     border: none;
     cursor: pointer;
     position: relative;
+    display: flex;
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
 }
 
 .arrow-button::before {
@@ -3236,8 +3247,9 @@ textarea:-webkit-autofill {
     padding: 5px;
     transform: rotate(45deg); /* Pfeil nach unten */
     position: absolute;
-    top: 8px;
-    left: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg); /* Zentrierung */
 }
 
 
