@@ -483,9 +483,6 @@ html, body {
     display: none;
 }
 
-#loader-container {
-  top: 60%;
-}
 
 
 
@@ -602,9 +599,6 @@ html, body {
     display: none;
 }
 
-#loader-container {
-  top: 60%;
-}
 
 
   ++++++++++++++++++++++++ ENDE Anwendung Clara ++++++++++++++++++++++++ */
@@ -1028,9 +1022,6 @@ html, body {
   display: flex;
 }
 
-#loader-container {
-  top: 70%;
-}
 
 
 
@@ -1441,10 +1432,7 @@ padding-left: 0px;
   display: flex;
 }
 
-#loader-container {
-  margin-top: -270px;
-  top: 50%;
-}
+
 
 #input-button-container {
   display: none;
@@ -1508,6 +1496,7 @@ padding-left: 0px;
 
 
 #chatbot-messages {
+  position: relative;
   flex-grow: 1;
   overflow-y: auto;
   overflow-x: hidden; 
@@ -2134,6 +2123,7 @@ body.modal-open {
 
 
 #chatbot-messages {
+  position: relative;
   flex-grow: 1;
   overflow-y: auto; /* Ermöglicht Scrollen, wenn Nachrichten den Bereich überlaufen */
   border-bottom: 0px solid var(--primary-border-color); /* aktuell ausgeblendet */
@@ -2650,15 +2640,16 @@ body.modal-open {
 
 #loader-container {
   display: none;
+  position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;
-  max-width: 80%;
-  position: absolute;
-  margin: 0 auto;
   justify-content: center; /* Horizontale Zentrierung */
   align-items: center;    /* Vertikale Zentrierung */
   z-index: 1000;
+  max-width: 80%;
+  margin: 0 auto;
   }
 
 
