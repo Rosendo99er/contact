@@ -1020,7 +1020,7 @@ html, body {
 
 
 #chatbot-container {
-  /*display: none;*/
+  display: none;
   margin-top: -80px;
 }
 
@@ -3210,6 +3210,21 @@ textarea:-webkit-autofill {
   }
 
 
+.collapsible-container {
+    max-height: 1000px; /* Festgelegte maximale Höhe, die größer ist als der Inhalt */
+    overflow: hidden;
+    transition: max-height 0.5s ease; /* Sanfter Übergang */
+}
+
+
+.collapsed {
+    max-height: 0; /* Höhe im zugeklappten Zustand */
+}
+
+
+
+
+
 
 
 </style>
@@ -3241,13 +3256,13 @@ textarea:-webkit-autofill {
 
 <div id="open-close-button-container">
 
-  <button onclick="opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer()">anzeigen</button>
+  <button onclick="opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer()">anzeigen</button>
 
 </div>
 
 
 
-<div id="contact-form-section-container">
+<div id="contact-form-section-container" class="collapsible-container">
 
 <div id="contact-form-container">
 
@@ -3295,7 +3310,7 @@ textarea:-webkit-autofill {
 
 
 
-<div id="chatbot-consent-container">
+<div id="chatbot-consent-container" class="collapsible-container">
 
     <div id="chatbot-consent">
 
@@ -3307,7 +3322,7 @@ textarea:-webkit-autofill {
 
     
     
-<div id="instant-answer-dialog-button-container">
+<div id="instant-answer-dialog-button-container" class="collapsible-container">
      
     <button id="instant-answer-dialog-button" onclick="transferMessageToChatbot()">Sofortantwort erhalten</button>
     <button id="message-send-button" onclick="openConfirmationModal()">Nachricht senden</button>
@@ -6009,29 +6024,18 @@ document.getElementById('company-main-url').href = companyMainUrl;
 
 function opencloseChatbotConsentContainer() {
     const container1 = document.getElementById('chatbot-consent-container');
-    
-    if (container1.style.maxHeight === '0px' || !container1.style.maxHeight) {
-        container1.style.maxHeight = container.scrollHeight + 'px';
-    } else {
-        container1.style.maxHeight = '0px'; // Höhe für zugeklappten Zustand
-    }
+    container1.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
 }
-
-
 
 function opencloseContactFormSectionContainer() {
-    const container1 = document.getElementById('contact-form-section-container');
-    
-    if (container1.style.maxHeight === '0px' || !container1.style.maxHeight) {
-        container1.style.maxHeight = container.scrollHeight + 'px';
-    } else {
-        container1.style.maxHeight = '0px'; // Höhe für zugeklappten Zustand
-    }
+    const container2 = document.getElementById('contact-form-section-container');
+    container2.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
 }
 
-
-
-
+function opencloseInstantAnswerDialogButtonContainer() {
+    const container3 = document.getElementById('instant-answer-dialog-button-container');
+    container3.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
+}
 
 
 
