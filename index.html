@@ -3228,6 +3228,27 @@ textarea:-webkit-autofill {
     box-sizing: border-box; 
 }
 
+.arrow-button {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.arrow-button::before {
+    content: '';
+    border: solid var(--primary-font-color); /* Farbe des Pfeils */
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(45deg); /* Pfeil nach unten */
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
 
 
 
@@ -3261,9 +3282,9 @@ textarea:-webkit-autofill {
 </div>
 
 
-<div id="open-close-button-container">
+<div id="open-close-button-container" class="collapsible-container collapsed">
 
-  <button onclick="opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton()">anzeigen</button>
+  <button onclick="opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton()" class="arrow-button"></button>
 
 </div>
 
@@ -3331,7 +3352,7 @@ textarea:-webkit-autofill {
     
 <div id="instant-answer-dialog-button-container" class="collapsible-container">
      
-    <button id="instant-answer-dialog-button" class="collapsible-container" onclick="transferMessageToChatbot(); opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton()">Sofortantwort erhalten</button>
+    <button id="instant-answer-dialog-button" class="collapsible-container" onclick="transferMessageToChatbot(); opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton(); opencloseOpenCloseButtonContainer()">Sofortantwort erhalten</button>
     <button id="message-send-button" onclick="openConfirmationModal()">Nachricht senden</button>
 
 
@@ -5772,7 +5793,10 @@ function confirmDelete2() {
     clearMessages(); // Die Funktion zum Löschen der Chat-Historie
     closeDeleteConfirmation(); // Schließe das Modal nach der Bestätigung
     closeChatbot(); //Schließe den Chatbot
+    location.reload();
 }
+
+
 
 
 
@@ -6030,24 +6054,44 @@ document.getElementById('company-main-url').href = companyMainUrl;
 
 
 function opencloseChatbotConsentContainer() {
-    const container1 = document.getElementById('chatbot-consent-container');
-    container1.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
+    const container = document.getElementById('chatbot-consent-container');
+    container.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
 }
 
 function opencloseContactFormSectionContainer() {
-    const container2 = document.getElementById('contact-form-section-container');
-    container2.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
+    const container = document.getElementById('contact-form-section-container');
+    container.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
 }
 
 function opencloseInstantAnswerDialogButtonContainer() {
-    const container3 = document.getElementById('instant-answer-dialog-button-container');
-    container3.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
+    const container = document.getElementById('instant-answer-dialog-button-container');
+    container.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
 }
 
 function opencloseInstantAnswerDialogButton() {
-    const container4 = document.getElementById('instant-answer-dialog-button');
-    container4.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
+    const container = document.getElementById('instant-answer-dialog-button');
+    container.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
 }
+
+
+function opencloseOpenCloseButtonContainer() {
+    const container = document.getElementById('open-close-button-container');
+    container.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
+}
+
+
+
+function removeAllCollapsed() {
+    // Wählt alle Container mit der Klasse .collapsible-container aus
+    const containers = document.querySelectorAll('.collapsible-container');
+    
+    containers.forEach(container => {
+        container.classList.remove('collapsed'); // Entfernt 'collapsed' von jedem Container
+        console.log(`'collapsed' entfernt von:`, container);
+    });
+}
+
+
 
 
 
