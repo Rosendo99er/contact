@@ -5984,11 +5984,11 @@ function fillModalContent() {
 
 
 
-
-
-
 function resetPage() {
-    location.reload();
+    location.reload(); // Lädt die Seite neu
+    setTimeout(() => {
+        window.scrollTo(0, 0); // Scrollt nach oben, falls die Seite an eine alte Position zurückspringt
+    }, 0);
 }
 
 
