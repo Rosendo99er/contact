@@ -6063,6 +6063,11 @@ function resetPage() {
 
 // Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
 function openDeleteConfirmation3() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     const modal = document.getElementById("delete-confirmation-modal3");
     modal.style.display = "block";
     document.body.classList.add("modal-open"); // Modalität aktivieren
