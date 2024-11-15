@@ -1481,11 +1481,17 @@ padding-left: 0px;
     
     
     
-    /*aktuell nicht in Benutzung, kann zu gegebener Zeit gelöscht werden */
+    
     .modal-standard-inner {
-        width: 90%;
-        max-width: 90%;
+        width: 80%;
+        max-width: 80%;
         height: 70vh;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%); /* Zentriert den Dialog */
+
+
+
     }
 
     #chatbot-consent-label {
@@ -1580,14 +1586,28 @@ padding-left: 0px;
   z-index: 9999999 !important;
   left: 0%;
   top: 0%;
-  width: 100%;
-  height: 80% !important;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
   display: flex; /* Flexbox für Zentrierung */
   justify-content: center;
   align-items: center;
   background-color: var(--modal-background);
   box-sizing: border-box;
   pointer-events: auto; /* Interaktionen sind erlaubt */
+}
+
+@supports (-webkit-touch-callout: none) {
+    .send-confirmation {
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        height: auto;
+        min-height: 100%;
+        width: 100%;
+        bottom: 0;
+    }
 }
 
 
@@ -2897,8 +2917,9 @@ body.modal-open {
     z-index: 9999999 !important;
     left: 0%;
     top: 0%;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2906,6 +2927,24 @@ body.modal-open {
     box-sizing: border-box;
     pointer-events: auto;
 }
+
+
+@supports (-webkit-touch-callout: none) {
+    .send-confirmation {
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        height: auto;
+        min-height: 100%;
+        width: 100%;
+        bottom: 0;
+    }
+}
+
+
+
+
 
 
 
@@ -3135,7 +3174,7 @@ body.modal-open {
 
 
 
-/*aktuell nicht in Benutzung, kann zu gegebener Zeit gelöscht werden */
+
 .modal-standard-inner {
     z-index: 10000000 !important;
     position: absolute;
@@ -3378,7 +3417,7 @@ textarea:-webkit-autofill {
 <div id="instant-answer-dialog-button-container" class="collapsible-container">
      
     <button id="instant-answer-dialog-button" class="collapsible-container" onclick="transferMessageToChatbot(); opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton(); opencloseOpenCloseButtonContainer()">Sofortantwort erhalten</button>
-    <button id="message-send-button" onclick="openConfirmationModal()">Nachricht senden</button>
+    <button id="message-send-button" onclick="openConfirmationModal()">E-Mail senden</button>
 
 
 </div>
