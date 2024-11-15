@@ -1484,10 +1484,6 @@ padding-left: 0px;
     
     .modal-standard-inner {
         top: 50% !important;
-        transform: translate(-50%, -50%); /* Zentriert den Dialog */
-
-
-
     }
 
     #chatbot-consent-label {
@@ -3176,12 +3172,11 @@ body.modal-open {
     position: absolute;
     background-color: var(--primary-background-color);
     left: 50%;
-    top: 50px;
+    top: 0px;
     width: auto;
     max-width: 60vh;
-    height: 75vh;
-    max-height: 75vh;
-    transform: translate(-50%, -50%); /* Zentriert den Dialog */
+    height: 300px;
+    transform: translateX(-50%); /* Zentriert den Dialog */
     pointer-events: auto; /* Interaktionen sind erlaubt */
     box-sizing: border-box;
     border: 2px solid var(--primary-border-color);
