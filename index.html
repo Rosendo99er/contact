@@ -3146,6 +3146,7 @@ body.modal-open {
 @supports (-webkit-touch-callout: none) {
     .modal-standard-background {
         position: absolute;
+        z-index: 9999999 !important;
         background-color: var(--modal-background);
         top: 0;
         left: 0;
@@ -3153,6 +3154,8 @@ body.modal-open {
         min-height: 100%;
         width: 100%;
         bottom: 0;
+        box-sizing: border-box;
+        pointer-events: auto;
     }
 }
 
