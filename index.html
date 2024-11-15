@@ -1483,11 +1483,7 @@ padding-left: 0px;
     
     
     .modal-standard-inner {
-        width: 80%;
-        max-width: 80%;
-        height: 70vh;
-        left: 50%;
-        top: 60%;
+        top: 50% !important;
         transform: translate(-50%, -50%); /* Zentriert den Dialog */
 
 
@@ -3185,7 +3181,7 @@ body.modal-open {
     max-width: 60vh;
     height: 75vh;
     max-height: 75vh;
-    transform: translateX(-50%); /* Zentriert den Dialog */
+    transform: translate(-50%, -50%); /* Zentriert den Dialog */
     pointer-events: auto; /* Interaktionen sind erlaubt */
     box-sizing: border-box;
     border: 2px solid var(--primary-border-color);
