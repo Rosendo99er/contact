@@ -5943,7 +5943,7 @@ async function openConfirmationModal() {
 
         // Modalen Dialog anzeigen
         const modal = document.getElementById("confirmModal");
-        modal.style.display = "block";
+        modal.style.display = "flex";
         document.body.classList.add("modal-open"); // Modalität aktivieren
 
         // "Senden"-Button im modalen Dialog
@@ -6069,7 +6069,7 @@ function openDeleteConfirmation3() {
       behavior: 'smooth'
     });
     const modal = document.getElementById("delete-confirmation-modal3");
-    modal.style.display = "block";
+    modal.style.display = "flex";
     document.body.classList.add("modal-open"); // Modalität aktivieren
     document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
 }
