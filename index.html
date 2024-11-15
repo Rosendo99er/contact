@@ -3867,22 +3867,18 @@ textarea:-webkit-autofill {
 
         <div id="delete-history-and-close-chatbot-background" class="modal-standard-background" aria-modal="true">
 
+          <div class="modal-standard-inner">
 
-            <div class="modal-standard-inner">
-
-
-                <div class="modal-standard-content">
-                    <p id="chat-history-deleted-and-closed" class="ccm-content p">Ihre Chat-Historie wird gelöscht und der Chatbot geschlossen.</p>
-                </div>
-
-
-                <div class="modal-standard-button-container">
-                    <button id="cancel-button" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
-                    <button id="confirm-delete-button2" class="modal-standard-button" onclick="confirmDelete2()">OK</button>
-                </div>
-
-
+            <div class="modal-standard-content">
+              <p id="chat-history-deleted-and-closed" class="ccm-content p">Ihre Chat-Historie wird gelöscht und der Chatbot geschlossen.</p>
             </div>
+
+            <div class="modal-standard-button-container">
+              <button id="cancel-button" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
+              <button id="confirm-delete-button2" class="modal-standard-button" onclick="confirmDelete2()">OK</button>
+            </div>
+
+          </div>
 
         </div>
       
@@ -3891,20 +3887,42 @@ textarea:-webkit-autofill {
 
         <div id="delete-confirmation-modal" class="modal-standard-background" aria-modal="true">
 
-            <div class="modal-standard-inner">
+          <div class="modal-standard-inner">
 
-                <div class="modal-standard-content">
-                    <p id="chat-history-deleted" class="ccm-content p">Ihre Chat-Historie wird gelöscht.</p>
-                </div>
-
-                <div class="modal-standard-button-container">
-                    <button id="cancel2-button" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
-                    <button id="confirm-delete-button" class="modal-standard-button" onclick="confirmDelete()">OK</button>
-                </div>
-
+            <div class="modal-standard-content">
+              <p id="chat-history-deleted" class="ccm-content p">Ihre Chat-Historie wird gelöscht.</p>
             </div>
 
+            <div class="modal-standard-button-container">
+              <button id="cancel2-button" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
+              <button id="confirm-delete-button" class="modal-standard-button" onclick="confirmDelete()">OK</button>
+            </div>
+
+          </div>
+
         </div>        
+
+
+        <div id="delete-confirmation-modal3" class="modal-standard-background" aria-modal="true">
+
+          <div class="modal-standard-inner">
+  
+            <div class="modal-standard-content">
+              <p id="resetPageText1" class="ccm-content p">Wir freuen uns, dass wir Ihnen mit diesem Service helfen konnten.<br><br>Ihre Chat-Historie wird gelöscht und die Nachricht verworfen.</p>
+            </div>
+  
+            <div class="modal-standard-button-container">
+              <button id="cancel-button3" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
+              <button id="confirm-delete-button3" class="modal-standard-button" onclick="resetPage()">OK</button>
+            </div>
+  
+          </div>
+  
+        </div>       
+
+
+
+
 
 
 
@@ -4048,22 +4066,7 @@ textarea:-webkit-autofill {
 
 
 
-    <div id="delete-confirmation-modal3" class="modal-standard-background" aria-modal="true">
-
-        <div class="modal-standard-inner">
-
-            <div class="modal-standard-content">
-                <p id="resetPageText1" class="ccm-content p">Wir freuen uns, dass wir Ihnen mit diesem Service helfen konnten.<br><br>Ihre Chat-Historie wird gelöscht und die Nachricht verworfen.</p>
-            </div>
-
-            <div class="modal-standard-button-container">
-                <button id="cancel-button3" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
-                <button id="confirm-delete-button3" class="modal-standard-button" onclick="resetPage()">OK</button>
-            </div>
-
-        </div>
-
-    </div>        
+ 
 
 </div>
 
