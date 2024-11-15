@@ -1866,7 +1866,7 @@ body.modal-open {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 80vh; 
+  height: 60vh; /* Mindesthöhe für den Container */
   box-sizing: border-box;
   overflow: hidden; /* Verhindert ungewolltes Scrollen */
   padding: 0px 9px 0px 8px;
@@ -2529,18 +2529,15 @@ body.modal-open {
 
 /* Container für die Button im Eingabebereich */
 #input-button-container {
-    position: relative;
-    bottom: 0;
-    display: flex; /* Flexbox aktivieren */
-    justify-content: flex-start; /* Buttons linksbündig platzieren */
-    flex-direction: column;
-    gap: 0px;
-    width: 100%;
-    height: auto;
-    padding: 0px;
-    margin-top: 0px;
-    min-height: fit-content; /* Passt die Mindesthöhe an den Inhalt an */
-    overflow: visible; /* Inhalte nicht abschneiden */
+  position: relative;
+  bottom: 0;
+  justify-content: flex-start; /* Buttons linksbündig platzieren */
+  flex-direction: column;
+  gap: 0px;
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  margin-top: 0px;
 }
 
 
@@ -3135,9 +3132,7 @@ body.modal-open {
     width: 100vw;
     height: 100vh;
     min-height: 100%;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    display: none; 
     justify-content: center;
     align-items: center;
     background-color: var(--modal-background);
@@ -3868,18 +3863,6 @@ textarea:-webkit-autofill {
     <div id="chatbot">
 
 
-      <div id="loader-container">
-            
-        <div id="loader">
-    
-        </div>
-
-        <div id="loader-text">Einen kurzen Augenblick bitte. Ihre Anfrage wird bearbeitet.
-
-        </div>
-    
-      </div>
-
 
 
         <div id="delete-history-and-close-chatbot-background" class="modal-standard-background" aria-modal="true">
@@ -4011,10 +3994,23 @@ textarea:-webkit-autofill {
 
         <div id="chatbot-messages">
             
-          <div id="chatbot-messages-gpt">
+            <div id="loader-container">
+            
+                <div id="loader">
+            
+                </div>
 
-          </div>
+                <div id="loader-text">Einen kurzen Augenblick bitte. Ihre Anfrage wird bearbeitet.
+        
+                </div>
+            
+            </div>
 
+            
+
+            <div id="chatbot-messages-gpt">
+
+            </div>
         </div>
 
 
@@ -5825,88 +5821,34 @@ function insertParagraphs(text) {
 
 
 
-
-
 // Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
 function openDeleteConfirmation() {
-    // Nach oben scrollen mit sanftem Verhalten
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    });
-
-    // Modal anzeigen
     const modal = document.getElementById("delete-confirmation-modal");
-    if (modal) {
-        requestAnimationFrame(() => {
-            const screenHeight = window.innerHeight; // Gerätehöhe
-            modal.style.visibility = "visible"; // Sichtbarkeit aktivieren
-            modal.style.opacity = "1";          // Transparenz entfernen
-            modal.style.height = 2000px; // Höhe dynamisch setzen
-            document.body.classList.add("modal-open"); // Modalität aktivieren
-        });
-    }
+    modal.style.display = "flex";
+    document.body.classList.add("modal-open"); // Modalität aktivieren
+    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
 }
-
-
-
-
-
 
 
 // Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
 function openDeleteConfirmation2() {
-    // Nach oben scrollen mit sanftem Verhalten
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    });
-
-    // Modal anzeigen
     const modal = document.getElementById("delete-history-and-close-chatbot-background");
-    if (modal) {
-        requestAnimationFrame(() => {
-            const screenHeight = window.innerHeight; // Gerätehöhe
-            modal.style.visibility = "visible"; // Sichtbarkeit aktivieren
-            modal.style.opacity = "1";          // Transparenz entfernen
-            modal.style.height = 2000px; // Höhe dynamisch setzen
-            document.body.classList.add("modal-open"); // Modalität aktivieren
-        });
-    }
+    modal.style.display = "flex";
+    document.body.classList.add("modal-open"); // Modalität aktivieren
+    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
 }
 
 
 
 
-
-// Schließe die Modale ohne Aktion
+// Schließe das Modal ohne Aktion
 function closeDeleteConfirmation() {
-    // Array mit den IDs aller Modale
-    const modalIds = [
-        "delete-confirmation-modal",
-        "delete-confirmation-modal3",
-        "delete-history-and-close-chatbot-background"
-    ];
-
-    // Für jedes Modal die Sichtbarkeit und Transparenz zurücksetzen
-    modalIds.forEach(id => {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.style.visibility = "hidden"; // Sichtbarkeit deaktivieren
-            modal.style.opacity = "0";        // Transparenz hinzufügen
-            modal.style.height = "";          // Dynamische Höhe zurücksetzen
-        }
-    });
-
-    // Hintergrund deaktivieren
-    document.body.classList.remove("modal-open");
+    document.getElementById('delete-confirmation-modal').style.display = 'none';
+    document.getElementById('delete-confirmation-modal3').style.display = 'none';
+    document.getElementById('delete-history-and-close-chatbot-background').style.display = 'none';
+    document.body.classList.remove("modal-open"); // Modalität deaktivieren
     document.body.style.overflow = ''; // Hintergrundscrolling wieder aktivieren
 }
-
-
-
 
 
 
@@ -6130,20 +6072,14 @@ function openDeleteConfirmation3() {
         behavior: 'smooth'
     });
 
-    // Modal anzeigen
-    const modal = document.getElementById("delete-confirmation-modal3");
-    if (modal) {
-        requestAnimationFrame(() => {
-            const screenHeight = window.innerHeight; // Gerätehöhe
-            modal.style.visibility = "visible"; // Sichtbarkeit aktivieren
-            modal.style.opacity = "1";          // Transparenz entfernen
-            modal.style.height = 2000px;
-            document.body.classList.add("modal-open"); // Modalität aktivieren
-        });
-    }
+    // Modal anzeigen mit kleinem Delay
+    setTimeout(() => {
+        const modal = document.getElementById("delete-confirmation-modal3");
+        modal.style.display = "block";
+        document.body.classList.add("modal-open"); // Modalität aktivieren
+        document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
+    }, 300); // 300 ms Delay
 }
-
-
 
 
 
