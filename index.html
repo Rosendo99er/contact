@@ -6065,16 +6065,22 @@ function resetPage() {
 
 // Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
 function openDeleteConfirmation3() {
+    // Nach oben scrollen mit sanftem Verhalten
     window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
     });
-    const modal = document.getElementById("delete-confirmation-modal3");
-    modal.style.display = "flex";
-    document.body.classList.add("modal-open"); // Modalität aktivieren
-    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
+
+    // Modal anzeigen mit kleinem Delay
+    setTimeout(() => {
+        const modal = document.getElementById("delete-confirmation-modal3");
+        modal.style.display = "flex";
+        document.body.classList.add("modal-open"); // Modalität aktivieren
+        document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
+    }, 300); // 300 ms Delay
 }
+
 
 
 
