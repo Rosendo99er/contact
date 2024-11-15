@@ -1481,11 +1481,6 @@ padding-left: 0px;
     
     
     
-    
-    .modal-standard-inner {
-        top: 50% !important;
-    }
-
     #chatbot-consent-label {
       font-size: var(--media-font-size-fineprint) !important;
     }
@@ -3172,10 +3167,11 @@ body.modal-open {
     position: absolute;
     background-color: var(--primary-background-color);
     left: 50%;
-    top: 0px;
+    top: 250px;
     width: auto;
     max-width: 60vh;
-    height: 300px;
+    height: auto;
+    max-height: 250px;
     transform: translateX(-50%); /* Zentriert den Dialog */
     pointer-events: auto; /* Interaktionen sind erlaubt */
     box-sizing: border-box;
