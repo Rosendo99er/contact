@@ -1600,7 +1600,7 @@ padding-left: 0px;
 @supports (-webkit-touch-callout: none) {
     .send-confirmation {
         position: absolute;
-        background-color: transparent;
+        background-color: var(--modal-background);
         top: 0;
         left: 0;
         height: auto;
@@ -2932,7 +2932,7 @@ body.modal-open {
 @supports (-webkit-touch-callout: none) {
     .send-confirmation {
         position: absolute;
-        background-color: transparent;
+        background-color: var(--modal-background);
         top: 0;
         left: 0;
         height: auto;
@@ -3325,6 +3325,41 @@ textarea:-webkit-autofill {
 
 
 <body>
+
+  <div id="confirmModal" class="send-confirmation" aria-modal="true" style="display:none">
+
+    <div class="send-confirmation-dialog">
+
+        <div class="send-confirmation-content">
+
+            <h2 class="custom2-h2">Die folgende Nachricht wird gesendet.</h2>
+            <p><strong>an:</strong></p>
+            <p><span id="recipientName"></span></p>
+            <p><span id="recipientEmail"></span></p>
+            <p> </p>
+            <p><strong>Ihr Name:</strong></p>
+            <p><span id="modalName"></span></p>
+            <p><strong>Ihre E-Mail-Adresse:</strong></p>
+            <p><span id="modalEmail"></span></p>
+            <p><strong>Ihre Nachricht:</strong></p>
+            <textarea id="modalMessage" class="email-nachricht" style="white-space:pre-wrap" name="Nachricht" rows="4" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000"></textarea>
+            <p> </p>
+            <p><strong>Übersetzte Chat-Historie:</strong></p>
+            <div id="translated-chat-history" style="white-space:pre-wrap">
+            </div>
+        </div>
+
+        <div id="send-confirmation-button-container" class="modal-standard-button-container">
+            <button id="cancelSend" class="modal-standard-button">Abbrechen</button>
+            <button id="confirmSend" class="modal-standard-button">Senden</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
 
 <div id="logo-header">
     <a href="https://www.cream-collection.de" target="_blank">
@@ -4038,37 +4073,7 @@ textarea:-webkit-autofill {
 
 
 
-<div id="confirmModal" class="send-confirmation" aria-modal="true" style="display:none">
 
-    <div class="send-confirmation-dialog">
-
-        <div class="send-confirmation-content">
-
-            <h2 class="custom2-h2">Die folgende Nachricht wird gesendet.</h2>
-            <p><strong>an:</strong></p>
-            <p><span id="recipientName"></span></p>
-            <p><span id="recipientEmail"></span></p>
-            <p> </p>
-            <p><strong>Ihr Name:</strong></p>
-            <p><span id="modalName"></span></p>
-            <p><strong>Ihre E-Mail-Adresse:</strong></p>
-            <p><span id="modalEmail"></span></p>
-            <p><strong>Ihre Nachricht:</strong></p>
-            <textarea id="modalMessage" class="email-nachricht" style="white-space:pre-wrap" name="Nachricht" rows="4" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000"></textarea>
-            <p> </p>
-            <p><strong>Übersetzte Chat-Historie:</strong></p>
-            <div id="translated-chat-history" style="white-space:pre-wrap">
-            </div>
-        </div>
-
-        <div id="send-confirmation-button-container" class="modal-standard-button-container">
-            <button id="cancelSend" class="modal-standard-button">Abbrechen</button>
-            <button id="confirmSend" class="modal-standard-button">Senden</button>
-        </div>
-
-    </div>
-
-</div>
 
 
 
