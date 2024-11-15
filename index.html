@@ -3115,6 +3115,19 @@ body.modal-open {
 }
 
 
+/* iOS-spezifische Anpassung für modal-standard-background */
+@supports (-webkit-touch-callout: none) {
+    .modal-standard-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+
+
 
 
 
@@ -3965,8 +3978,7 @@ textarea:-webkit-autofill {
         <div class="modal-standard-inner">
 
             <div class="modal-standard-content">
-                <p id="resetPageText1" class="ccm-content p">Wir freuen uns, dass wir Ihnen mit diesem Service helfen konnten.</p>
-                <p id="resetPageText2" class="ccm-content p">Ihre Chat-Historie wird gelöscht und die Nachricht verworfen.</p>
+                <p id="resetPageText1" class="ccm-content p">Wir freuen uns, dass wir Ihnen mit diesem Service helfen konnten.<br><br>Ihre Chat-Historie wird gelöscht und die Nachricht verworfen.</p>
             </div>
 
             <div class="modal-standard-button-container">
