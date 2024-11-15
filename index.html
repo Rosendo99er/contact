@@ -2936,9 +2936,6 @@ body.modal-open {
         background-color: var(--modal-background);
         top: 0;
         left: 0;
-        height: 1000px;
-        max-height: 100%;
-        min-height: 100%;
         width: 100%;
         bottom: 0;
     }
@@ -6179,6 +6176,21 @@ function removeAllCollapsed() {
         console.log(`'collapsed' entfernt von:`, container);
     });
 }
+
+
+function adjustHeightForIOS() {
+    const modal = document.querySelector('.send-confirmation');
+    if (modal) {
+        const screenHeight = window.innerHeight; // Gerätehöhe in Pixel
+        modal.style.height = `${screenHeight}px`; // Dynamisch die Höhe setzen
+    }
+}
+
+// Event-Listener für Seite laden und Größe ändern
+window.addEventListener('load', adjustHeightForIOS);
+window.addEventListener('resize', adjustHeightForIOS);
+
+
 
 
 
