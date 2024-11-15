@@ -3135,7 +3135,9 @@ body.modal-open {
     width: 100vw;
     height: 100vh;
     min-height: 100%;
-    display: none; 
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
     justify-content: center;
     align-items: center;
     background-color: var(--modal-background);
@@ -5845,12 +5847,20 @@ function openDeleteConfirmation2() {
 
 // Schließe das Modal ohne Aktion
 function closeDeleteConfirmation() {
+    const modal = document.getElementById("delete-confirmation-modal3");
+    if (modal) {
+        modal.style.display = "none"; // Modal ausblenden
+        modal.style.opacity = "0";   // Sichtbarkeit entfernen
+        modal.style.height = "";     // Dynamische Höhe zurücksetzen
+    }
+
+    // Hintergrund deaktivieren
     document.getElementById('delete-confirmation-modal').style.display = 'none';
-    document.getElementById('delete-confirmation-modal3').style.display = 'none';
     document.getElementById('delete-history-and-close-chatbot-background').style.display = 'none';
-    document.body.classList.remove("modal-open"); // Modalität deaktivieren
+    document.body.classList.remove("modal-open");
     document.body.style.overflow = ''; // Hintergrundscrolling wieder aktivieren
 }
+
 
 
 
@@ -6074,14 +6084,19 @@ function openDeleteConfirmation3() {
         behavior: 'smooth'
     });
 
-    // Modal anzeigen mit kleinem Delay
-    setTimeout(() => {
-        const modal = document.getElementById("delete-confirmation-modal3");
-        modal.style.display = "block";
-        document.body.classList.add("modal-open"); // Modalität aktivieren
-        document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
-    }, 300); // 300 ms Delay
+    // Modal anzeigen
+    const modal = document.getElementById("delete-confirmation-modal3");
+    if (modal) {
+        requestAnimationFrame(() => {
+            const screenHeight = window.innerHeight; // Gerätehöhe
+            modal.style.display = "block";
+            modal.style.opacity = "1"; // Sichtbarkeit
+            modal.style.height = `${screenHeight}px`; // Höhe dynamisch setzen
+            document.body.classList.add("modal-open"); // Modalität aktivieren
+        });
+    }
 }
+
 
 
 
