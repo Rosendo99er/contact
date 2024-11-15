@@ -5849,14 +5849,16 @@ function openDeleteConfirmation2() {
 function closeDeleteConfirmation() {
     const modal = document.getElementById("delete-confirmation-modal3");
     if (modal) {
-        modal.style.display = "none"; // Modal ausblenden
-        modal.style.opacity = "0";   // Sichtbarkeit entfernen
-        modal.style.height = "";     // Dynamische Höhe zurücksetzen
+        modal.style.visibility = "hidden"; // Sichtbarkeit deaktivieren
+        modal.style.opacity = "0";        // Transparenz hinzufügen
+        modal.style.height = "";          // Dynamische Höhe zurücksetzen
     }
 
     // Hintergrund deaktivieren
-    document.getElementById('delete-confirmation-modal').style.display = 'none';
-    document.getElementById('delete-history-and-close-chatbot-background').style.display = 'none';
+    document.getElementById('delete-confirmation-modal').style.visibility = 'hidden';
+    document.getElementById('delete-confirmation-modal').style.opacity = '0';
+    document.getElementById('delete-history-and-close-chatbot-background').style.visibility = 'hidden';
+    document.getElementById('delete-history-and-close-chatbot-background').style.opacity = '0';
     document.body.classList.remove("modal-open");
     document.body.style.overflow = ''; // Hintergrundscrolling wieder aktivieren
 }
@@ -6089,13 +6091,14 @@ function openDeleteConfirmation3() {
     if (modal) {
         requestAnimationFrame(() => {
             const screenHeight = window.innerHeight; // Gerätehöhe
-            modal.style.display = "block";
-            modal.style.opacity = "1"; // Sichtbarkeit
+            modal.style.visibility = "visible"; // Sichtbarkeit aktivieren
+            modal.style.opacity = "1";          // Transparenz entfernen
             modal.style.height = `${screenHeight}px`; // Höhe dynamisch setzen
             document.body.classList.add("modal-open"); // Modalität aktivieren
         });
     }
 }
+
 
 
 
