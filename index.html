@@ -5825,43 +5825,87 @@ function insertParagraphs(text) {
 
 
 
+
+
 // Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
 function openDeleteConfirmation() {
+    // Nach oben scrollen mit sanftem Verhalten
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
+    // Modal anzeigen
     const modal = document.getElementById("delete-confirmation-modal");
-    modal.style.display = "flex";
-    document.body.classList.add("modal-open"); // Modalität aktivieren
-    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
+    if (modal) {
+        requestAnimationFrame(() => {
+            const screenHeight = window.innerHeight; // Gerätehöhe
+            modal.style.visibility = "visible"; // Sichtbarkeit aktivieren
+            modal.style.opacity = "1";          // Transparenz entfernen
+            modal.style.height = `${screenHeight}px`; // Höhe dynamisch setzen
+            document.body.classList.add("modal-open"); // Modalität aktivieren
+        });
+    }
 }
+
+
+
+
+
 
 
 // Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
 function openDeleteConfirmation2() {
+    // Nach oben scrollen mit sanftem Verhalten
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+
+    // Modal anzeigen
     const modal = document.getElementById("delete-history-and-close-chatbot-background");
-    modal.style.display = "flex";
-    document.body.classList.add("modal-open"); // Modalität aktivieren
-    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
+    if (modal) {
+        requestAnimationFrame(() => {
+            const screenHeight = window.innerHeight; // Gerätehöhe
+            modal.style.visibility = "visible"; // Sichtbarkeit aktivieren
+            modal.style.opacity = "1";          // Transparenz entfernen
+            modal.style.height = `${screenHeight}px`; // Höhe dynamisch setzen
+            document.body.classList.add("modal-open"); // Modalität aktivieren
+        });
+    }
 }
 
 
 
 
-// Schließe das Modal ohne Aktion
+
+// Schließe die Modale ohne Aktion
 function closeDeleteConfirmation() {
-    const modal = document.getElementById("delete-confirmation-modal3");
-    if (modal) {
-        modal.style.visibility = "hidden"; // Sichtbarkeit deaktivieren
-        modal.style.opacity = "0";        // Transparenz hinzufügen
-        modal.style.height = "";          // Dynamische Höhe zurücksetzen
-    }
+    // Array mit den IDs aller Modale
+    const modalIds = [
+        "delete-confirmation-modal",
+        "delete-confirmation-modal3",
+        "delete-history-and-close-chatbot-background"
+    ];
+
+    // Für jedes Modal die Sichtbarkeit und Transparenz zurücksetzen
+    modalIds.forEach(id => {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.style.visibility = "hidden"; // Sichtbarkeit deaktivieren
+            modal.style.opacity = "0";        // Transparenz hinzufügen
+            modal.style.height = "";          // Dynamische Höhe zurücksetzen
+        }
+    });
 
     // Hintergrund deaktivieren
-    document.getElementById('delete-confirmation-modal').style.visibility = 'hidden';
-    document.getElementById('delete-confirmation-modal').style.opacity = '0';
-    document.getElementById('delete-history-and-close-chatbot-background').style.visibility = 'hidden';
-    document.getElementById('delete-history-and-close-chatbot-background').style.opacity = '0';
     document.body.classList.remove("modal-open");
     document.body.style.overflow = ''; // Hintergrundscrolling wieder aktivieren
 }
+
+
 
 
 
