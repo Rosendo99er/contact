@@ -1866,7 +1866,7 @@ body.modal-open {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 60vh; /* Mindesthöhe für den Container */
+  height: 80vh; /* Mindesthöhe für den Container */
   box-sizing: border-box;
   overflow: hidden; /* Verhindert ungewolltes Scrollen */
   padding: 0px 9px 0px 8px;
@@ -2536,6 +2536,7 @@ body.modal-open {
   gap: 0px;
   width: 100%;
   height: auto;
+  min-height: fit-content; /* Container passt sich der Höhe des Inhalts an */
   padding: 0px;
   margin-top: 0px;
 }
@@ -3863,6 +3864,21 @@ textarea:-webkit-autofill {
     <div id="chatbot">
 
 
+      <div id="loader-container">
+            
+        <div id="loader">
+    
+        </div>
+
+        <div id="loader-text">Einen kurzen Augenblick bitte. Ihre Anfrage wird bearbeitet.
+
+        </div>
+    
+      </div>
+
+
+
+
 
 
         <div id="delete-history-and-close-chatbot-background" class="modal-standard-background" aria-modal="true">
@@ -3994,17 +4010,7 @@ textarea:-webkit-autofill {
 
         <div id="chatbot-messages">
             
-            <div id="loader-container">
-            
-                <div id="loader">
-            
-                </div>
 
-                <div id="loader-text">Einen kurzen Augenblick bitte. Ihre Anfrage wird bearbeitet.
-        
-                </div>
-            
-            </div>
 
             
 
