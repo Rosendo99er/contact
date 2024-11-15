@@ -1617,14 +1617,14 @@ padding-left: 0px;
   z-index: 10000000 !important;
   position: absolute;
   left: 50%;
-  top: 60% !important;
+  top: 50px !important;
   width: 90% !important;
   height: 80vh !important;
   background-color: var(--primary-background-color);
   display: flex; /* Flexbox aktivieren */
   flex-direction: column; /* Inhalt und Buttons vertikal anordnen */
   justify-content: space-between; /* Zwischen Inhalt und Button Abstand lassen */
-  transform: translate(-50%, -50%); /* Zentriert den Dialog */
+  transform: translateX(-50%); /* Zentriert den Dialog */
   box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Schatten für besseren Effekt */
   padding: 0px; /* aktuell kein Innenabstand */
   border: 2px solid var(--primary-border-color);
@@ -2953,12 +2953,12 @@ body.modal-open {
     position: absolute;
     background-color: var(--primary-background-color);
     left: 50%;
-    top: 50%;
+    top: 50px;
     width: 75%;
     max-width: 75vh;
     height: 75vh;
     max-height: 75vh;
-    transform: translate(-50%, -50%); /* Zentriert den Dialog */
+    transform: translateX(-50%); /* Zentriert den Dialog */
     pointer-events: auto; /* Interaktionen sind erlaubt */
     box-sizing: border-box;
     border: 2px solid var(--primary-border-color);
@@ -3180,12 +3180,12 @@ body.modal-open {
     position: absolute;
     background-color: var(--primary-background-color);
     left: 50%;
-    top: 50%;
+    top: 50px;
     width: auto;
     max-width: 60vh;
-    height: auto;
+    height: 75vh;
     max-height: 75vh;
-    transform: translate(-50%, -50%); /* Zentriert den Dialog */
+    transform: translateX(-50%); /* Zentriert den Dialog */
     pointer-events: auto; /* Interaktionen sind erlaubt */
     box-sizing: border-box;
     border: 2px solid var(--primary-border-color);
