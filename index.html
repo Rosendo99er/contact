@@ -1412,7 +1412,12 @@ html, body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  }
+}
+
+.modal-overlay {
+  z-index: 1000;
+  color: var(--modal-background);
+}
 
 
 #logo-header {
@@ -1960,7 +1965,7 @@ html, body {
   width: 100vw;
   overflow-y: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  
 }
 
 
@@ -4304,6 +4309,8 @@ textarea:-webkit-autofill {
 
 <body>
 
+  <div class="modal-overlay">
+
   <div id="confirmModal" class="send-confirmation" aria-modal="true" style="display:none">
 
     <div class="send-confirmation-dialog">
@@ -5142,7 +5149,7 @@ textarea:-webkit-autofill {
 
 </div>
 
-
+</div>
 
 	
 
