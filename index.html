@@ -223,6 +223,14 @@ html, body {
   display: block;
 }
 
+#factoring-section-container {
+  display: none;
+}
+
+#factoring-instant-answer-dialog-button-container {
+  display: none;
+}
+
 
 
 @media screen and (max-width: 600px) {
@@ -522,6 +530,14 @@ html, body {
 }
 
 
+#factoring-section-container {
+  display: none;
+}
+
+#factoring-instant-answer-dialog-button-container {
+  display: none;
+}
+
 
 
 @media screen and (max-width: 600px) {
@@ -608,7 +624,7 @@ html, body {
 
 
 
-/* ++++++++++++++++++++++++ Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++ Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ 
 
 :root {
 --rules-context: ChatbotContact; 
@@ -693,6 +709,17 @@ html, body {
     padding: 0px;
     z-index: 2;
   }
+
+
+#factoring-section-container {
+  display: none;
+}
+
+
+#factoring-instant-answer-dialog-button-container {
+  display: none;
+}
+
 
 
 #title-container {
@@ -906,7 +933,7 @@ html, body {
 
 
 
-#contact-form-nachricht {
+.contact-form-nachricht {
   font-family: var(--company-font-family);
   font-size: var(--font-size-text);
   color: var(--primary-font-color);
@@ -957,9 +984,9 @@ html, body {
 
 
 
-#contact-form-nachricht,
-#contact-form-nachricht:focus,
-#contact-form-nachricht:valid {
+.contact-form-nachricht,
+.contact-form-nachricht:focus,
+.contact-form-nachricht:valid {
     background-color: var(--form-and-field-company-color);
 }
 
@@ -976,7 +1003,7 @@ html, body {
 
 
 
-#contact-form-nachricht::placeholder {
+.contact-form-nachricht::placeholder {
   color: var(--secondary-font-color);
   font-size: var(--font-size-text);
   font-style: italic;
@@ -1193,7 +1220,7 @@ html, body {
 
 
 
-#contact-form-nachricht {
+.contact-form-nachricht {
   font-family: var(--company-font-family);
   font-size: var(--font-size-text);
   color: var(--primary-font-color);
@@ -1364,7 +1391,984 @@ padding-left: 0px;
 
 
 
- /* ++++++++++++++++++++++++ ENDE Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ */
+  ++++++++++++++++++++++++ ENDE Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ */
+
+
+/* ++++++++++++++++++++++++ Anwendung Chatbot für Factoring ++++++++++++++++++++++++ */
+
+:root {
+--rules-context: ChatbotContact; 
+}
+
+
+html, body {
+  font-family: var(--company-font-family);
+  background-color: var(--primary-background-color);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  }
+
+
+#logo-header {
+    width: 100%;
+    height: 10vh;
+    min-height: 120px;
+    background-color: var(--company-logo-background);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    box-sizing: border-box;
+    margin-bottom: 0px;
+}
+
+#footer {
+    width: 100%;
+    height: 10vh;
+    background-color: var(--primary-company-color);
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    bottom: 0;
+    }
+
+
+#company-logo {
+    background-image: var(--company-logo-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px; 
+    height: 80px;
+    
+}
+
+
+
+#section-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--primary-background-color);
+    border: 0px solid var(--secondary-border-color);
+    border-radius: var(--primary-border-radius);
+    overflow: hidden; 
+    box-sizing: border-box; 
+    width: 100%;
+    height: 80vh;
+    min-height: 815px;
+    z-index: 1;    
+  }
+
+#toggle-container {
+    display: block;
+    width: 1000px;
+    height: 60vh;
+    min-height: 790px;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: var(--primary-background-color);
+    border: 0px solid var(--primary-border-color);
+    border-radius: 0;
+    overflow: hidden; 
+    box-sizing: border-box; 
+    padding: 0px;
+    z-index: 2;
+  }
+
+
+#title-container {
+  display: none;
+}
+
+
+#contact-form-section-container {
+  display: none;
+}
+
+
+#factoring-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-background-color);
+  border: 0px solid var(--secondary-border-color);
+  border-radius: 0;
+  overflow: hidden; 
+  box-sizing: border-box; 
+  width: 100%;
+  z-index: 1;
+}
+
+
+
+
+
+
+#contact-form-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  padding: 5px 0px 5px 0px; 
+  margin-bottom: 20px;
+  background-color: var(--primary-company-color);
+}
+
+
+
+
+#contact-form-title-container .contact-form-title-content {
+    position: relative;
+    width: 1000px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    justify-content: center;
+    border: 0px solid #fff;
+    border-radius: 0;
+}
+
+
+.contact-form-title-content .contact-form-custom0c-p {
+  display: block;
+  font-family: var(--company-font-family);
+  font-weight: 400;
+  color: var(--tertiary-font-color);
+  font-size: var(--font-size-title);
+  margin: 0;
+  text-align: left;
+  justify-content: center;  
+  padding-left: 20px;
+}
+
+
+
+
+#clara-image {
+  display: none;
+}
+
+
+
+
+
+
+#factoring-container {
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 0px solid var(--secondary-border-color);
+  border-radius: 0;
+  padding: 0px 9px 0px 8px;
+  position: relative;
+  }
+
+
+
+
+  #rechnungssteller {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 42px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#rechnungssteller,
+#rechnungssteller:focus,
+#rechnungssteller:valid {
+    background-color: var(--form-and-field-company-color);
+}
+
+
+#rechnungssteller::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+
+#rechnungssteller_ort {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 42px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#rechnungssteller_ort,
+#rechnungssteller_ort:focus,
+#rechnungssteller_ort:valid {
+    background-color: var(--form-and-field-company-color);
+}
+
+
+#rechnungssteller_ort::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+
+#rechnungsdatum {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 42px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#rechnungsdatum,
+#rechnungsdatum:focus,
+#rechnungsdatum:valid {
+    background-color: var(--form-and-field-company-color);
+}
+
+
+#rechnungsdatum::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+
+
+#rechnungsnummer {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 42px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#rechnungsnummer,
+#rechnungsnummer:focus,
+#rechnungsnummer:valid {
+    background-color: var(--form-and-field-company-color);
+}
+
+
+#rechnungsnummer::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+
+#contact-form-name {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 42px; 
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#contact-form-name,
+#contact-form-name:focus,
+#contact-form-name:valid {
+    background-color: var(--form-and-field-company-color);
+}
+
+
+
+#contact-form-name::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+
+#contact-form-email {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-background-color);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 42px; 
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#contact-form-email,
+#contact-form-email:focus,
+#contact-form-email:valid {
+    background-color: var(--form-and-field-company-color);
+}
+
+
+
+
+#contact-form-email::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+
+.contact-form-nachricht {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-background-color);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  box-sizing: border-box;
+  overflow: auto;
+  white-space: normal;
+  max-height: calc(1.5em * 6 + 20px);
+}
+
+
+
+
+#modalMessage {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 2px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-background-color);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none; 
+  box-sizing: border-box;
+  overflow: auto;
+  white-space: normal;
+  max-height: calc(1.5em * 6 + 20px);
+}
+
+
+
+
+
+.contact-form-nachricht,
+.contact-form-nachricht:focus,
+.contact-form-nachricht:valid {
+    background-color: var(--form-and-field-company-color);
+}
+
+#modalMessage,
+#modalMessage:focus,
+#modalMessage:valid {
+    background-color: var(--primary-background-color);
+}
+
+
+
+
+
+
+
+
+.contact-form-nachricht::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 0px;
+}
+
+
+
+#modalMessage::placeholder {
+  color: var(--secondary-font-color);
+  font-size: var(--font-size-text);
+  font-style: italic;
+  padding-left: 0px;
+}
+
+
+
+
+
+
+
+
+
+#contact-form-container {
+  display: block;
+}
+
+#input-button-container {
+  display: flex;
+}
+
+
+#back-to-outlook-container {
+  display: none;
+}
+
+
+#chatbot-container {
+  display: none;
+  margin-top: 10px;
+}
+
+#instant-answer-dialog-button-container {
+  display: none;
+}
+
+#factoring-instant-answer-dialog-button-container {
+  display: flex;
+}
+
+
+@media screen and (max-width: 600px) {
+
+
+html, body {
+  font-family: var(--company-font-family);
+  background-color: var(--primary-background-color);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+#logo-header {
+  width: 100%;
+  height: 10vh;
+  min-height: 60px !important;
+  background-color: var(--company-logo-background);
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  padding: 0px !important;
+  box-sizing: border-box;
+  margin-bottom: 0px;
+}
+
+
+#footer {
+  height: 10vh;
+  min-height: 60px;
+  }
+
+
+#company-logo {
+  background-image: var(--company-logo-url);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; 
+  width: 200px; 
+  height: 40px;
+}
+
+
+#contact-form-title-container {
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  padding: 5px 0px 5px 0px !important; 
+  margin-top: 0px !important;
+  background-color: var(--primary-company-color) !important;
+}
+
+
+
+
+#contact-form-title-container .contact-form-title-content {
+    position: relative;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    justify-content: center;
+}
+
+
+
+
+
+.contact-form-title-content .contact-form-custom0c-p {
+  display: block;
+  font-family: var(--company-font-family);
+  font-weight: 400 !important;
+  color: var(--tertiary-font-color) !important;
+  font-size: var(--media-font-size-title) !important;
+  margin: 0 !important;
+  text-align: center;
+  justify-content: center;  
+  padding-left: 0px;
+}
+
+
+
+#rechnungssteller {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 1px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+#rechnungssteller_ort {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 1px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+
+
+#rechnungsnummer {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 1px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+
+#rechnungsdatum {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 1px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+
+
+
+
+
+
+
+#contact-form-name {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 1px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 35px; 
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+#contact-form-email {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 1px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-background-color);
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  height: 35px; 
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+
+
+
+
+.contact-form-nachricht {
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-text);
+  color: var(--primary-font-color);
+  font-weight: normal;
+  flex: 1;
+  padding: 10px 10px 10px 30px;
+  border: 1px solid var(--tertiary-border-color);
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-background-color);
+  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  resize: none;
+  box-sizing: border-box;
+  overflow: auto;
+  white-space: normal;
+  max-height: calc(1.2em * 4 + 20px) !important;
+}
+
+
+
+#section-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--primary-background-color);
+  border: 0px solid var(--secondary-border-color);
+  border-radius: 0 !important;
+  overflow: hidden; 
+  box-sizing: border-box; 
+  width: 100%;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  z-index: 1;    
+}
+
+#toggle-container {
+  display: block;
+  width: 100%;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-width: none;
+  max-height: 100% !important;
+  background-color: var(--primary-background-color);
+  border: 0px solid var(--primary-border-color) !important;
+  border-radius: 0 !important;
+  overflow: hidden; 
+  box-sizing: border-box; 
+  padding: 0px;
+  z-index: 2;
+}
+
+
+#chatbot-container {
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 85vh !important;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+  padding: 0px;
+  border: 0px solid var(--primary-border-color) !important;
+}
+
+
+
+#chatbot {
+  width: 100%;
+  height: 75vh !important;
+  min-height: 63vh !important;
+  max-height: 75vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  border: 1px solid var(--primary-border-color) !important;
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-background-color);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  z-index: 2; 
+}
+
+
+#chatbot-header {
+
+display: flex; 
+align-items: center; 
+width: 100%; 
+box-sizing: border-box; 
+padding: 10px !important;
+border-bottom: 1px solid #ddd;
+}
+
+
+
+#chatbot-input-container {
+display: flex;
+flex-direction: column;
+height: auto;
+width: 100%;
+padding: 10px !important;
+box-sizing: border-box;
+background-color: var(--secondary-background-color);
+border-radius: 0px 0px var(--primary-border-radius) var(--primary-border-radius);
+margin-top: 10px;
+min-height: 60px !important;
+z-index: 2;
+}
+
+
+
+#chatbot-input {
+display: block !important;
+font-family: var(--company-font-family) !important;
+font-size: var(--media-font-size-text) !important;
+color: var(--primary-font-color) !important;
+font-weight: normal !important;
+padding: 5px 10px 5px 10px !important;
+border: 1px solid var(--primary-border-color) !important;
+border-radius: var(--primary-border-radius) !important;
+margin: 0px !important;
+width: 100% !important;
+height: 45px !important;
+min-height: 45px !important;
+max-height: 122px !important;
+overflow-y: auto !important;
+box-sizing: border-box !important;
+resize: vertical !important;
+}
+
+#chatbot-input:focus {
+border-color: var(--secondary-border-color) !important;
+outline: none !important;
+}
+
+
+
+#chatbot-input::placeholder {
+color: var(--secondary-font-color);
+font-family: var(--company-font-family);
+font-size: var(--media-font-size-text);
+font-style: italic;
+font-weight: normal;
+padding-left: 0px;
+}
+
+
+
+#factoring-container {
+  flex-direction: column;
+  align-items: center;
+  width: 100% !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 0px solid var(--secondary-border-color);
+  border-radius: 0;
+  padding: 0px 9px 0px 8px;
+  position: relative;
+  }
+
+
+
+}
+
+
+
+ /* ++++++++++++++++++++++++ ENDE Anwendung Chatbot für Factoring ++++++++++++++++++++++++ */
+
+
+
+
+
 
 
 
@@ -1570,7 +2574,7 @@ padding-left: 0px;
 
 .send-confirmation {
   position: fixed;
-  z-index: 9999999 !important;
+  z-index: 10 !important;
   left: 0%;
   top: 0%;
   width: 100vw;
@@ -1586,6 +2590,7 @@ padding-left: 0px;
 
 @supports (-webkit-touch-callout: none) {
     .send-confirmation {
+        z-index: 10 !important;  
         position: absolute;
         background-color: var(--modal-background);
         top: 0;
@@ -1601,7 +2606,7 @@ padding-left: 0px;
 
 /* Stile für den help-modal-dialog (hmd) */
 .hmd-dialog {
-  z-index: 10000000 !important;
+  z-index: 20 !important;
   position: absolute;
   left: 50%;
   top: 50px !important;
@@ -1623,7 +2628,7 @@ padding-left: 0px;
 
 
 .hmd-content {
-    z-index: 10000001 !important;
+    z-index: 30 !important;
     flex: 1; /* Nimmt den verfügbaren Platz ein */
     overflow-y: auto; /* Vertikales Scrollen erlauben */
     max-height: calc(100% - 80px); /* Höchstens so hoch wie der Dialog minus Platz für Buttons */
@@ -1714,7 +2719,7 @@ padding-left: 0px;
 
 
 .send-confirmation-dialog {
-    z-index: 10000000 !important;
+    z-index: 20 !important;
     position: absolute;
     background-color: var(--primary-background-color);
     left: 50%;
@@ -1739,22 +2744,7 @@ padding-left: 0px;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 }   /* Ende der Media Queries */
-
-
 
 
     #chatbot-header {
@@ -1875,7 +2865,7 @@ body.modal-open {
 
 
 
-#instant-answer-dialog-button-container {
+#factoring-instant-answer-dialog-button-container {
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -1889,7 +2879,7 @@ body.modal-open {
 
 
 
-#instant-answer-dialog-button {
+#factoring-instant-answer-dialog-button {
   display: block;
   width: 100%;
   font-family: var(--company-font-family);
@@ -1903,7 +2893,7 @@ body.modal-open {
   margin: 20px; /* Passt den Abstand an */
   }
 
-#instant-answer-dialog-button:hover {
+#factoring-instant-answer-dialog-button:hover {
   background-color: var(--secondary-button-color);
 }
 
@@ -1931,9 +2921,9 @@ body.modal-open {
 
 
 
-#message-send-button {
+#factoring-message-send-button {
   display: none;
-  z-index: 1000;
+  z-index: 40;
   width: 100%;
   font-family: var(--company-font-family);
   font-size: var(--font-size-button);
@@ -1946,7 +2936,7 @@ body.modal-open {
   margin: 0px; /* Passt den Abstand an */
   }
 
-#message-send-button :hover {
+#factoring-message-send-button :hover {
   background-color: var(--secondary-button-color);
 }
 
@@ -2440,9 +3430,7 @@ body.modal-open {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000 !important;
-
-  /* Größe des Modals */
+  z-index: 10 !important;
   width: 80%;
   max-width: 800px;
   height: 60vh;
@@ -2655,7 +3643,7 @@ body.modal-open {
   flex-direction: column;
   justify-content: center; /* Horizontale Zentrierung */
   align-items: center;    /* Vertikale Zentrierung */
-  z-index: 1000;
+  z-index: 100;
   max-width: 80%;
   margin: 0 auto;
   }
@@ -2674,7 +3662,7 @@ body.modal-open {
   height: 40px;
   animation: spin 2s linear infinite;
   display: none; /* Immer noch versteckt, bis es gebraucht wird */
-  z-index: 999; /* Höchste Priorität, damit es alles andere überlagert */
+  z-index: 120; /* Höchste Priorität, damit es alles andere überlagert */
 }
 
 
@@ -2685,7 +3673,7 @@ body.modal-open {
   background-color: var(--primary-company-color);
   border-radius: var(--primary-border-radius);
   display: none; /* Versteckt, bis es gebraucht wird */
-  z-index: 999; /* Auch überlagert das Layout */
+  z-index: 120; /* Auch überlagert das Layout */
   padding: 10px 20px; /* Mehr Platz innerhalb des Containers */
   text-align: center; /* Text zentrieren */
   max-width: 100%; /* Maximal 90% der Bildschirmbreite */
@@ -2711,7 +3699,7 @@ body.modal-open {
 
 /*aktuell nicht in Benutzung*/
 .hmd-dialog {
-    z-index: 10000000 !important;
+    z-index: 10 !important;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -2734,7 +3722,7 @@ body.modal-open {
 
 /*aktuell nicht in Benutzung */
 .hmd-content {
-    z-index: 10000001 !important;
+    z-index: 20 !important;
     flex: 1; /* Nimmt den verfügbaren Platz ein */
     overflow-y: auto; /* Vertikales Scrollen erlauben */
     max-height: calc(100% - 80px); /* Höchstens so hoch wie der Dialog minus Platz für Buttons */
@@ -2833,12 +3821,11 @@ body.modal-open {
 /* Stile für das confirm-and-close-modal (ccm) */
 .ccm-dialog {
     display: none;
-    z-index: 1000000 !important;
+    z-index: 10 !important;
     border: 2px solid black;
     border-radius: var(--primary-border-radius);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Schatten für besseren Effekt */
     position: fixed;
-    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
@@ -2848,7 +3835,7 @@ body.modal-open {
 }
 
 .ccm-content {
-    z-index: 1000001 !important;
+    z-index: 20 !important;
     background-color: var(--primary-background-color);
     padding: 20px;
     border-radius: var(--primary-border-radius);
@@ -2902,7 +3889,7 @@ body.modal-open {
 
 .send-confirmation {
     position: fixed;
-    z-index: 9999999 !important;
+    z-index: 10 !important;
     left: 0%;
     top: 0%;
     width: 100vw;
@@ -2920,6 +3907,7 @@ body.modal-open {
 @supports (-webkit-touch-callout: none) {
     .send-confirmation {
         position: absolute;
+        z-index: 10 !important;
         background-color: var(--modal-background);
         top: 0;
         left: 0;
@@ -2937,7 +3925,7 @@ body.modal-open {
 
 
 .send-confirmation-dialog {
-    z-index: 10000000 !important;
+    z-index: 20 !important;
     position: absolute;
     background-color: var(--primary-background-color);
     left: 50%;
@@ -3127,7 +4115,7 @@ body.modal-open {
 /* Standard-Modaldialog Hintergrund */
 .modal-standard-background {
     position: fixed;
-    z-index: 9999999 !important;
+    z-index: 10 !important;
     left: 0%;
     top: 0%;
     width: 100vw;
@@ -3146,7 +4134,7 @@ body.modal-open {
 @supports (-webkit-touch-callout: none) {
     .modal-standard-background {
         position: absolute;
-        z-index: 9999999 !important;
+        z-index: 10 !important;
         background-color: var(--modal-background);
         top: 0;
         left: 0;
@@ -3166,7 +4154,7 @@ body.modal-open {
 
 
 .modal-standard-inner {
-    z-index: 10000000 !important;
+    z-index: 20 !important;
     position: absolute;
     background-color: var(--primary-background-color);
     left: 50%;
@@ -3786,7 +4774,7 @@ textarea:-webkit-autofill {
 
 <div id="open-close-button-container" class="collapsible-container collapsed">
 
-  <button onclick="opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton()" class="arrow-button"></button>
+  <button onclick="opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton(); opencloseFactoringSectionContainer()" class="arrow-button"></button>
 
 </div>
 
@@ -3794,19 +4782,52 @@ textarea:-webkit-autofill {
 
 <div id="contact-form-section-container" class="collapsible-container">
 
-<div id="contact-form-container">
+  <div id="contact-form-container">
 
-  <input type="text" id="contact-form-aktennummer" name="aktennummer" placeholder="Aktennummer" maxlength="500" autocomplete="name" required />
+    <input type="text" id="contact-form-aktennummer" name="aktennummer" placeholder="Aktennummer" maxlength="500" autocomplete="aktennummer" required />
 
-  <input type="text" id="contact-form-name" name="name" placeholder="Vor- und Nachname" maxlength="500" autocomplete="name" required />
+    <input type="text" id="contact-form-name" name="name" placeholder="Vor- und Nachname" maxlength="500" autocomplete="name" required />
 
-  <input type="email" id="contact-form-email" name="email" placeholder="E-Mail-Adresse" maxlength="100" autocomplete="email" required />
+    <input type="email" id="contact-form-email" name="email" placeholder="E-Mail-Adresse" maxlength="100" autocomplete="email" required />
 
-  <textarea id="contact-form-nachricht" name="Kontaktnachricht" rows="6" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000" required></textarea>
+    <textarea class="contact-form-nachricht" name="Kontaktnachricht" rows="6" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000" required></textarea>
+
+  </div>
 
 </div>
 
+
+<div id="factoring-section-container" class="collapsible-container">
+
+  <div id="factoring-container">
+
+    <input type="text" id="rechnungssteller" name="rechnungssteller" placeholder="Rechnungssteller" maxlength="500" autocomplete="rechnungssteller" required />
+
+    <input type="text" id="rechnungssteller_ort" name="rechnungssteller_ort" placeholder="Ort des Rechnungsstellers" maxlength="500" autocomplete="rechnungssteller_ort" required />
+
+    <input type="text" id="rechnungsnummer" name="rechnungsnummer" placeholder="Rechnungsnummer" maxlength="500" autocomplete="rechnungsnummer" required />
+
+    <input type="text" id="rechnungsdatum" name="rechnungsdatum" placeholder="Rechnungsdatum" maxlength="500" autocomplete="rechnungsdatum" required />
+
+    <input type="text" id="contact-form-name" name="name" placeholder="Ihr Vor- und Nachname" maxlength="500" autocomplete="name" required />
+
+    <input type="email" id="contact-form-email" name="email" placeholder="Ihre E-Mail-Adresse" maxlength="100" autocomplete="email" required />
+
+    <textarea class="contact-form-nachricht" name="Kontaktnachricht" rows="6" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000" required></textarea>
+
+  </div>
+
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 <div id="section-container">
@@ -3854,11 +4875,22 @@ textarea:-webkit-autofill {
     
 <div id="instant-answer-dialog-button-container" class="collapsible-container">
      
-    <button id="instant-answer-dialog-button" class="collapsible-container" onclick="transferMessageToChatbot(); opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton(); opencloseOpenCloseButtonContainer()">Sofortantwort erhalten</button>
+    <button id="instant-answer-dialog-button" class="collapsible-container" onclick="transferMessageToChatbot(); opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton(); opencloseOpenCloseButtonContainer(); opencloseFactoringSectionContainer()">Sofortantwort erhalten</button>
     <button id="message-send-button" onclick="openConfirmationModal()">E-Mail senden</button>
 
 
 </div>
+
+
+<div id="factoring-instant-answer-dialog-button-container" class="collapsible-container">
+     
+  <button id="factoring-instant-answer-dialog-button" class="collapsible-container" onclick="transferFactoringMessageToChatbot(); opencloseChatbotConsentContainer(); opencloseContactFormSectionContainer(); opencloseInstantAnswerDialogButtonContainer(); opencloseInstantAnswerDialogButton(); opencloseOpenCloseButtonContainer(); opencloseFactoringSectionContainer()">Sofortantwort erhalten</button>
+  <button id="factoring-message-send-button" onclick="openConfirmationModal()">E-Mail senden</button>
+
+
+</div>
+
+
 
 
 
@@ -5611,8 +6643,9 @@ function transferMessageToChatbot() {
 openChatbot();
 
   // Das Nachrichtenfeld und Aktennummer anhand der data-id finden
-  const messageField = document.querySelector('#contact-form-nachricht');
-  const caseNumberField = document.querySelector('#contact-form-aktennummer');
+  const ContactFormContainer = document.querySelector('#contact-form-section-container');
+  const messageField = ContactFormContainer.querySelector('.contact-form-nachricht');
+  const caseNumberField = ContactFormContainer.querySelector('#contact-form-aktennummer');
 
   // Sicherstellen, dass sowohl das Nachrichtenfeld als auch die Aktennummer existieren
   if (messageField && caseNumberField) {
@@ -5643,6 +6676,53 @@ openChatbot();
 
 
 
+
+// Funktion zum Übertragen des Nachrichtenfelds in den Chatbot - Nur für Factoring-Kunden
+function transferFactoringMessageToChatbot() {
+  const consentGiven = document.getElementById('chatbot-consent-checkbox').checked;
+  
+  // Prüfen, ob die Consent-Checkbox aktiv ist
+  if (!consentGiven) {
+    alert('Bitte akzeptieren Sie die Nutzungsbedingungen, bevor Sie die Nachricht senden.');
+    return;
+  }
+
+openChatbot();
+
+  // Das Nachrichtenfeld und Rechnungsnummer anhand der data-id finden
+  const factoringContainer = document.querySelector('#factoring-section-container');
+  const messageField = factoringContainer.querySelector('.contact-form-nachricht');
+  const caseNumberField = factoringContainer.querySelector('#rechnungsnummer');
+
+  // Sicherstellen, dass sowohl das Nachrichtenfeld als auch die Aktennummer existieren
+  if (messageField && caseNumberField) {
+    const message = messageField.value.trim(); // Inhalt des Nachrichtenfelds
+    const caseNumber = caseNumberField.value.trim(); // Inhalt des Aktennummer-Felds
+
+    // Nachricht mit optionaler Aktennummer erstellen
+    let fullMessage = message;
+
+    if (caseNumber) {
+      fullMessage += `\nRechnungsnummer: ${caseNumber}`;
+    }
+
+    if (fullMessage.trim()) {
+      // Nachricht in das Chatbot-Textfeld übertragen
+      document.getElementById('chatbot-input').value = fullMessage;
+
+      // Nachricht automatisch senden
+      sendMessage();
+    } else {
+      alert('Das Nachrichtenfeld ist leer.');
+    }
+  } else {
+    alert('Nachrichtenfeld oder Rechnungsnummer nicht gefunden.');
+  }
+}
+
+
+
+
 function openChatbot() {
     // Den Chatbot-Container anzeigen
     document.getElementById('chatbot-container').style.display = 'flex';
@@ -5652,12 +6732,22 @@ function openChatbot() {
 
     // Den Button "Nachricht senden" ausblenden
     document.getElementById('message-send-button').style.display = 'none';
+  
 
-   
-    // Den Button "Sofortantwort schließen" einblenden, um den Chatbot wieder auszublenden
-    // document.getElementById('instant-answer-dialog-schliessen-button').style.display = 'block';
+    // Den Button "Sofortantwort" ausblenden, da der Chatbot nun eingeblendet ist
+    document.getElementById('factoring-instant-answer-dialog-button').style.display = 'none';
+
+    // Den Button "Nachricht senden" ausblenden
+    document.getElementById('factoring-message-send-button').style.display = 'none';
+
 
 }
+
+
+
+
+
+
 
 // Standardmäßig den Chatbot-Container beim Laden der Seite verstecken
 document.addEventListener('DOMContentLoaded', function() {
@@ -5679,6 +6769,16 @@ function closeChatbot() {
     
     // Den Button "Sofortantwort schließen" ausblenden
     document.getElementById('instant-answer-dialog-schliessen-button').style.display = 'none';
+
+    // Den Button "Sofortantwort" einblenden, da der Chatbot nun ausgeblendet ist
+    document.getElementById('factoring-instant-answer-dialog-button').style.display = 'block';
+
+    // Den Button "Nachricht senden" einblenden
+    document.getElementById('factoring-message-send-button').style.display = 'block';
+
+    // Den Button "Sofortantwort schließen" ausblenden
+    document.getElementById('factoring-instant-answer-dialog-schliessen-button').style.display = 'none';
+
 
 };
 
@@ -5753,7 +6853,7 @@ function getFormEmail() {
 
 // Funktion zum Abrufen der Nachricht aus dem Formular
 function getKontaktnachricht() {
-    const formKontaktnachrichtElement = document.querySelector('#contact-form-nachricht'); // Holt das Eingabefeld
+    const formKontaktnachrichtElement = document.querySelector('.contact-form-nachricht'); // Holt das Eingabefeld
     let formKontaktnachricht = ''; // Korrekte Deklaration der Variablen
     
     if (formKontaktnachrichtElement) {
@@ -5908,14 +7008,14 @@ async function openConfirmationModal() {
     // Setzt die Werte der Formularfelder in den modalen Dialog
     const nameValue = document.getElementById('contact-form-name').value;
     const emailValue = document.getElementById('contact-form-email').value;
-    const messageValue = document.getElementById('contact-form-nachricht').value;
+    const messageValue = document.querySelector('.contact-form-nachricht').value;
 
     document.getElementById("modalName").innerText = nameValue;
     document.getElementById("modalEmail").innerText = emailValue;
 
 
     document.getElementById("modalMessage").value = messageValue;  // Setze den Text in das textarea
-    // document.getElementById("modalMessage").innerText = messageValue;  Rückkehr zum Dialog ohne Änderungsmöglichkeit des Messagefeldes
+    
  
 
 
@@ -6159,10 +7259,21 @@ function opencloseContactFormSectionContainer() {
     container.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
 }
 
+function opencloseFactoringSectionContainer() {
+    const container = document.getElementById('factoring-section-container');
+    container.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
+}
+
 function opencloseInstantAnswerDialogButtonContainer() {
     const container = document.getElementById('instant-answer-dialog-button-container');
     container.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
 }
+
+function opencloseFactoringInstantAnswerDialogButtonContainer() {
+    const container = document.getElementById('factoring-instant-answer-dialog-button-container');
+    container.classList.toggle('collapsed'); // Fügt 'collapsed' hinzu oder entfernt sie
+}
+
 
 function opencloseInstantAnswerDialogButton() {
     const container = document.getElementById('instant-answer-dialog-button');
