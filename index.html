@@ -6605,82 +6605,79 @@ function removeAllCollapsed() {
 
 
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
     const inputField = document.querySelector('.rechnungssteller');
     if (inputField) {
+        const suggestionBox = document.createElement('ul'); // Box für Vorschläge
+        suggestionBox.classList.add('suggestion-box'); // CSS-Klasse für die Vorschläge
+        inputField.parentNode.appendChild(suggestionBox); // Vorschläge unter dem Eingabefeld hinzufügen
+
+        // Event-Listener für Benutzereingaben
         inputField.addEventListener('input', function () {
-            console.log('Benutzer hat etwas eingegeben:', inputField.value);
+            const query = inputField.value.trim(); // Eingabe des Benutzers
+
+            // Nur bei Eingaben mit mindestens 1 Zeichen suchen
+            if (query.length > 0) {
+                fetchSuggestions(query);
+            } else {
+                suggestionBox.innerHTML = ''; // Box leeren, wenn Eingabe gelöscht wird
+            }
+        });
+
+        // Funktion zum Abrufen der Vorschläge
+        function fetchSuggestions(query) {
+            fetch(`/api/get_biller_names?query=${encodeURIComponent(query)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Fehler beim Abrufen der Vorschläge');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    updateSuggestions(data.biller_names);
+                })
+                .catch(error => {
+                    console.error('Fehler:', error);
+                });
+        }
+
+        // Funktion zum Aktualisieren der Vorschläge
+        function updateSuggestions(suggestions) {
+            suggestionBox.innerHTML = ''; // Box leeren
+            if (suggestions.length === 0) {
+                const noResultItem = document.createElement('li');
+                noResultItem.textContent = 'Keine Treffer';
+                noResultItem.classList.add('no-result');
+                suggestionBox.appendChild(noResultItem);
+                return;
+            }
+
+            suggestions.forEach(suggestion => {
+                const listItem = document.createElement('li');
+                listItem.textContent = suggestion;
+                listItem.classList.add('suggestion-item');
+                listItem.addEventListener('click', function () {
+                    inputField.value = suggestion; // Eingabefeld mit Auswahl füllen
+                    suggestionBox.innerHTML = ''; // Vorschläge ausblenden
+                });
+                suggestionBox.appendChild(listItem);
+            });
+        }
+
+        // Stil sicherstellen: Vorschläge schließen, wenn man irgendwo anders klickt
+        document.addEventListener('click', function (event) {
+            if (!suggestionBox.contains(event.target) && event.target !== inputField) {
+                suggestionBox.innerHTML = ''; // Box schließen
+            }
         });
     } else {
         console.error('Eingabefeld .rechnungssteller nicht gefunden!');
     }
 });
 
-    const suggestionBox = document.createElement('ul'); // Box für Vorschläge
-    suggestionBox.classList.add('suggestion-box'); // CSS-Klasse für die Vorschläge
-    inputField.parentNode.appendChild(suggestionBox); // Vorschläge unter dem Eingabefeld hinzufügen
 
-    // Event-Listener für Benutzereingaben
-    inputField.addEventListener('input', function () {
-        const query = inputField.value.trim(); // Eingabe des Benutzers
 
-        // Nur bei Eingaben mit mindestens 1 Zeichen suchen
-        if (query.length > 0) {
-            fetchSuggestions(query);
-        } else {
-            suggestionBox.innerHTML = ''; // Box leeren, wenn Eingabe gelöscht wird
-        }
-    });
 
-    // Funktion zum Abrufen der Vorschläge
-    function fetchSuggestions(query) {
-        fetch(`/api/get_biller_names?query=${encodeURIComponent(query)}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Fehler beim Abrufen der Vorschläge');
-                }
-                return response.json();
-            })
-            .then(data => {
-                updateSuggestions(data.biller_names);
-            })
-            .catch(error => {
-                console.error('Fehler:', error);
-            });
-    }
-
-    // Funktion zum Aktualisieren der Vorschläge
-    function updateSuggestions(suggestions) {
-        suggestionBox.innerHTML = ''; // Box leeren
-        if (suggestions.length === 0) {
-            const noResultItem = document.createElement('li');
-            noResultItem.textContent = 'Keine Treffer';
-            noResultItem.classList.add('no-result');
-            suggestionBox.appendChild(noResultItem);
-            return;
-        }
-
-        suggestions.forEach(suggestion => {
-            const listItem = document.createElement('li');
-            listItem.textContent = suggestion;
-            listItem.classList.add('suggestion-item');
-            listItem.addEventListener('click', function () {
-                inputField.value = suggestion; // Eingabefeld mit Auswahl füllen
-                suggestionBox.innerHTML = ''; // Vorschläge ausblenden
-            });
-            suggestionBox.appendChild(listItem);
-        });
-    }
-
-    // Stil sicherstellen: Vorschläge schließen, wenn man irgendwo anders klickt
-    document.addEventListener('click', function (event) {
-        if (!suggestionBox.contains(event.target) && event.target !== inputField) {
-            suggestionBox.innerHTML = ''; // Box schließen
-        }
-    });
-});
 </script>
 
 
