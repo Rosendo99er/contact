@@ -6631,22 +6631,31 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Funktion zum Abrufen der Vorschläge
+      
+      
+              
         function fetchSuggestions(query) {
-            fetch(`/api/get_biller_names?query=${encodeURIComponent(query)}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Fehler beim Abrufen der Vorschläge');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    updateSuggestions(data.biller_names);
-                })
-                .catch(error => {
-                    console.error('Fehler:', error);
-                });
+    fetch(`https://vast-citadel-93222-f91f10e46ebf.herokuapp.com/api/get_biller_names?query=${encodeURIComponent(query)}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        mode: 'cors' // Aktiviert Cross-Origin-Anfragen
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Fehler beim Abrufen der Vorschläge: ${response.statusText}`);
         }
+        return response.json();
+    })
+    .then(data => {
+        updateSuggestions(data.biller_names);
+    })
+    .catch(error => {
+        console.error('Fehler:', error);
+    });
+}
+
 
         // Funktion zum Aktualisieren der Vorschläge
         function updateSuggestions(suggestions) {
@@ -6681,6 +6690,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Eingabefeld .rechnungssteller nicht gefunden!');
     }
 });
+
 
 
 
