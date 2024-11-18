@@ -6543,13 +6543,20 @@ function forwardBotMessage() {
 
 
 
-// Setze die URL dynamisch basierend auf der CSS-Variable
-const companyMainUrl = getComputedStyle(document.documentElement)
-    .getPropertyValue('--company-main-url')
-    .trim();
+document.addEventListener('DOMContentLoaded', function () {
+    const companyMainUrl = getComputedStyle(document.documentElement)
+        .getPropertyValue('--company-main-url')
+        .trim();
 
-// Füge die URL zum Link hinzu
-document.getElementById('company-main-url').href = companyMainUrl;
+    // Finde den <a>-Tag im Element mit der ID "logo-header"
+    const companyMainLink = document.querySelector('#logo-header a');
+    if (companyMainLink) {
+        companyMainLink.href = companyMainUrl; // Setze die URL
+    } else {
+        console.error('Link-Element im Header wurde nicht gefunden.');
+    }
+});
+
 
 
 
