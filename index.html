@@ -6604,9 +6604,20 @@ function removeAllCollapsed() {
 
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
-    // Das Input-Feld mit der Klasse "rechnungssteller"
     const inputField = document.querySelector('.rechnungssteller');
+    if (inputField) {
+        inputField.addEventListener('input', function () {
+            console.log('Benutzer hat etwas eingegeben:', inputField.value);
+        });
+    } else {
+        console.error('Eingabefeld .rechnungssteller nicht gefunden!');
+    }
+});
+
     const suggestionBox = document.createElement('ul'); // Box für Vorschläge
     suggestionBox.classList.add('suggestion-box'); // CSS-Klasse für die Vorschläge
     inputField.parentNode.appendChild(suggestionBox); // Vorschläge unter dem Eingabefeld hinzufügen
@@ -6670,9 +6681,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-
 </script>
+
+
+
 
 
 </body>
