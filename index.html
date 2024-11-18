@@ -6261,25 +6261,13 @@ async function getTranslatedChatHistoryForEmail() {
 
 async function openConfirmationModal() {
 
-   // Hilfsfunktion für sichtbare Elemente mit Klassen
-   function getVisibleElementValue(className) {
-        const elements = document.querySelectorAll(`.${className}`);
-        const visibleElement = Array.from(elements).find(
-            (element) => window.getComputedStyle(element).display !== 'none'
-        );
-        return visibleElement ? visibleElement.value : null;
-    }
-
-    // Werte der sichtbaren Felder abrufen
-    
-    const factoringContainer = document.querySelector('#factoring-section-container');
-
-    const rechnungsstellerValue = factoringContainer.querySelector('.rechnungssteller');
-    const rechnungsnummerValue = factoringContainer.querySelector('.rechnungsnummer');
-    const aktennummerValue = factoringContainer.querySelector('.contact-form-aktennummer');
-    const nameValue = factoringContainer.querySelector('.contact-form-name');
-    const emailValue = factoringContainer.querySelector('.contact-form-email');
-    const messageValue = factoringContainer.querySelector('.contact-form-nachricht');
+    const factoringContainer = document.querySelector('#factoring-container');
+    const rechnungsstellerValue = factoringContainer.querySelector('.rechnungssteller').value;
+    const rechnungsnummerValue = factoringContainer.querySelector('.rechnungsnummer').value;
+    const aktennummerValue = factoringContainer.querySelector('.contact-form-aktennummer').value;
+    const nameValue = factoringContainer.querySelector('.contact-form-name').value;
+    const emailValue = factoringContainer.querySelector('.contact-form-email').value;
+    const messageValue = factoringContainer.querySelector('.contact-form-nachricht').value;
     
     document.getElementById("modalRechnungssteller").innerText = rechnungsstellerValue;
     document.getElementById("modalRechnungsnummer").innerText = rechnungsnummerValue;
@@ -6410,10 +6398,10 @@ function fillModalContent() {
     console.log("Company Email:", companyEmail);
 
     // Elemente aus dem DOM auswählen
-    var recipientNameElement = document.getElementById('recipientName');
-    var recipientStreetElement = document.getElementById('recipientStreet');
-    var recipientCityElement = document.getElementById('recipientCity');
-    var recipientEmailElement = document.getElementById('recipientEmail');
+    var recipientNameElement = document.getElementById('companyName');
+    var recipientStreetElement = document.getElementById('companyStreet');
+    var recipientCityElement = document.getElementById('companyCity');
+    var recipientEmailElement = document.getElementById('companyEmail');
 
     // Überprüfen, ob die Elemente existieren, und den Textinhalt setzen
     if (recipientNameElement) {
