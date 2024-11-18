@@ -2573,36 +2573,6 @@ padding-left: 0px;
 }
 
 
-.send-confirmation {
-  position: fixed;
-  z-index: 10 !important;
-  left: 0%;
-  top: 0%;
-  width: 100vw;
-  height: 100vh;
-  min-height: 100%;
-  display: flex; /* Flexbox für Zentrierung */
-  justify-content: center;
-  align-items: center;
-  background-color: var(--modal-background);
-  box-sizing: border-box;
-  pointer-events: auto; /* Interaktionen sind erlaubt */
-}
-
-@supports (-webkit-touch-callout: none) {
-    .send-confirmation {
-        z-index: 10 !important;  
-        position: absolute;
-        background-color: var(--modal-background);
-        top: 0;
-        left: 0;
-        height: 2000px;
-        min-height: 100%;
-        width: 100%;
-        bottom: 0;
-    }
-}
-
 
 
 /* Stile für den help-modal-dialog (hmd) */
@@ -2641,7 +2611,7 @@ padding-left: 0px;
     padding: 0px !important;
 }
 
-.send-confirmation-content .custom-h2 {
+.modal-standard-inner-large-content .custom-h2 {
     padding: 20px 20px 0px 0px !important;
     border-radius: var(--primary-border-radius);
     text-align: left;
@@ -2649,7 +2619,7 @@ padding-left: 0px;
     color: var(--primary-font-color);
 }
 
-.hsend-confirmation-content .custom-h3 {
+.modal-standard-inner-large-content .custom-h3 {
     padding: 20px 20px 0px 0px !important;
     border-radius: var(--primary-border-radius);
     text-align: left;
@@ -2660,7 +2630,7 @@ padding-left: 0px;
 
 
 
-.send-confirmation-content p {
+.modal-standard-inner-large-content p {
     font-size: var(--font-size-text);
     color: var(--website-standard-font-color-dark);
     padding: 20px 20px 20px 0px !important;
@@ -2670,14 +2640,14 @@ padding-left: 0px;
 }
 
 
-.send-confirmation-content-ul {
+.modal-standard-inner-large-content-ul {
     margin-left: 0px !important;
     padding-right: 0px;
 }
 
 
 
-.send-confirmation-content li {
+.modal-standard-inner-large-content li {
     font-size: var(--font-size-text) !important;
     color: var(--website-standard-font-color-dark);
     margin-bottom: 10px;
@@ -2719,28 +2689,6 @@ padding-left: 0px;
 }
 
 
-.send-confirmation-dialog {
-    z-index: 20 !important;
-    position: absolute;
-    background-color: var(--primary-background-color);
-    left: 50%;
-    top: 50%;
-    width: 90vh !important;
-    max-width: 90% !important;
-    height: auto;
-    max-height: 75vh;
-    transform: translate(-50%, -50%); /* Zentriert den Dialog */
-    pointer-events: auto; /* Interaktionen sind erlaubt */
-    box-sizing: border-box;
-    border: 2px solid var(--primary-border-color);
-    border-radius: var(--primary-border-radius);
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Optional: Schatten für besseren Effekt */
-    overflow: hidden; /* Verhindert, dass der Inhalt den Container überschreitet */
-}
-
-
 
 
 
@@ -2748,31 +2696,14 @@ padding-left: 0px;
 }   /* Ende der Media Queries */
 
 
-.modal-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  /*backdrop-filter: blur(2px) !important;*/
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  /*mix-blend-mode: multiply !important;*/
-  z-index: 9999 !important;
-  pointer-events: none !important;
-  display: none !important;
-}
-
-
-
-
 
 
     #chatbot-header {
 
-      display: flex; /* Flexbox zur horizontalen Anordnung der Kind-Elemente */
-      align-items: center; /* Zentriert die Inhalte vertikal */
-      width: 100%; /* Nimmt die gesamte Breite des übergeordneten Elements ein */
-      box-sizing: border-box; /* Schließt Padding in die Gesamtbreite ein */
+      display: flex;
+      align-items: center;
+      width: 100%; 
+      box-sizing: border-box;
       padding: 20px;
       border-bottom: 1px solid #ddd;
     }
@@ -2780,10 +2711,10 @@ padding-left: 0px;
 
     #chatbot-language {
       display: flex;
-      align-items: center; /* Zentriert Flagge und Sprache vertikal */
+      align-items: center;
       width: 130px;
-      max-width: 40%; /* Nimmt 40 % der Breite von `#chatbot-header` ein */
-      position: relative; /* Ermöglicht absolute Positionierung der Flagge */
+      max-width: 40%;
+      position: relative;
       margin-top: 0px;
       margin-bottom: 0px;
     }
@@ -3759,7 +3690,7 @@ body.modal-open {
 
 
 
-.send-confirmation-content .custom-h2 {
+.modal-standard-inner-large-content .custom-h2 {
     padding: 20px 0px 20px 0px;
     border-radius: var(--primary-border-radius);
     text-align: left;
@@ -3767,7 +3698,7 @@ body.modal-open {
     color: var(--primary-font-color);
 }
 
-.send-confirmation-content .custom-h3 {
+.modal-standard-inner-large-content .custom-h3 {
     padding: 20px 0px 0px 0px;
     border-radius: var(--primary-border-radius);
     text-align: left;
@@ -3778,7 +3709,7 @@ body.modal-open {
 
 
 
-.send-confirmation-content p {
+.modal-standard-inner-large-content p {
     font-size: var(--font-size-text);
     color: var(--website-standard-font-color-dark);
     padding: 0px;
@@ -3788,14 +3719,14 @@ body.modal-open {
 }
 
 
-.send-confirmation-content-ul {
+.modal-standard-inner-large-content-ul {
     margin-left: 10px;
     padding-right: 10px;
 }
 
 
 
-.send-confirmation-content li {
+.modal-standard-inner-large-content li {
     font-size: var(--font-size-subtitle);
     color: var(--website-standard-font-color-dark);
     margin-bottom: 10px;
@@ -3909,77 +3840,69 @@ body.modal-open {
 
 
 
-.send-confirmation {
+
+
+
+
+
+
+
+
+/* Standard-Modaldialog Hintergrund für große Dialoge */
+.modal-standard-background-large {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(5px);
-  mix-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.5) !important;
   z-index: 11;
   pointer-events: none;
   display: none;
-
-/*    position: fixed;
-    z-index: 10 !important;
-    left: 0%;
-    top: 0%;
-    width: 100vw;
-    height: 100vh;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--modal-background);
-    box-sizing: border-box;
-    pointer-events: auto;*/
 }
 
 
+/* iOS-spezifische Anpassung für modal-standard-background-large */
 @supports (-webkit-touch-callout: none) {
-    .send-confirmation {
-        position: absolute;
-        z-index: 10 !important;
-        background-color: var(--modal-background);
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 2000px;
-        min-height: 100%;
-        bottom: 0;
-    }
+  .modal-standard-background-large {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  z-index: 11;
+  pointer-events: none;
+  display: none;
+  }
+}
+
+
+/* Standard-Modaldialog für große Dialoge */
+.modal-standard-inner-large {
+    z-index: 100000 !important;
+    display: flex !important;
+    position: fixed !important;
+    background-color: var(--primary-background-color) !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 75% !important;
+    max-width: 75vw !important;
+    height: auto !important;
+    max-height: 75vh !important;
+    transform: translate(-50%, -50%) !important;
+    pointer-events: auto !important; 
+    box-sizing: border-box !important;
+    border: 2px solid var(--primary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;
+    flex-direction: column !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important; 
+    overflow: hidden !important; 
 }
 
 
 
-
-
-
-
-.send-confirmation-dialog {
-    z-index: 20 !important;
-    position: absolute;
-    background-color: var(--primary-background-color);
-    left: 50%;
-    top: 50px;
-    width: 75%;
-    max-width: 75vh;
-    max-height: 75vh;
-    transform: translateX(-50%); /* Zentriert den Dialog */
-    pointer-events: auto; /* Interaktionen sind erlaubt */
-    box-sizing: border-box;
-    border: 2px solid var(--primary-border-color);
-    border-radius: var(--primary-border-radius);
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Optional: Schatten für besseren Effekt */
-    overflow: hidden; /* Verhindert, dass der Inhalt den Container überschreitet */
-}
-
-
-
-.send-confirmation-content {
+.modal-standard-inner-large-content {
     flex: 1; 
     box-sizing: border-box;
     overflow-y: auto;
@@ -3995,14 +3918,14 @@ body.modal-open {
 
 
 
-.send-confirmation-content .custom2-h2 {
+.modal-standard-inner-large-content .custom2-h2 {
     font-size: var(--company-font-size-title);
     color: var(--primary-font-color);
     margin-bottom: 30px;
 }
 
 
-.send-confirmation-content .custom3-h2 {
+.modal-standard-inner-large-content .custom3-h2 {
     font-size: var(--company-font-size-subtitle);
     color: var(--secondary-font-color);
     text-align: center;
@@ -4013,7 +3936,7 @@ body.modal-open {
 
 
 
-.send-confirmation-content p {
+.modal-standard-inner-large-content p {
     font-size: var(--company-font-size-text);
     color: var(--tertiary-font-color-dark);
     margin-bottom: 10px;
@@ -4024,7 +3947,7 @@ body.modal-open {
 
 
 
-.send-confirmation-content .email-nachricht {
+.modal-standard-inner-large-content .email-nachricht {
   font-family: var(--company-font-family);
   font-size: var(--font-size-text);
   color: var(--primary-font-color);
@@ -4050,97 +3973,73 @@ body.modal-open {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-.send-confirmation-button-container {
-    display: flex;
-    justify-content: center; /* Zentriert die Buttons im Dialog */
-    gap: 10px; /* Abstand zwischen den Buttons */
-    margin-top: 10px; /* Abstand zum vorherigen Inhalt */
-    padding: 20px; /* Optional: Abstand innerhalb des Containers */
-    background-color: var(--primary-background-color); /* Optional: Hintergrund für besseren Kontrast */
-    box-sizing: border-box;
-    border-top: 1px solid var(--tertiary-border-color);
-}
-
-
-
-
 .icon {
-    width: 40px;             /* Standardgröße (Breite) des Icons */
-    height: 40px;            /* Standardgröße (Höhe) des Icons */
+    width: 40px;   
+    height: 40px;  
     stroke: var(--primary-company-color);
     stroke-width: 1.5;
     fill: none;
-    cursor: pointer;         /* Zeiger als Cursor, geeignet für klickbare Icons */
-    transition: all 0.3s ease; /* Weiche Übergänge für alle Änderungen (Größe, Farbe etc.) */
+    cursor: pointer; 
+    transition: all 0.3s ease; 
 }
 
 
 .icon.hover-scale:hover {
-    transform: scale(1.2);   /* Vergrößert das Icon leicht beim Hover */
+    transform: scale(1.2);   
     stroke: var(--secondary-font-color);
 }
 
 
 
 .icon2 {
-    width: 24px;             /* Standardgröße (Breite) des Icons */
-    height: 24px;            /* Standardgröße (Höhe) des Icons */
+    width: 24px;
+    height: 24px;
     stroke: var(--primary-font-color);
     fill: none;
-    cursor: pointer;         /* Zeiger als Cursor, geeignet für klickbare Icons */
-    transition: all 0.3s ease; /* Weiche Übergänge für alle Änderungen (Größe, Farbe etc.) */
+    cursor: pointer;
+    transition: all 0.3s ease;
     margin-left: 10px;
 }
 
 
 .icon2.hover-scale:hover {
-    transform: scale(1.2);   /* Vergrößert das Icon leicht beim Hover */
+    transform: scale(1.2);
     stroke: var(--secondary-font-color);
 }
 
 
 .icon3 {
-    width: 25px;             /* Standardgröße (Breite) des Icons */
-    height: 25px;            /* Standardgröße (Höhe) des Icons */
+    width: 25px;
+    height: 25px;
     stroke: var(--primary-font-color);
     fill: none;
-    cursor: pointer;         /* Zeiger als Cursor, geeignet für klickbare Icons */
-    transition: all 0.3s ease; /* Weiche Übergänge für alle Änderungen (Größe, Farbe etc.) */
+    cursor: pointer;
+    transition: all 0.3s ease;
     margin-left: 10px;
 }
 
 
 .icon3.hover-scale:hover {
-    transform: scale(1.2);   /* Vergrößert das Icon leicht beim Hover */
+    transform: scale(1.2);
     stroke: var(--secondary-font-color);
 }
 
 .icon4 {
-    width: 26px;             /* Standardgröße (Breite) des Icons */
-    height: 26px;            /* Standardgröße (Höhe) des Icons */
+    width: 26px;
+    height: 26px;
     stroke: var(--primary-font-color);
     fill: none;
-    cursor: pointer;         /* Zeiger als Cursor, geeignet für klickbare Icons */
-    transition: all 0.3s ease; /* Weiche Übergänge für alle Änderungen (Größe, Farbe etc.) */
+    cursor: pointer;
+    transition: all 0.3s ease;
     margin-left: 10px;
 }
 
 
 .icon4.hover-scale:hover {
-    transform: scale(1.2);   /* Vergrößert das Icon leicht beim Hover */
+    transform: scale(1.2);
     stroke: var(--secondary-font-color);
 }
+
 
 
 
@@ -4152,28 +4051,11 @@ body.modal-open {
   left: 0;
   width: 100%;
   height: 100%;
-  /*backdrop-filter: blur(5px);
-  mix-blend-mode: multiply;*/
   background-color: rgba(0, 0, 0, 0.5) !important;
   z-index: 11;
   pointer-events: none;
   display: none;
 }
-
-
-/*  position: fixed;
-    z-index: 100000 !important;
-    left: 0%;
-    top: 0%;
-    width: 100vw;
-    height: 100vh;
-    min-height: 100%;
-    display: none; 
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    pointer-events: auto;
-}*/
 
 
 /* iOS-spezifische Anpassung für modal-standard-background */
@@ -4184,18 +4066,12 @@ body.modal-open {
   left: 0;
   width: 100%;
   height: 100%;
-  /*backdrop-filter: blur(5px);
-  mix-blend-mode: multiply;*/
   background-color: rgba(0, 0, 0, 0.5) !important;
   z-index: 11;
   pointer-events: none;
   display: none;
   }
 }
-
-
-
-
 
 
 
@@ -4216,8 +4092,8 @@ body.modal-open {
     border: 2px solid var(--primary-border-color) !important;
     border-radius: var(--primary-border-radius) !important;
     flex-direction: column !important;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important; /* Optional: Schatten für besseren Effekt */
-    overflow: hidden !important; /* Verhindert, dass der Inhalt den Container überschreitet */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important; 
+    overflow: hidden !important; 
 }
 
 
@@ -4225,10 +4101,10 @@ body.modal-open {
 .modal-standard-content  {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Zentriert den Inhalt horizontal */
+    align-items: center; 
     position: relative;
     text-align: center; 
-    flex: 1; /* Nimmt den verfügbaren Platz ein */
+    flex: 1; 
     overflow: auto;
     padding: 10px 0px 10px 0px;
     max-height:50vh;
@@ -4241,13 +4117,13 @@ body.modal-open {
 /* Standard-Modaldialog Buttonbereich */
 .modal-standard-button-container  {
     display: flex;
-    justify-content: center; /* Zentriert die Buttons im Dialog */
+    justify-content: center;
     align-items: center;
-    gap: 10px; /* Abstand zwischen den Buttons */
-    margin-top: 0px; /* Abstand zum vorherigen Inhalt */
+    gap: 10px;
+    margin-top: 0px;
     height: auto;
     padding: 24px 30px 20px 30px;
-    background-color: var(--secondary-background-color); /* Hintergrund */
+    background-color: var(--secondary-background-color);
     box-sizing: border-box;
     border-top: 0px solid var(--tertiary-border-color);
 }
@@ -4262,8 +4138,8 @@ body.modal-open {
     background-color: var(--primary-button-color);
     color: var(--tertiary-font-color);
     cursor: pointer;
-    min-width: 150px; /* Verhindert Umbruch und sorgt für gleichmäßige Breite */
-    text-align: center; /* Text zentriert im Button */
+    min-width: 150px;
+    text-align: center;
 }
 
 
@@ -4288,15 +4164,15 @@ textarea:-webkit-autofill {
 
 
 .collapsible-container {
-    max-height: 1000px; /* Festgelegte maximale Höhe, die größer ist als der Inhalt */
+    max-height: 1000px;
     overflow: hidden;
-    transition: max-height 0.5s ease; /* Sanfter Übergang */
+    transition: max-height 0.5s ease;
 }
 
 
 .collapsed {
-    max-height: 0 !important; /* Höhe im zugeklappten Zustand */
-    min-width: 0 !important; /* Höhe im zugeklappten Zustand */
+    max-height: 0 !important;
+    min-width: 0 !important;
     height: 0 !important;
     padding: 0;
     margin: 0;
@@ -4310,7 +4186,7 @@ textarea:-webkit-autofill {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* Setzt den Container als Bezugspunkt */
+  position: relative;
 }
 
 .arrow-button {
@@ -4321,26 +4197,22 @@ textarea:-webkit-autofill {
     cursor: pointer;
     position: relative;
     display: flex;
-    align-items: center; /* Vertikale Zentrierung */
-    justify-content: center; /* Horizontale Zentrierung */
+    align-items: center;
+    justify-content: center;
 }
 
 .arrow-button::before {
     content: '';
-    border: solid var(--primary-font-color); /* Farbe des Pfeils */
+    border: solid var(--primary-font-color);
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 5px;
-    transform: rotate(45deg); /* Pfeil nach unten */
+    transform: rotate(45deg);
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg); /* Zentrierung */
+    transform: translate(-50%, -50%) rotate(45deg);
 }
-
-
-
-
 
 
 
@@ -4351,8 +4223,7 @@ textarea:-webkit-autofill {
 
 <body>
 
-  <div id="modal-overlay" class="modal-overlay"></div>
-
+  
   <div id="delete-confirmation-modal" class="modal-standard-background" aria-modal="true">
 
     <div class="modal-standard-inner">
@@ -4371,83 +4242,94 @@ textarea:-webkit-autofill {
   </div>      
 
 
+  <div id="delete-history-and-close-chatbot-background" class="modal-standard-background" aria-modal="true">
 
+    <div class="modal-standard-inner">
 
+      <div class="modal-standard-content">
+        <p id="chat-history-deleted-and-closed" class="ccm-content p">Ihre Chat-Historie wird gelöscht und der Chatbot geschlossen.</p>
+      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div id="confirmModal" class="send-confirmation" aria-modal="true" style="display:none">
-
-    <div class="send-confirmation-dialog">
-
-        <div class="send-confirmation-content">
-
-            <h2 class="custom2-h2">Die folgende Nachricht wird gesendet.</h2>
-            <p><strong>an:</strong></p>
-            <p><span id="recipientName"></span></p>
-            <p><span id="recipientEmail"></span></p>
-            <p> </p>
-            <p><strong>Ihr Name:</strong></p>
-            <p><span id="modalName"></span></p>
-            <p><strong>Ihre E-Mail-Adresse:</strong></p>
-            <p><span id="modalEmail"></span></p>
-            <p><strong>Ihre Nachricht:</strong></p>
-            <textarea id="modalMessage" class="email-nachricht" style="white-space:pre-wrap" name="Nachricht" rows="4" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000"></textarea>
-            <p> </p>
-            <p><strong>Übersetzte Chat-Historie:</strong></p>
-            <div id="translated-chat-history" style="white-space:pre-wrap">
-            </div>
-        </div>
-
-        <div id="send-confirmation-button-container" class="modal-standard-button-container">
-            <button id="cancelSend" class="modal-standard-button">Abbrechen</button>
-            <button id="confirmSend" class="modal-standard-button">Senden</button>
-        </div>
+      <div class="modal-standard-button-container">
+        <button id="cancel-button" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
+        <button id="confirm-delete-button2" class="modal-standard-button" onclick="confirmDelete2()">OK</button>
+      </div>
 
     </div>
 
-</div>
+  </div>
 
 
-<div id="user-help-container-de" class="send-confirmation" aria-modal="true" style="display:none">
+  <div id="delete-confirmation-modal3" class="modal-standard-background" aria-modal="true">
 
-  <div class="send-confirmation-dialog">
+    <div class="modal-standard-inner">
+
+      <div class="modal-standard-content">
+        <p id="resetPageText1" class="ccm-content p">Wir freuen uns, dass wir Ihnen mit diesem Service helfen konnten.<br><br>Ihre Chat-Historie wird gelöscht und die Nachricht verworfen.</p>
+      </div>
+
+      <div class="modal-standard-button-container">
+        <button id="cancel-button3" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
+        <button id="confirm-delete-button3" class="modal-standard-button" onclick="resetPage()">OK</button>
+      </div>
+
+    </div>
+
+  </div>       
+
+
+
+  <div id="confirmModal" class="modal-standard-background-large" aria-modal="true" style="display:none">
+
+    <div class="modal-standard-inner-large">
+
+      <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom2-h2">Die folgende Nachricht wird gesendet.</h2>
+        <p><strong>an:</strong></p>
+        <p><span id="recipientName"></span></p>
+        <p><span id="recipientEmail"></span></p>
+        <p> </p>
+        <p><strong>Ihr Name:</strong></p>
+        <p><span id="modalName"></span></p>
+        <p><strong>Ihre E-Mail-Adresse:</strong></p>
+        <p><span id="modalEmail"></span></p>
+        <p><strong>Ihre Nachricht:</strong></p>
+        <textarea id="modalMessage" class="email-nachricht" style="white-space:pre-wrap" name="Nachricht" rows="4" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000"></textarea>
+        <p> </p>
+        <p><strong>Übersetzte Chat-Historie:</strong></p>
+        <div id="translated-chat-history" style="white-space:pre-wrap">
+        </div>
+      </div>
+
+      <div id="modal-standard-button-container" class="modal-standard-button-container">
+        <button id="cancelSend" class="modal-standard-button">Abbrechen</button>
+        <button id="confirmSend" class="modal-standard-button">Senden</button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+<div id="user-help-container-de" class="modal-standard-background-large" aria-modal="true" style="display:none">
+
+  <div class="modal-standard-inner-large">
       
-      <div class="send-confirmation-content">
+      <div class="modal-standard-inner-large-content">
       
           <h2 class="custom-h2">Wir möchten Ihnen weiterhelfen. Und zwar sofort.</h2>
-          <p class="send-confirmation-content p">Kennen Sie das? Sie schreiben eine Nachricht über ein Kontaktformular und müssen darauf warten, dass jemand auf Ihr Anliegen antwortet.  Mit unserem Sofortantwort-Chatbot ist das anders: Hier erhalten Sie in den allermeisten Fällen direkt eine Antwort auf Ihre Fragen – ohne Wartezeit!</p>
+          <p class="modal-standard-inner-large-content p">Kennen Sie das? Sie schreiben eine Nachricht über ein Kontaktformular und müssen darauf warten, dass jemand auf Ihr Anliegen antwortet.  Mit unserem Sofortantwort-Chatbot ist das anders: Hier erhalten Sie in den allermeisten Fällen direkt eine Antwort auf Ihre Fragen – ohne Wartezeit!</p>
 
           <h3 class="custom-h3">Funktionen des Chatbots:</h3>
-          <ul class="send-confirmation-content-ul">
+          <ul class="modal-standard-inner-large-content-ul">
               <li><strong>Sofortantwort:</strong> Geben Sie Ihre Frage in das Textfeld ein oder übertragen Sie eine bereits verfasste Nachricht aus dem Kontaktformular. Der Chatbot gibt Ihnen sofort eine Antwort.</li>
               <li><strong>Sprachauswahl:</strong> Wählen Sie Ihre bevorzugte Sprache im Dropdown-Menü. Der Chatbot antwortet dann in der von Ihnen gewählten Sprache.</li>
               <li><strong>Chat-Historie:</strong> Ihre Konversation wird gespeichert. Über den „Historie leeren“-Button können Sie den Verlauf löschen.</li>
           </ul>
 
           <h3 class="custom-h3">Erklärung der Buttons:</h3>
-          <ul class="send-confirmation-content-ul">
+          <ul class="modal-standard-inner-large-content-ul">
               <li><strong>Sofortantwort erhalten:</strong> Übertragen Sie Ihre Nachricht aus dem Kontaktformular in den Chatbot und erhalten Sie sofort eine Antwort.</li>
               <li><strong>Sofortantwort-Fenster schließen:</strong> Schließen Sie den Chatbot und kehren Sie zum Kontaktformular zurück.</li>
               <li><strong>Nachricht senden:</strong> Senden Sie Ihre Informationen direkt an das Support-Team.</li>
@@ -5008,46 +4890,6 @@ textarea:-webkit-autofill {
 
 
 
-
-        <div id="delete-history-and-close-chatbot-background" class="modal-standard-background" aria-modal="true">
-
-          <div class="modal-standard-inner">
-
-            <div class="modal-standard-content">
-              <p id="chat-history-deleted-and-closed" class="ccm-content p">Ihre Chat-Historie wird gelöscht und der Chatbot geschlossen.</p>
-            </div>
-
-            <div class="modal-standard-button-container">
-              <button id="cancel-button" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
-              <button id="confirm-delete-button2" class="modal-standard-button" onclick="confirmDelete2()">OK</button>
-            </div>
-
-          </div>
-
-        </div>
-      
-
-
-
-  
-
-
-        <div id="delete-confirmation-modal3" class="modal-standard-background" aria-modal="true">
-
-          <div class="modal-standard-inner">
-  
-            <div class="modal-standard-content">
-              <p id="resetPageText1" class="ccm-content p">Wir freuen uns, dass wir Ihnen mit diesem Service helfen konnten.<br><br>Ihre Chat-Historie wird gelöscht und die Nachricht verworfen.</p>
-            </div>
-  
-            <div class="modal-standard-button-container">
-              <button id="cancel-button3" class="modal-standard-button" onclick="closeDeleteConfirmation()">Abbrechen</button>
-              <button id="confirm-delete-button3" class="modal-standard-button" onclick="resetPage()">OK</button>
-            </div>
-  
-          </div>
-  
-        </div>       
 
 
 
@@ -7008,12 +6850,12 @@ function insertParagraphs(text) {
 
 // Öffne das Modal für die Bestätigung zum Löschen der Chat-Historie
 function openDeleteConfirmation() {
-    const modalOverlay = document.getElementById("modal-overlay");
-    modalOverlay.style.display = "flex";
+    //const modalOverlay = document.getElementById("modal-overlay");
+    //modalOverlay.style.display = "flex";
     const modal = document.getElementById("delete-confirmation-modal");
     modal.style.display = "flex";
-    document.body.classList.add("modal-open"); // Modalität aktivieren
-    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
+    document.body.classList.add("modal-open"); 
+    document.body.style.overflow = 'hidden';
 }
 
 
@@ -7021,8 +6863,8 @@ function openDeleteConfirmation() {
 function openDeleteConfirmation2() {
     const modal = document.getElementById("delete-history-and-close-chatbot-background");
     modal.style.display = "flex";
-    document.body.classList.add("modal-open"); // Modalität aktivieren
-    document.body.style.overflow = 'hidden'; // Hintergrundscrolling deaktivieren
+    document.body.classList.add("modal-open"); 
+    document.body.style.overflow = 'hidden'; 
 }
 
 
@@ -7033,9 +6875,9 @@ function closeDeleteConfirmation() {
     document.getElementById('delete-confirmation-modal').style.display = 'none';
     document.getElementById('delete-confirmation-modal3').style.display = 'none';
     document.getElementById('delete-history-and-close-chatbot-background').style.display = 'none';
-    document.getElementById('modal-overlay').style.display = 'none';
-    document.body.classList.remove("modal-open"); // Modalität deaktivieren
-    document.body.style.overflow = ''; // Hintergrundscrolling wieder aktivieren
+    // document.getElementById('modal-overlay').style.display = 'none';
+    document.body.classList.remove("modal-open");
+    document.body.style.overflow = '';
 }
 
 
