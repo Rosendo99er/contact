@@ -6250,13 +6250,23 @@ async function getTranslatedChatHistoryForEmail() {
 
 
 async function openConfirmationModal() {
-    // Setzt die Werte der Formularfelder in den modalen Dialog
-    const rechnungsstellerValue = document.getElementById('rechnungssteller').value;
-    const rechnungsnummerValue = document.getElementById('rechnungsnummer').value;
-    const aktennummerValue = document.getElementById('contact-form-aktennummer').value;
-    const nameValue = document.getElementById('contact-form-name').value;
-    const emailValue = document.getElementById('contact-form-email').value;
-    const messageValue = document.querySelector('.contact-form-nachricht').value;
+
+   // Hilfsfunktion für sichtbare Elemente mit Klassen
+   function getVisibleElementValue(className) {
+        const elements = document.querySelectorAll(`.${className}`);
+        const visibleElement = Array.from(elements).find(
+            (element) => window.getComputedStyle(element).display !== 'none'
+        );
+        return visibleElement ? visibleElement.value : null;
+    }
+
+    // Werte der sichtbaren Felder abrufen
+    const rechnungsstellerValue = getVisibleElementValue('rechnungssteller');
+    const rechnungsnummerValue = getVisibleElementValue('rechnungsnummer');
+    const aktennummerValue = getVisibleElementValue('contact-form-aktennummer');
+    const nameValue = getVisibleElementValue('contact-form-name');
+    const emailValue = getVisibleElementValue('contact-form-email');
+    const messageValue = getVisibleElementValue('contact-form-nachricht');
 
     document.getElementById("modalRechnungssteller").innerText = rechnungsstellerValue;
     document.getElementById("modalRechnungsnummer").innerText = rechnungsnummerValue;
