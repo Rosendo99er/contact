@@ -3159,15 +3159,15 @@ body.modal-open {
 
 
 
-/* Symbol für die Vergrößerung im Input-Feld */
+/* 
 #expand-icon {
   position: absolute;
-  bottom: 10px; /* Positionierung innerhalb des Input-Felds */
-  right: 10px; /* Positionierung innerhalb des Input-Felds */
+  bottom: 10px;
+  right: 10px; 
   font-size: 20px;
   color: var(--primary-font-color);
   cursor: pointer;
-}
+}*/
 
 
 
@@ -5710,23 +5710,23 @@ initializeChatbot();
 
 
 // Funktion zum Öffnen des Modal-Dialogs nur, wenn die Checkbox gesetzt ist
-document.getElementById('expand-icon').addEventListener('click', function() {
-  const isChecked = document.getElementById('chatbot-consent-checkbox').checked;
-  
-  if (isChecked) {
-    const chatbotInputValue = document.getElementById('chatbot-input').value;
-    const expandedInput = document.getElementById('expanded-chatbot-input');
-    
-    expandedInput.value = chatbotInputValue; // Übernahme des Inhalts ins Modal
-    document.getElementById('chatbot-input-modal').style.display = 'block'; // Modal anzeigen
-    
+//document.getElementById('expand-icon').addEventListener('click', function() {
+//  const isChecked = document.getElementById('chatbot-consent-checkbox').checked;
+//  
+//  if (isChecked) {
+//    const chatbotInputValue = document.getElementById('chatbot-input').value;
+//    const expandedInput = document.getElementById('expanded-chatbot-input');
+//    
+//    expandedInput.value = chatbotInputValue; // Übernahme des Inhalts ins Modal
+//    document.getElementById('chatbot-input-modal').style.display = 'block'; // Modal anzeigen
+//    
     // Cursor ans Ende des Textes setzen
-    expandedInput.focus();
-    expandedInput.setSelectionRange(expandedInput.value.length, expandedInput.value.length);
-  } else {
-    alert('Bitte stimmen Sie den Bedingungen zu, bevor Sie das Modal öffnen.');
-  }
-});
+//    expandedInput.focus();
+//    expandedInput.setSelectionRange(expandedInput.value.length, expandedInput.value.length);
+//  } else {
+//    alert('Bitte stimmen Sie den Bedingungen zu, bevor Sie das Modal öffnen.');
+//  }
+//});
 
 
 
