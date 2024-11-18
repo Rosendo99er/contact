@@ -6613,54 +6613,63 @@ function removeAllCollapsed() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOMContentLoaded: JavaScript geladen und DOM bereit.");
     const inputField = document.querySelector('.rechnungssteller');
     if (inputField) {
+        console.log("Eingabefeld gefunden:", inputField);
+
         const suggestionBox = document.createElement('ul'); // Box für Vorschläge
         suggestionBox.classList.add('suggestion-box'); // CSS-Klasse für die Vorschläge
         inputField.parentNode.appendChild(suggestionBox); // Vorschläge unter dem Eingabefeld hinzufügen
+        console.log("Vorschlagsbox erstellt und ins DOM eingefügt.");
 
         // Event-Listener für Benutzereingaben
         inputField.addEventListener('input', function () {
             const query = inputField.value.trim(); // Eingabe des Benutzers
+            console.log("Benutzereingabe erkannt:", query);
 
             // Nur bei Eingaben mit mindestens 1 Zeichen suchen
             if (query.length > 0) {
+                console.log("Eingabe länger als 1 Zeichen, Vorschläge abrufen...");
                 fetchSuggestions(query);
             } else {
+                console.log("Eingabe leer, Vorschlagsbox wird geleert.");
                 suggestionBox.innerHTML = ''; // Box leeren, wenn Eingabe gelöscht wird
             }
         });
 
-      
-      
-              
+        // Funktion zum Abrufen der Vorschläge
         function fetchSuggestions(query) {
-    fetch(`https://vast-citadel-93222-f91f10e46ebf.herokuapp.com/api/get_biller_names?query=${encodeURIComponent(query)}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        mode: 'cors' // Aktiviert Cross-Origin-Anfragen
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Fehler beim Abrufen der Vorschläge: ${response.statusText}`);
+            console.log("Starte Abruf von Vorschlägen mit Query:", query);
+            fetch(`https://vast-citadel-93222-f91f10e46ebf.herokuapp.com/api/get_biller_names?query=${encodeURIComponent(query)}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                mode: 'cors' // Aktiviert Cross-Origin-Anfragen
+            })
+            .then(response => {
+                console.log("Antwort vom Server erhalten:", response);
+                if (!response.ok) {
+                    throw new Error(`Fehler beim Abrufen der Vorschläge: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Daten erfolgreich vom Server empfangen:", data);
+                updateSuggestions(data.biller_names);
+            })
+            .catch(error => {
+                console.error("Fehler beim Abrufen der Vorschläge:", error);
+            });
         }
-        return response.json();
-    })
-    .then(data => {
-        updateSuggestions(data.biller_names);
-    })
-    .catch(error => {
-        console.error('Fehler:', error);
-    });
-}
-
 
         // Funktion zum Aktualisieren der Vorschläge
         function updateSuggestions(suggestions) {
+            console.log("Vorschläge werden aktualisiert:", suggestions);
             suggestionBox.innerHTML = ''; // Box leeren
             if (suggestions.length === 0) {
+                console.log("Keine Vorschläge gefunden.");
                 const noResultItem = document.createElement('li');
                 noResultItem.textContent = 'Keine Treffer';
                 noResultItem.classList.add('no-result');
@@ -6669,10 +6678,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             suggestions.forEach(suggestion => {
+                console.log("Vorschlag hinzufügen:", suggestion);
                 const listItem = document.createElement('li');
                 listItem.textContent = suggestion;
                 listItem.classList.add('suggestion-item');
                 listItem.addEventListener('click', function () {
+                    console.log("Benutzer hat Vorschlag ausgewählt:", suggestion);
                     inputField.value = suggestion; // Eingabefeld mit Auswahl füllen
                     suggestionBox.innerHTML = ''; // Vorschläge ausblenden
                 });
@@ -6683,11 +6694,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Stil sicherstellen: Vorschläge schließen, wenn man irgendwo anders klickt
         document.addEventListener('click', function (event) {
             if (!suggestionBox.contains(event.target) && event.target !== inputField) {
+                console.log("Klick außerhalb der Vorschlagsbox, leere Vorschläge.");
                 suggestionBox.innerHTML = ''; // Box schließen
             }
         });
     } else {
-        console.error('Eingabefeld .rechnungssteller nicht gefunden!');
+        console.error("Eingabefeld .rechnungssteller nicht gefunden!");
     }
 });
 
