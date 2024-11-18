@@ -1620,85 +1620,6 @@ html, body {
 
 
 
-#rechnungssteller_ort {
-  font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
-  color: var(--primary-font-color);
-  font-weight: normal;
-  flex: 1;
-  padding: 10px 10px 10px 30px;
-  border: 2px solid var(--tertiary-border-color);
-  border-radius: var(--primary-border-radius);
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
-  resize: none;
-  height: 42px;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  position: relative;
-}
-
-#rechnungssteller_ort,
-#rechnungssteller_ort:focus,
-#rechnungssteller_ort:valid {
-    background-color: var(--form-and-field-company-color);
-}
-
-
-#rechnungssteller_ort::placeholder {
-  color: var(--secondary-font-color);
-  font-size: var(--font-size-text);
-  font-style: italic;
-  font-weight: normal;
-  padding-left: 0px;
-}
-
-
-
-
-#rechnungsdatum {
-  font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
-  color: var(--primary-font-color);
-  font-weight: normal;
-  flex: 1;
-  padding: 10px 10px 10px 30px;
-  border: 2px solid var(--tertiary-border-color);
-  border-radius: var(--primary-border-radius);
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
-  resize: none;
-  height: 42px;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  position: relative;
-}
-
-#rechnungsdatum,
-#rechnungsdatum:focus,
-#rechnungsdatum:valid {
-    background-color: var(--form-and-field-company-color);
-}
-
-
-#rechnungsdatum::placeholder {
-  color: var(--secondary-font-color);
-  font-size: var(--font-size-text);
-  font-style: italic;
-  font-weight: normal;
-  padding-left: 0px;
-}
-
-
-
 
 
 #rechnungsnummer {
@@ -2063,31 +1984,6 @@ html, body {
 }
 
 
-#rechnungssteller_ort {
-  font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
-  color: var(--primary-font-color);
-  font-weight: normal;
-  flex: 1;
-  padding: 10px 10px 10px 30px;
-  border: 1px solid var(--tertiary-border-color);
-  border-radius: var(--primary-border-radius);
-  margin-bottom: 5px;
-  margin-top: 5px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
-  resize: none;
-  height: 35px;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  position: relative;
-}
-
-
-
-
 #rechnungsnummer {
   font-family: var(--company-font-family);
   font-size: var(--font-size-text);
@@ -2109,36 +2005,6 @@ html, body {
   box-sizing: border-box;
   position: relative;
 }
-
-
-
-#rechnungsdatum {
-  font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
-  color: var(--primary-font-color);
-  font-weight: normal;
-  flex: 1;
-  padding: 10px 10px 10px 30px;
-  border: 1px solid var(--tertiary-border-color);
-  border-radius: var(--primary-border-radius);
-  margin-bottom: 5px;
-  margin-top: 5px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100%;
-  resize: none;
-  height: 35px;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  position: relative;
-}
-
-
-
-
-
-
 
 
 
@@ -4056,6 +3922,10 @@ textarea:-webkit-autofill {
         <p><strong>an:</strong><br>
         <span id="recipientName"></span><br>
         <span id="recipientEmail"></span></p><br>
+        <p><strong>Betreff:</strong><br>
+          <span id="modalRechnungssteller"></span><br>
+          <span id="modalRechnungsnummer"></span></p><br>
+          <span id="modalAktennummer"></span></p><br>
         <p><strong>Ihr Name:</strong><br>
         <span id="modalName"></span></p><br>
         <p><strong>Ihre E-Mail-Adresse:</strong><br>
@@ -4233,7 +4103,7 @@ textarea:-webkit-autofill {
 
     <input type="text" id="contact-form-name" name="name" placeholder="Vor- und Nachname" maxlength="500" autocomplete="name" required />
 
-    <input type="email" id="contact-form-email" name="email" placeholder="E-Mail-Adresse" maxlength="100" autocomplete="email" required />
+    <input type="email" id="contact-form-email" name="email" placeholder="E-Mail-Adresse" maxlength="500" autocomplete="email" required />
 
     <textarea class="contact-form-nachricht" name="Kontaktnachricht" rows="6" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000" required></textarea>
 
@@ -4248,15 +4118,11 @@ textarea:-webkit-autofill {
 
     <input type="text" id="rechnungssteller" name="rechnungssteller" placeholder="Rechnungssteller" maxlength="500" autocomplete="rechnungssteller" required />
 
-    <input type="text" id="rechnungssteller_ort" name="rechnungssteller_ort" placeholder="Ort des Rechnungsstellers" maxlength="500" autocomplete="rechnungssteller_ort" required />
-
     <input type="text" id="rechnungsnummer" name="rechnungsnummer" placeholder="Rechnungsnummer" maxlength="500" autocomplete="rechnungsnummer" required />
-
-    <input type="text" id="rechnungsdatum" name="rechnungsdatum" placeholder="Rechnungsdatum" maxlength="500" autocomplete="rechnungsdatum" required />
 
     <input type="text" id="contact-form-name" name="name" placeholder="Ihr Vor- und Nachname" maxlength="500" autocomplete="name" required />
 
-    <input type="email" id="contact-form-email" name="email" placeholder="Ihre E-Mail-Adresse" maxlength="100" autocomplete="email" required />
+    <input type="email" id="contact-form-email" name="email" placeholder="Ihre E-Mail-Adresse" maxlength="500" autocomplete="email" required />
 
     <textarea class="contact-form-nachricht" name="Kontaktnachricht" rows="6" placeholder="Ihr Anliegen / Ihre Nachricht" maxlength="2000" required></textarea>
 
@@ -6385,19 +6251,20 @@ async function getTranslatedChatHistoryForEmail() {
 
 async function openConfirmationModal() {
     // Setzt die Werte der Formularfelder in den modalen Dialog
+    const rechnungsstellerValue = document.getElementById('rechnungssteller').value;
+    const rechnungsnummerValue = document.getElementById('rechnungsnummer').value;
+    const aktennummerValue = document.getElementById('contact-form-aktennummer').value;
     const nameValue = document.getElementById('contact-form-name').value;
     const emailValue = document.getElementById('contact-form-email').value;
     const messageValue = document.querySelector('.contact-form-nachricht').value;
 
+    document.getElementById("modalRechnungssteller").innerText = rechnungsstellerValue;
+    document.getElementById("modalRechnungsnummer").innerText = rechnungsnummerValue;
+    document.getElementById("modalAktennummer").innerText = aktennummerValue;
     document.getElementById("modalName").innerText = nameValue;
     document.getElementById("modalEmail").innerText = emailValue;
-
-
     document.getElementById("modalMessage").value = messageValue;  // Setze den Text in das textarea
     
- 
-
-
     // Die übersetzte Chat-Historie abrufen
     const translatedChatHistory = insertParagraphs(await getTranslatedChatHistoryForEmail());
     
@@ -6458,11 +6325,14 @@ async function openConfirmationModal() {
                     },
                     mode: 'cors',  // CORS-Modus aktivieren
                     body: JSON.stringify({
-                        company: companyName,            // Firma, an die gesendet wird
-                        recipient_email: companyEmail,   // Ziel-E-Mail-Adresse
-                        name: nameValue,                 // Name des Chatbot-Benutzers
-                        user_email: emailValue,          // E-Mail des Chatbot-Benutzers
-                        message: messageValue,           // Nachricht des Chatbot-Benutzers
+                        company: companyName,                    // Firma, an die gesendet wird
+                        recipient_email: companyEmail,           // Ziel-E-Mail-Adresse
+                        rechnungssteller: rechnungsstellerValue, // Rechnungssteller des Chatbot-Benutzers
+                        rechnungsnummer: rechnungsnummerValue,   // Rechnungsnummer des Chatbot-Benutzers
+                        aktennummer: aktennummerValue,           // Aktennummer des Chatbot-Benutzers
+                        name: nameValue,                         // Name des Chatbot-Benutzers
+                        user_email: emailValue,                  // E-Mail des Chatbot-Benutzers
+                        message: messageValue,                   // Nachricht des Chatbot-Benutzers
                         chat_history: await getTranslatedChatHistoryForEmail() // Hol den übersetzten Chatverlauf
 
                     })
