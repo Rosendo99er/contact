@@ -6271,19 +6271,22 @@ async function openConfirmationModal() {
     }
 
     // Werte der sichtbaren Felder abrufen
-    const rechnungsstellerValue = getVisibleElementValue('rechnungssteller');
-    const rechnungsnummerValue = getVisibleElementValue('rechnungsnummer');
-    const aktennummerValue = getVisibleElementValue('contact-form-aktennummer');
-    const nameValue = getVisibleElementValue('contact-form-name');
-    const emailValue = getVisibleElementValue('contact-form-email');
-    const messageValue = getVisibleElementValue('contact-form-nachricht');
+    
+    const factoringContainer = document.querySelector('#factoring-section-container');
 
+    const rechnungsstellerValue = factoringContainer.querySelector('rechnungssteller');
+    const rechnungsnummerValue = factoringContainer.querySelector('rechnungsnummer');
+    const aktennummerValue = factoringContainer.querySelector('contact-form-aktennummer');
+    const nameValue = factoringContainer.querySelector('contact-form-name');
+    const emailValue = factoringContainer.querySelector('contact-form-email');
+    const messageValue = factoringContainer.querySelector('contact-form-nachricht');
+    
     document.getElementById("modalRechnungssteller").innerText = rechnungsstellerValue;
     document.getElementById("modalRechnungsnummer").innerText = rechnungsnummerValue;
     document.getElementById("modalAktennummer").innerText = aktennummerValue;
     document.getElementById("modalName").innerText = nameValue;
     document.getElementById("modalEmail").innerText = emailValue;
-    document.getElementById("modalMessage").value = messageValue;  // Setze den Text in das textarea
+    document.getElementById("modalMessage").value = messageValue;
     
     // Die übersetzte Chat-Historie abrufen
     const translatedChatHistory = insertParagraphs(await getTranslatedChatHistoryForEmail());
