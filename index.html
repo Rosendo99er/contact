@@ -3517,7 +3517,7 @@ body.modal-open {
   background-color: rgba(0, 0, 0, 0.5) !important;
   z-index: 11;
   pointer-events: none;
-  display: none;
+  display: flex;
 }
 
 
@@ -6258,129 +6258,141 @@ async function getTranslatedChatHistoryForEmail() {
 
 
 
-
 async function openConfirmationModal() {
 
-    const factoringContainer = document.querySelector('#factoring-container');
-    const rechnungsstellerValue = factoringContainer.querySelector('.rechnungssteller').value;
-    const rechnungsnummerValue = factoringContainer.querySelector('.rechnungsnummer').value;
-    const aktennummerValue = factoringContainer.querySelector('.contact-form-aktennummer').value;
-    const nameValue = factoringContainer.querySelector('.contact-form-name').value;
-    const emailValue = factoringContainer.querySelector('.contact-form-email').value;
-    const messageValue = factoringContainer.querySelector('.contact-form-nachricht').value;
-    
+    // Container A und B abrufen
+    const containerA = document.querySelector('#factoring-section-container');
+    const containerB = document.querySelector('#contact-form-section-container');
+
+    // Prüfen, welcher Container existiert
+    const activeContainer = containerA || containerB;
+
+    if (!activeContainer) {
+        console.error("Keiner der Container existiert.");
+        return; // Funktion abbrechen, wenn kein Container existiert
+    }
+
+
+    // Werte abrufen und auf Standardwerte zurückfallen, falls Felder fehlen
+    const rechnungsstellerValue = activeContainer.querySelector('.rechnungssteller')?.value || '';
+    const rechnungsnummerValue = activeContainer.querySelector('.rechnungsnummer')?.value || '';
+    const aktennummerValue = activeContainer.querySelector('.contact-form-aktennummer')?.value || '';
+    const nameValue = activeContainer.querySelector('.contact-form-name')?.value || '';
+    const emailValue = activeContainer.querySelector('.contact-form-email')?.value || '';
+    const messageValue = activeContainer.querySelector('.contact-form-nachricht')?.value || '';
+
+    // Felder im Modal befüllen
     document.getElementById("modalRechnungssteller").innerText = rechnungsstellerValue;
     document.getElementById("modalRechnungsnummer").innerText = rechnungsnummerValue;
     document.getElementById("modalAktennummer").innerText = aktennummerValue;
     document.getElementById("modalName").innerText = nameValue;
     document.getElementById("modalEmail").innerText = emailValue;
     document.getElementById("modalMessage").value = messageValue;
-    
-    // Die übersetzte Chat-Historie abrufen
-    const translatedChatHistory = insertParagraphs(await getTranslatedChatHistoryForEmail());
-    
-    // Übersetzte Chat-Historie im Modal anzeigen
-    document.getElementById('translated-chat-history').innerText = translatedChatHistory;
 
 
-    // Element-Referenzen erstellen
-    const languageDropdown = document.getElementById('language-dropdown');
-    const instantAnswerButton = document.getElementById('instant-answer-dialog-button');
-    let targetElement;
+// Die übersetzte Chat-Historie abrufen
+const translatedChatHistory = insertParagraphs(await getTranslatedChatHistoryForEmail());
 
-    // Überprüfen, ob Language Dropdown sichtbar ist
-    if (languageDropdown && languageDropdown.offsetParent !== null) {
-        targetElement = languageDropdown; // Wenn sichtbar, zum Language-Dropdown scrollen
-    } else if (instantAnswerButton) {
-        targetElement = instantAnswerButton; // Andernfalls zum Button scrollen
-    } else {
-        console.error("Kein gültiges Ziel zum Scrollen gefunden.");
-        return;
-    }
-
-    // Scrollen zum Ziel-Element
-    targetElement.scrollIntoView({
-        behavior: 'smooth', // Sanftes Scrollen
-        block: 'center'     // Zentriert das Ziel-Element im sichtbaren Bereich
-    });
-
-    // Wartezeit, um sicherzustellen, dass das Scrollen abgeschlossen ist
-    setTimeout(function() {
-
-        fillModalContent(); // Die Funktion aufrufen, um die Inhalte zu füllen
-
-        // Modalen Dialog anzeigen
-        const modal = document.getElementById("confirmModal");
-        modal.style.display = "flex";
-        document.body.classList.add("modal-open"); // Modalität aktivieren
-
-        // "Senden"-Button im modalen Dialog
-        document.getElementById("confirmSend").onclick = async function() {
-            modal.style.display = "none";  // Dialog ausblenden
-            document.body.classList.remove("modal-open"); // Modalität deaktivieren
+// Übersetzte Chat-Historie im Modal anzeigen
+document.getElementById('translated-chat-history').innerText = translatedChatHistory;
 
 
-        var messageValue = document.getElementById("modalMessage").value;
+// Element-Referenzen erstellen
+const languageDropdown = document.getElementById('language-dropdown');
+const instantAnswerButton = document.getElementById('instant-answer-dialog-button');
+let targetElement;
 
-        var companyName = getComputedStyle(document.documentElement).getPropertyValue('--company-name').replace(/"/g, '').trim();
-        var companyEmail = getComputedStyle(document.documentElement).getPropertyValue('--company-email').replace(/"/g, '').trim();
-
-
-
-            try {
-                // POST-Anfrage an Flask senden, um die E-Mail zu versenden
-                const response = await fetch(`https://vast-citadel-93222-f91f10e46ebf.herokuapp.com/send-email`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    mode: 'cors',  // CORS-Modus aktivieren
-                    body: JSON.stringify({
-                        company: companyName,                    // Firma, an die gesendet wird
-                        recipient_email: companyEmail,           // Ziel-E-Mail-Adresse
-                        rechnungssteller: rechnungsstellerValue, // Rechnungssteller des Chatbot-Benutzers
-                        rechnungsnummer: rechnungsnummerValue,   // Rechnungsnummer des Chatbot-Benutzers
-                        aktennummer: aktennummerValue,           // Aktennummer des Chatbot-Benutzers
-                        name: nameValue,                         // Name des Chatbot-Benutzers
-                        user_email: emailValue,                  // E-Mail des Chatbot-Benutzers
-                        message: messageValue,                   // Nachricht des Chatbot-Benutzers
-                        chat_history: await getTranslatedChatHistoryForEmail() // Hol den übersetzten Chatverlauf
-
-                    })
-                });
-
-                const result = await response.json();
-                if (result.success) {
-                    // Benutzerdefinierte Bestätigung anzeigen und sichtbar machen
-                    const confirmationMessage = document.getElementById("confirm2Modal");
-                    confirmationMessage.style.display = "block";  
-                    setTimeout(function() {
-                        confirmationMessage.style.display = "none";
-                        location.reload();
-                    }, 3500);
-                } else {
-                    console.error('Fehler beim Senden der E-Mail:', result.error);
-                }
-            } catch (error) {
-                console.error('Fehler beim Senden der Anfrage:', error);
-            }
-
-            // Diese Zeile auskommentieren, da das Formular nicht mehr verwendet wird
-            // document.querySelector(".form-button").click(); // Formular absenden
-
-        };
-
-        // "Abbrechen"-Button im modalen Dialog
-        document.getElementById("cancelSend").onclick = function() {
-            modal.style.display = "none";  // Dialog ausblenden
-            document.body.classList.remove("modal-open"); // Modalität deaktivieren
-            console.log("Senden abgebrochen");
-        };
-
-    }, 500); // Wartezeit (500 ms) nach dem Scrollen
+// Überprüfen, ob Language Dropdown sichtbar ist
+if (languageDropdown && languageDropdown.offsetParent !== null) {
+    targetElement = languageDropdown; // Wenn sichtbar, zum Language-Dropdown scrollen
+} else if (instantAnswerButton) {
+    targetElement = instantAnswerButton; // Andernfalls zum Button scrollen
+} else {
+    console.error("Kein gültiges Ziel zum Scrollen gefunden.");
+    return;
 }
 
+// Scrollen zum Ziel-Element
+targetElement.scrollIntoView({
+    behavior: 'smooth', // Sanftes Scrollen
+    block: 'center'     // Zentriert das Ziel-Element im sichtbaren Bereich
+});
 
+// Wartezeit, um sicherzustellen, dass das Scrollen abgeschlossen ist
+setTimeout(function() {
+
+    fillModalContent(); // Die Funktion aufrufen, um die Inhalte zu füllen
+
+    // Modalen Dialog anzeigen
+    const modal = document.getElementById("confirmModal");
+    modal.style.setProperty("display", "flex", "important");
+    document.body.classList.add("modal-open"); // Modalität aktivieren
+
+    // "Senden"-Button im modalen Dialog
+    document.getElementById("confirmSend").onclick = async function() {
+        modal.style.display = "none";  // Dialog ausblenden
+        document.body.classList.remove("modal-open"); // Modalität deaktivieren
+
+
+    var messageValue = document.getElementById("modalMessage").value;
+
+    var companyName = getComputedStyle(document.documentElement).getPropertyValue('--company-name').replace(/"/g, '').trim();
+    var companyEmail = getComputedStyle(document.documentElement).getPropertyValue('--company-email').replace(/"/g, '').trim();
+
+
+
+        try {
+            // POST-Anfrage an Flask senden, um die E-Mail zu versenden
+            const response = await fetch(`https://vast-citadel-93222-f91f10e46ebf.herokuapp.com/send-email`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                mode: 'cors',  // CORS-Modus aktivieren
+                body: JSON.stringify({
+                    company: companyName,                    // Firma, an die gesendet wird
+                    recipient_email: companyEmail,           // Ziel-E-Mail-Adresse
+                    rechnungssteller: rechnungsstellerValue, // Rechnungssteller des Chatbot-Benutzers
+                    rechnungsnummer: rechnungsnummerValue,   // Rechnungsnummer des Chatbot-Benutzers
+                    aktennummer: aktennummerValue,           // Aktennummer des Chatbot-Benutzers
+                    name: nameValue,                         // Name des Chatbot-Benutzers
+                    user_email: emailValue,                  // E-Mail des Chatbot-Benutzers
+                    message: messageValue,                   // Nachricht des Chatbot-Benutzers
+                    chat_history: await getTranslatedChatHistoryForEmail() // Hol den übersetzten Chatverlauf
+
+                })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                // Benutzerdefinierte Bestätigung anzeigen und sichtbar machen
+                const confirmationMessage = document.getElementById("confirm2Modal");
+                confirmationMessage.style.display = "block";  
+                setTimeout(function() {
+                    confirmationMessage.style.display = "none";
+                    location.reload();
+                }, 3500);
+            } else {
+                console.error('Fehler beim Senden der E-Mail:', result.error);
+            }
+        } catch (error) {
+            console.error('Fehler beim Senden der Anfrage:', error);
+        }
+
+        // Diese Zeile auskommentieren, da das Formular nicht mehr verwendet wird
+        // document.querySelector(".form-button").click(); // Formular absenden
+
+    };
+
+    // "Abbrechen"-Button im modalen Dialog
+    document.getElementById("cancelSend").onclick = function() {
+        modal.style.display = "none";  // Dialog ausblenden
+        document.body.classList.remove("modal-open"); // Modalität deaktivieren
+        console.log("Senden abgebrochen");
+    };
+
+}, 500); // Wartezeit (500 ms) nach dem Scrollen
+}
 
 
 
