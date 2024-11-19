@@ -3862,6 +3862,7 @@ textarea:-webkit-autofill {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: block;
 }
 
 .suggestion-item {
@@ -6694,6 +6695,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     suggestionBox.innerHTML = ''; // Vorschläge ausblenden
                 });
                 suggestionBox.appendChild(listItem);
+                console.log("Inhalt der Vorschlagsbox nach Hinzufügen:", suggestionBox.innerHTML);
             });
         }
 
