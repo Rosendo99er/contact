@@ -6670,6 +6670,10 @@ document.addEventListener('DOMContentLoaded', function () {
         function updateSuggestions(suggestions) {
             console.log("Vorschläge werden aktualisiert:", suggestions);
             suggestionBox.innerHTML = ''; // Box leeren
+            console.log("Aktueller Inhalt der Vorschlagsbox:", suggestionBox.innerHTML);
+            suggestionBox.style.display = 'block'; // Sichtbarkeit sicherstellen
+            suggestionBox.style.position = 'absolute'; // Falls position nicht korrekt gesetzt
+
             if (suggestions.length === 0) {
                 console.log("Keine Vorschläge gefunden.");
                 const noResultItem = document.createElement('li');
