@@ -6640,43 +6640,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Navigation mit Tastatur
     inputField.addEventListener('keydown', function (event) {
-        const items = suggestionBox.querySelectorAll('.suggestion-item');
-        if (!items.length) return;
+    const items = suggestionBox.querySelectorAll('.suggestion-item');
+    if (!items.length || suggestionBox.style.display === 'none') return; // Keine sichtbaren Elemente, keine Aktion
 
-        switch (event.key) {
-            
-            case 'ArrowDown':
-               event.preventDefault(); // Verhindert Scrollen der Seite
+    switch (event.key) {
+        case 'ArrowDown':
+            event.preventDefault(); // Verhindert Scrollen der Seite
 
-               // Wenn noch kein Fokus gesetzt ist, springe zum ersten Element
-               if (currentFocus === -1) {
-                   currentFocus = 0; // Setze den Fokus auf das erste Element
-               } else {
-                   currentFocus = (currentFocus + 1) % items.length; // Bewege nach unten
-               }
- 
-               setActive(items, currentFocus); // Markiere das Element
-               break;
+            // Wenn noch kein Fokus gesetzt ist, springe zum ersten Element
+            if (currentFocus === -1) {
+                currentFocus = 0;
+            } else {
+                // Bewege den Fokus zum nächsten Element
+                currentFocus = (currentFocus + 1) % items.length;
+            }
 
+            setActive(items, currentFocus); // Markiere das aktuelle Element
+            break;
 
-            case 'ArrowUp':
-                event.preventDefault();
-                currentFocus = (currentFocus - 1 + items.length) % items.length;
-                setActive(items, currentFocus);
-                break;
+        case 'ArrowUp':
+            event.preventDefault();
 
-            case 'Enter':
-                event.preventDefault();
-                if (currentFocus > -1) {
-                    items[currentFocus].click();
-                }
-                break;
+            // Bewege den Fokus zum vorherigen Element
+            currentFocus = (currentFocus - 1 + items.length) % items.length;
+            setActive(items, currentFocus);
+            break;
 
-            case 'Tab': // Schließt die Box bei TAB
-                closeSuggestionBox();
-                break;
-        }
-    });
+        case 'Enter':
+            event.preventDefault();
+            if (currentFocus > -1) {
+                items[currentFocus].click(); // Simuliere Klick auf das aktuelle Element
+            }
+            break;
+
+        case 'Tab': // Schließt die Box bei TAB
+            closeSuggestionBox();
+            break;
+    }
+});
+
 
     // Vorschläge aktualisieren
     function updateSuggestions(suggestions) {
