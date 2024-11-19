@@ -6644,11 +6644,20 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!items.length) return;
 
         switch (event.key) {
+            
             case 'ArrowDown':
-                event.preventDefault();
-                currentFocus = (currentFocus + 1) % items.length;
-                setActive(items, currentFocus);
-                break;
+               event.preventDefault(); // Verhindert Scrollen der Seite
+
+               // Wenn noch kein Fokus gesetzt ist, springe zum ersten Element
+               if (currentFocus === -1) {
+                   currentFocus = 0; // Setze den Fokus auf das erste Element
+               } else {
+                   currentFocus = (currentFocus + 1) % items.length; // Bewege nach unten
+               }
+ 
+               setActive(items, currentFocus); // Markiere das Element
+               break;
+
 
             case 'ArrowUp':
                 event.preventDefault();
