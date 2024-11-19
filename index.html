@@ -1,4 +1,4 @@
-	<html lang="de">
+<html lang="de">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -6619,7 +6619,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("DOMContentLoaded: JavaScript geladen und DOM bereit.");
     const inputField = document.querySelector('.rechnungssteller');
     const suggestionBox = document.querySelector('.suggestion-box');
-    let currentFocus = -1; // Index für die Navigation in der Liste
+    let currentFocus = -1;
 
     if (!inputField || !suggestionBox) {
         console.error("Eingabefeld oder Vorschlagsbox nicht gefunden!");
@@ -6628,31 +6628,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     console.log("Eingabefeld gefunden:", inputField);
 
-    // Vorschläge abrufen und die Box einblenden
+    // Eingabefeld: Vorschläge abrufen
     inputField.addEventListener('input', function () {
         const query = inputField.value.trim();
         if (query.length > 0) {
-            console.log("Eingabe erkannt:", query);
             fetchSuggestions(query);
         } else {
-            suggestionBox.style.display = 'none'; // Box ausblenden
-            suggestionBox.innerHTML = ''; // Inhalt leeren
+            closeSuggestionBox();
         }
     });
 
-    // Vorschläge ausblenden bei Klick außerhalb
-    document.addEventListener('click', function (event) {
-        if (!suggestionBox.contains(event.target) && event.target !== inputField) {
-            suggestionBox.style.display = 'none';
-        }
-    });
-
-    // Vorschlagsbox ausblenden bei Fokusverlust (z. B. durch TAB)
-    inputField.addEventListener('focusout', function () {
-        suggestionBox.style.display = 'none';
-    });
-
-    // Tastatur-Navigation in der Vorschlagsliste
+    // Navigation mit Tastatur
     inputField.addEventListener('keydown', function (event) {
         const items = suggestionBox.querySelectorAll('.suggestion-item');
         if (!items.length) return;
@@ -6660,27 +6646,33 @@ document.addEventListener('DOMContentLoaded', function () {
         switch (event.key) {
             case 'ArrowDown':
                 event.preventDefault();
-                currentFocus = (currentFocus + 1) % items.length; // Nächster Eintrag
+                currentFocus = (currentFocus + 1) % items.length;
                 setActive(items, currentFocus);
                 break;
+
             case 'ArrowUp':
                 event.preventDefault();
-                currentFocus = (currentFocus - 1 + items.length) % items.length; // Vorheriger Eintrag
+                currentFocus = (currentFocus - 1 + items.length) % items.length;
                 setActive(items, currentFocus);
                 break;
+
             case 'Enter':
                 event.preventDefault();
                 if (currentFocus > -1) {
-                    items[currentFocus].click(); // Klick auf den fokussierten Eintrag simulieren
+                    items[currentFocus].click();
                 }
+                break;
+
+            case 'Tab': // Schließt die Box bei TAB
+                closeSuggestionBox();
                 break;
         }
     });
 
     // Vorschläge aktualisieren
     function updateSuggestions(suggestions) {
-        suggestionBox.innerHTML = ''; // Box leeren
-        currentFocus = -1; // Fokus zurücksetzen
+        suggestionBox.innerHTML = '';
+        currentFocus = -1;
 
         if (suggestions.length === 0) {
             const noResultItem = document.createElement('li');
@@ -6694,26 +6686,33 @@ document.addEventListener('DOMContentLoaded', function () {
                 listItem.classList.add('suggestion-item');
 
                 listItem.addEventListener('click', function () {
-                    inputField.value = suggestion; // Eingabefeld aktualisieren
-                    suggestionBox.style.display = 'none'; // Box ausblenden
+                    inputField.value = suggestion;
+                    closeSuggestionBox();
                 });
 
                 suggestionBox.appendChild(listItem);
             });
         }
 
-        if (suggestionBox.innerHTML !== '') {
-            suggestionBox.style.display = 'block'; // Box einblenden
+        if (suggestions.length > 0) {
+            suggestionBox.style.display = 'block';
         }
     }
 
-    // Aktiven Zustand für Listenelement setzen
+    // Setzt den aktiven Zustand
     function setActive(items, index) {
         items.forEach(item => item.classList.remove('active'));
         if (index > -1) {
             items[index].classList.add('active');
-            items[index].scrollIntoView({ block: 'nearest' }); // Scrollt zum aktiven Eintrag
+            items[index].scrollIntoView({ block: 'nearest' });
         }
+    }
+
+    // Schließt die Vorschlagsbox
+    function closeSuggestionBox() {
+        suggestionBox.style.display = 'none';
+        suggestionBox.innerHTML = '';
+        currentFocus = -1;
     }
 
     // Vorschläge von der API abrufen
@@ -6740,6 +6739,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 
 
 
