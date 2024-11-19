@@ -6638,31 +6638,39 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Navigation mit Tastatur
+    
+    
+
+
+
     inputField.addEventListener('keydown', function (event) {
     const items = suggestionBox.querySelectorAll('.suggestion-item');
-    if (!items.length || suggestionBox.style.display === 'none') return; // Keine sichtbaren Elemente, keine Aktion
+    if (!items.length || suggestionBox.style.display === 'none') return; // Keine Aktion, wenn die Liste leer oder unsichtbar ist
 
     switch (event.key) {
         case 'ArrowDown':
             event.preventDefault(); // Verhindert Scrollen der Seite
 
-            // Wenn noch kein Fokus gesetzt ist, springe zum ersten Element
+            // Setze Fokus auf das erste Element, falls er nicht gesetzt ist
             if (currentFocus === -1) {
                 currentFocus = 0;
             } else {
-                // Bewege den Fokus zum nächsten Element
-                currentFocus = (currentFocus + 1) % items.length;
+                currentFocus = (currentFocus + 1) % items.length; // Nächster Eintrag
             }
 
-            setActive(items, currentFocus); // Markiere das aktuelle Element
+            setActive(items, currentFocus);
             break;
 
         case 'ArrowUp':
             event.preventDefault();
 
             // Bewege den Fokus zum vorherigen Element
-            currentFocus = (currentFocus - 1 + items.length) % items.length;
+            if (currentFocus === -1) {
+                currentFocus = items.length - 1; // Starte am Ende
+            } else {
+                currentFocus = (currentFocus - 1 + items.length) % items.length; // Bewege nach oben
+            }
+
             setActive(items, currentFocus);
             break;
 
@@ -6679,52 +6687,84 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+function setActive(items, index) {
+    // Entferne vorherige Markierungen
+    items.forEach(item => item.classList.remove('active'));
 
-    // Vorschläge aktualisieren
-    function updateSuggestions(suggestions) {
-        suggestionBox.innerHTML = '';
-        currentFocus = -1;
+    // Markiere das aktuelle Element und scrolle nur bei Bedarf
+    if (index > -1) {
+        items[index].classList.add('active');
 
-        if (suggestions.length === 0) {
-            const noResultItem = document.createElement('li');
-            noResultItem.textContent = 'Keine Treffer';
-            noResultItem.classList.add('no-result');
-            suggestionBox.appendChild(noResultItem);
-        } else {
-            suggestions.forEach(suggestion => {
-                const listItem = document.createElement('li');
-                listItem.textContent = suggestion;
-                listItem.classList.add('suggestion-item');
-
-                listItem.addEventListener('click', function () {
-                    inputField.value = suggestion;
-                    closeSuggestionBox();
-                });
-
-                suggestionBox.appendChild(listItem);
-            });
-        }
-
-        if (suggestions.length > 0) {
-            suggestionBox.style.display = 'block';
-        }
-    }
-
-    // Setzt den aktiven Zustand
-    function setActive(items, index) {
-        items.forEach(item => item.classList.remove('active'));
-        if (index > -1) {
-            items[index].classList.add('active');
+        // Scroll nur, wenn das Element außerhalb des sichtbaren Bereichs liegt
+        const bounding = items[index].getBoundingClientRect();
+        const boxBounding = suggestionBox.getBoundingClientRect();
+        if (bounding.top < boxBounding.top || bounding.bottom > boxBounding.bottom) {
             items[index].scrollIntoView({ block: 'nearest' });
         }
     }
+}
 
-    // Schließt die Vorschlagsbox
-    function closeSuggestionBox() {
-        suggestionBox.style.display = 'none';
-        suggestionBox.innerHTML = '';
-        currentFocus = -1;
+function updateSuggestions(suggestions) {
+    suggestionBox.innerHTML = ''; // Box leeren
+    currentFocus = -1; // Fokus zurücksetzen
+
+    if (suggestions.length === 0) {
+        const noResultItem = document.createElement('li');
+        noResultItem.textContent = 'Keine Treffer';
+        noResultItem.classList.add('no-result');
+        suggestionBox.appendChild(noResultItem);
+    } else {
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            listItem.classList.add('suggestion-item');
+
+            listItem.addEventListener('click', function () {
+                inputField.value = suggestion; // Eingabefeld aktualisieren
+                closeSuggestionBox();
+            });
+
+            suggestionBox.appendChild(listItem);
+        });
     }
+
+    if (suggestions.length > 0) {
+        suggestionBox.style.display = 'block'; // Box einblenden
+    }
+}
+
+function closeSuggestionBox() {
+    suggestionBox.style.display = 'none';
+    suggestionBox.innerHTML = '';
+    currentFocus = -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Vorschläge von der API abrufen
     function fetchSuggestions(query) {
