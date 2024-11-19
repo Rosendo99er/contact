@@ -84,7 +84,7 @@
   --secondary-link-color: var(--secondary-company-color);
 
 
-  --body-background-color: var(--primary-background-company-Color);
+  --body-background-color: var(--primary-background-company-color);
 
   --primary-border-color:   var(--form-and-field-border-company-color);
   --secondary-border-color: var(--primary-company-color);
@@ -3854,12 +3854,12 @@ textarea:-webkit-autofill {
     width: 100%;
     max-height: 400px;
     overflow-y: auto;
-    background-color: var(--primary-background-color);
+    background-color: var(--company-logo-background);
     border: 2px solid var(--primary-border-color);
     z-index: 10000;
     list-style-type: none;
-    margin: -10px;
-    padding: 0;
+    margin: -12px;
+    padding-left: 30px;
     display: block;
     box-sizing: border-box;
 }
@@ -3872,6 +3872,8 @@ textarea:-webkit-autofill {
 
 .suggestion-item:hover {
     background-color: var(--special-background-color);
+    color: var(--tertiary-font-color);
+    border-radius: var(--primary-border-radius);
 }
 
 .no-result {
