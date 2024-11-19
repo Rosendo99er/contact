@@ -6651,6 +6651,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     switch (event.key) {
         case 'ArrowDown':
+            console.log("Aktueller Fokus vor Keydown:", currentFocus);
             event.preventDefault(); // Verhindert Scrollen der Seite
 
             // Setze Fokus auf das erste Element, falls er nicht gesetzt ist
@@ -6690,21 +6691,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function setActive(items, index) {
-    // Entferne vorherige Markierungen
+    console.log("Markiere Element mit Index:", index);
+    if (items[index]) {
+        console.log("Aktuelles Element:", items[index].textContent);
+    }
     items.forEach(item => item.classList.remove('active'));
-
-    // Markiere das aktuelle Element und scrolle nur bei Bedarf
     if (index > -1) {
         items[index].classList.add('active');
-
-        // Scroll nur, wenn das Element außerhalb des sichtbaren Bereichs liegt
-        const bounding = items[index].getBoundingClientRect();
-        const boxBounding = suggestionBox.getBoundingClientRect();
-        if (bounding.top < boxBounding.top || bounding.bottom > boxBounding.bottom) {
-            items[index].scrollIntoView({ block: 'nearest' });
-        }
+        items[index].scrollIntoView({ block: 'nearest' });
     }
 }
+
 
 function updateSuggestions(suggestions) {
     suggestionBox.innerHTML = ''; // Box leeren
