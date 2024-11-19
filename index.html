@@ -3851,8 +3851,8 @@ textarea:-webkit-autofill {
 
 .suggestion-box {
     position: absolute;  
-    top: calc(100% + 5px);
-    left: 0;
+    /*top: calc(100% + 5px);
+    left: 0;*/
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
@@ -4152,7 +4152,7 @@ textarea:-webkit-autofill {
   <div id="factoring-container">
 
     <input type="text" class="rechnungssteller" name="rechnungssteller" placeholder="Rechnungssteller" maxlength="500" autocomplete="off" required />
-    <ul class="suggestion-box" style="display: none;"></ul>
+    <ul class="suggestion-box">Hallo</ul>
 
     <input type="text" class="rechnungsnummer" name="rechnungsnummer" placeholder="Rechnungsnummer" maxlength="500" autocomplete="off" required />
 
@@ -6680,7 +6680,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     listItem.classList.add('suggestion-item');
                     listItem.addEventListener('click', function () {
                         inputField.value = suggestion;
-                        suggestionBox.style.display = 'none'; // Box ausblenden nach Auswahl
+                        //suggestionBox.style.display = 'none'; // Box ausblenden nach Auswahl
                     });
                     suggestionBox.appendChild(listItem);
                 });
@@ -6691,7 +6691,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.addEventListener('click', function (event) {
             if (!suggestionBox.contains(event.target) && event.target !== inputField) {
-                suggestionBox.style.display = 'none'; // Box schließen
+                //suggestionBox.style.display = 'none'; // Box schließen
             }
         });
 
