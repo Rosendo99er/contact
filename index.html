@@ -4152,6 +4152,7 @@ textarea:-webkit-autofill {
   <div id="factoring-container">
 
     <input type="text" class="rechnungssteller" name="rechnungssteller" placeholder="Rechnungssteller" maxlength="500" autocomplete="off" required />
+    <ul class="suggestion-box" style="display: none;"></ul>
 
     <input type="text" class="rechnungsnummer" name="rechnungsnummer" placeholder="Rechnungsnummer" maxlength="500" autocomplete="off" required />
 
@@ -6621,10 +6622,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (inputField) {
         console.log("Eingabefeld gefunden:", inputField);
 
-        const suggestionBox = document.createElement('ul'); // Box für Vorschläge
-        suggestionBox.classList.add('suggestion-box'); // CSS-Klasse für die Vorschläge
-        inputField.parentNode.appendChild(suggestionBox); // Vorschläge unter dem Eingabefeld hinzufügen
-        console.log("Vorschlagsbox erstellt und ins DOM eingefügt.");
+        const suggestionBox = document.querySelector('.suggestion-box');
 
         // Event-Listener für Benutzereingaben
         inputField.addEventListener('input', function () {
@@ -6669,43 +6667,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Funktion zum Aktualisieren der Vorschläge
         function updateSuggestions(suggestions) {
-            console.log("Vorschläge werden aktualisiert:", suggestions);
             suggestionBox.innerHTML = ''; // Box leeren
-            console.log("Aktueller Inhalt der Vorschlagsbox:", suggestionBox.innerHTML);
-            suggestionBox.style.display = 'block'; // Sichtbarkeit sicherstellen
-            suggestionBox.style.position = 'absolute'; // Falls position nicht korrekt gesetzt
-
             if (suggestions.length === 0) {
-                console.log("Keine Vorschläge gefunden.");
                 const noResultItem = document.createElement('li');
                 noResultItem.textContent = 'Keine Treffer';
                 noResultItem.classList.add('no-result');
                 suggestionBox.appendChild(noResultItem);
-                return;
-            }
-
-            suggestions.forEach(suggestion => {
-                console.log("Vorschlag hinzufügen:", suggestion);
-                const listItem = document.createElement('li');
-                listItem.textContent = suggestion;
-                listItem.classList.add('suggestion-item');
-                listItem.addEventListener('click', function () {
-                    console.log("Benutzer hat Vorschlag ausgewählt:", suggestion);
-                    inputField.value = suggestion; // Eingabefeld mit Auswahl füllen
-                    suggestionBox.innerHTML = ''; // Vorschläge ausblenden
+            } else {
+                suggestions.forEach(suggestion => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = suggestion;
+                    listItem.classList.add('suggestion-item');
+                    listItem.addEventListener('click', function () {
+                        inputField.value = suggestion;
+                        suggestionBox.style.display = 'none'; // Box ausblenden nach Auswahl
+                    });
+                    suggestionBox.appendChild(listItem);
                 });
-                suggestionBox.appendChild(listItem);
-                console.log("Inhalt der Vorschlagsbox nach Hinzufügen:", suggestionBox.innerHTML);
-            });
+            }
+            suggestionBox.style.display = 'block'; // Box einblenden, falls Vorschläge existieren
         }
 
-        // Stil sicherstellen: Vorschläge schließen, wenn man irgendwo anders klickt
+
         document.addEventListener('click', function (event) {
             if (!suggestionBox.contains(event.target) && event.target !== inputField) {
-                console.log("Klick außerhalb der Vorschlagsbox, leere Vorschläge.");
-                suggestionBox.innerHTML = ''; // Box schließen
+                suggestionBox.style.display = 'none'; // Box schließen
             }
         });
+
     } else {
         console.error("Eingabefeld .rechnungssteller nicht gefunden!");
     }
