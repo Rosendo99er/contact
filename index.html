@@ -1,4 +1,4 @@
-<html lang="de">
+	<html lang="de">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -4152,7 +4152,7 @@ textarea:-webkit-autofill {
   <div id="factoring-container">
 
     <input type="text" class="rechnungssteller" name="rechnungssteller" placeholder="Rechnungssteller" maxlength="500" autocomplete="off" required />
-    <ul class="suggestion-box">Hallo</ul>
+    <ul class="suggestion-box" style="display:none"></ul>
 
     <input type="text" class="rechnungsnummer" name="rechnungsnummer" placeholder="Rechnungsnummer" maxlength="500" autocomplete="off" required />
 
@@ -6615,100 +6615,129 @@ function removeAllCollapsed() {
 
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOMContentLoaded: JavaScript geladen und DOM bereit.");
     const inputField = document.querySelector('.rechnungssteller');
-    if (inputField) {
-        console.log("Eingabefeld gefunden:", inputField);
+    const suggestionBox = document.querySelector('.suggestion-box');
+    let currentFocus = -1; // Index für die Navigation in der Liste
 
-        const suggestionBox = document.querySelector('.suggestion-box');
+    if (!inputField || !suggestionBox) {
+        console.error("Eingabefeld oder Vorschlagsbox nicht gefunden!");
+        return;
+    }
 
-        // Event-Listener für Benutzereingaben
-        inputField.addEventListener('input', function () {
-            const query = inputField.value.trim(); // Eingabe des Benutzers
-            console.log("Benutzereingabe erkannt:", query);
+    console.log("Eingabefeld gefunden:", inputField);
 
-            // Nur bei Eingaben mit mindestens 1 Zeichen suchen
-            if (query.length > 0) {
-                console.log("Eingabe länger als 1 Zeichen, Vorschläge abrufen...");
-                fetchSuggestions(query);
-            } else {
-                console.log("Eingabe leer, Vorschlagsbox wird geleert.");
-                suggestionBox.innerHTML = ''; // Box leeren, wenn Eingabe gelöscht wird
-            }
-        });
+    // Vorschläge abrufen und die Box einblenden
+    inputField.addEventListener('input', function () {
+        const query = inputField.value.trim();
+        if (query.length > 0) {
+            console.log("Eingabe erkannt:", query);
+            fetchSuggestions(query);
+        } else {
+            suggestionBox.style.display = 'none'; // Box ausblenden
+            suggestionBox.innerHTML = ''; // Inhalt leeren
+        }
+    });
 
-        // Funktion zum Abrufen der Vorschläge
-        function fetchSuggestions(query) {
-            console.log("Starte Abruf von Vorschlägen mit Query:", query);
-            fetch(`https://vast-citadel-93222-f91f10e46ebf.herokuapp.com/api/get_biller_names?query=${encodeURIComponent(query)}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                mode: 'cors' // Aktiviert Cross-Origin-Anfragen
-            })
-            .then(response => {
-                console.log("Antwort vom Server erhalten:", response);
-                if (!response.ok) {
-                    throw new Error(`Fehler beim Abrufen der Vorschläge: ${response.statusText}`);
+    // Vorschläge ausblenden bei Klick außerhalb
+    document.addEventListener('click', function (event) {
+        if (!suggestionBox.contains(event.target) && event.target !== inputField) {
+            suggestionBox.style.display = 'none';
+        }
+    });
+
+    // Vorschlagsbox ausblenden bei Fokusverlust (z. B. durch TAB)
+    inputField.addEventListener('focusout', function () {
+        suggestionBox.style.display = 'none';
+    });
+
+    // Tastatur-Navigation in der Vorschlagsliste
+    inputField.addEventListener('keydown', function (event) {
+        const items = suggestionBox.querySelectorAll('.suggestion-item');
+        if (!items.length) return;
+
+        switch (event.key) {
+            case 'ArrowDown':
+                event.preventDefault();
+                currentFocus = (currentFocus + 1) % items.length; // Nächster Eintrag
+                setActive(items, currentFocus);
+                break;
+            case 'ArrowUp':
+                event.preventDefault();
+                currentFocus = (currentFocus - 1 + items.length) % items.length; // Vorheriger Eintrag
+                setActive(items, currentFocus);
+                break;
+            case 'Enter':
+                event.preventDefault();
+                if (currentFocus > -1) {
+                    items[currentFocus].click(); // Klick auf den fokussierten Eintrag simulieren
                 }
-                return response.json();
-            })
-            .then(data => {
-                console.log("Daten erfolgreich vom Server empfangen:", data);
-                updateSuggestions(data.biller_names);
-            })
-            .catch(error => {
-                console.error("Fehler beim Abrufen der Vorschläge:", error);
+                break;
+        }
+    });
+
+    // Vorschläge aktualisieren
+    function updateSuggestions(suggestions) {
+        suggestionBox.innerHTML = ''; // Box leeren
+        currentFocus = -1; // Fokus zurücksetzen
+
+        if (suggestions.length === 0) {
+            const noResultItem = document.createElement('li');
+            noResultItem.textContent = 'Keine Treffer';
+            noResultItem.classList.add('no-result');
+            suggestionBox.appendChild(noResultItem);
+        } else {
+            suggestions.forEach(suggestion => {
+                const listItem = document.createElement('li');
+                listItem.textContent = suggestion;
+                listItem.classList.add('suggestion-item');
+
+                listItem.addEventListener('click', function () {
+                    inputField.value = suggestion; // Eingabefeld aktualisieren
+                    suggestionBox.style.display = 'none'; // Box ausblenden
+                });
+
+                suggestionBox.appendChild(listItem);
             });
         }
 
-        
-// Funktion zum Aktualisieren der Vorschläge
-function updateSuggestions(suggestions) {
-    suggestionBox.innerHTML = ''; // Box leeren
+        if (suggestionBox.innerHTML !== '') {
+            suggestionBox.style.display = 'block'; // Box einblenden
+        }
+    }
 
-    if (suggestions.length === 0) {
-        const noResultItem = document.createElement('li');
-        noResultItem.textContent = 'Keine Treffer';
-        noResultItem.classList.add('no-result');
-        suggestionBox.appendChild(noResultItem);
-    } else {
-        suggestions.forEach(suggestion => {
-            const listItem = document.createElement('li');
-            listItem.textContent = suggestion;
-            listItem.classList.add('suggestion-item');
+    // Aktiven Zustand für Listenelement setzen
+    function setActive(items, index) {
+        items.forEach(item => item.classList.remove('active'));
+        if (index > -1) {
+            items[index].classList.add('active');
+            items[index].scrollIntoView({ block: 'nearest' }); // Scrollt zum aktiven Eintrag
+        }
+    }
 
-            listItem.addEventListener('click', function () {
-                inputField.value = suggestion; // Eingabefeld mit dem ausgewählten Vorschlag füllen
-                suggestionBox.style.display = 'none'; // Box ausblenden nach Auswahl
-            });
-
-            suggestionBox.appendChild(listItem);
+    // Vorschläge von der API abrufen
+    function fetchSuggestions(query) {
+        console.log("Starte Abruf von Vorschlägen mit Query:", query);
+        fetch(`https://vast-citadel-93222-f91f10e46ebf.herokuapp.com/api/get_biller_names?query=${encodeURIComponent(query)}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            mode: 'cors'
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Fehler beim Abrufen der Vorschläge: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            updateSuggestions(data.biller_names);
+        })
+        .catch(error => {
+            console.error("Fehler beim Abrufen der Vorschläge:", error);
         });
-    }
-
-    // Box nur einblenden, wenn es Vorschläge gibt oder "Keine Treffer" angezeigt wird
-    if (suggestions.length > 0 || suggestionBox.innerHTML !== '') {
-        suggestionBox.style.display = 'block';
-    }
-}
-
-// Vorschläge ausblenden, wenn außerhalb geklickt wird
-document.addEventListener('click', function (event) {
-    if (!suggestionBox.contains(event.target) && event.target !== inputField) {
-        suggestionBox.style.display = 'none'; // Box schließen
-    }
-});
-
-
-
-
-
-    } else {
-        console.error("Eingabefeld .rechnungssteller nicht gefunden!");
     }
 });
 
