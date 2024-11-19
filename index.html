@@ -3852,8 +3852,7 @@ textarea:-webkit-autofill {
 .suggestion-box-container {
     position: relative;  
     width: 100%;
-    height: auto;
-    max-height: 300px;
+    overflow: visible;
     margin-top: 0px;
     box-sizing: border-box;
     z-index: 99999;
@@ -3883,6 +3882,7 @@ textarea:-webkit-autofill {
     margin-bottom: 20px;
     background-color: var(--primary-background-color);
     border-radius: var(--primary-border-radius);
+    border-color: var(--primary-border-color);
 }
 
 .suggestion-item {
@@ -3893,6 +3893,8 @@ textarea:-webkit-autofill {
     background-color: var(--company-logo-background);
     border-radius: var(--primary-border-radius);
     margin-bottom: 2px;
+    box-sizing: border-box;
+
 }
 
 .suggestion-item:hover {
