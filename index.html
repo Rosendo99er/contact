@@ -6665,35 +6665,47 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Funktion zum Aktualisieren der Vorschläge
-        function updateSuggestions(suggestions) {
-            suggestionBox.innerHTML = ''; // Box leeren
-            if (suggestions.length === 0) {
-                const noResultItem = document.createElement('li');
-                noResultItem.textContent = 'Keine Treffer';
-                noResultItem.classList.add('no-result');
-                suggestionBox.appendChild(noResultItem);
-            } else {
-                suggestions.forEach(suggestion => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = suggestion;
-                    listItem.classList.add('suggestion-item');
-                    listItem.addEventListener('click', function () {
-                        inputField.value = suggestion;
-                        //suggestionBox.style.display = 'none'; // Box ausblenden nach Auswahl
-                    });
-                    suggestionBox.appendChild(listItem);
-                });
-            }
-            suggestionBox.style.display = 'block'; // Box einblenden, falls Vorschläge existieren
-        }
+        
+// Funktion zum Aktualisieren der Vorschläge
+function updateSuggestions(suggestions) {
+    suggestionBox.innerHTML = ''; // Box leeren
 
+    if (suggestions.length === 0) {
+        const noResultItem = document.createElement('li');
+        noResultItem.textContent = 'Keine Treffer';
+        noResultItem.classList.add('no-result');
+        suggestionBox.appendChild(noResultItem);
+    } else {
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.textContent = suggestion;
+            listItem.classList.add('suggestion-item');
 
-        document.addEventListener('click', function (event) {
-            if (!suggestionBox.contains(event.target) && event.target !== inputField) {
-                //suggestionBox.style.display = 'none'; // Box schließen
-            }
+            listItem.addEventListener('click', function () {
+                inputField.value = suggestion; // Eingabefeld mit dem ausgewählten Vorschlag füllen
+                suggestionBox.style.display = 'none'; // Box ausblenden nach Auswahl
+            });
+
+            suggestionBox.appendChild(listItem);
         });
+    }
+
+    // Box nur einblenden, wenn es Vorschläge gibt oder "Keine Treffer" angezeigt wird
+    if (suggestions.length > 0 || suggestionBox.innerHTML !== '') {
+        suggestionBox.style.display = 'block';
+    }
+}
+
+// Vorschläge ausblenden, wenn außerhalb geklickt wird
+document.addEventListener('click', function (event) {
+    if (!suggestionBox.contains(event.target) && event.target !== inputField) {
+        suggestionBox.style.display = 'none'; // Box schließen
+    }
+});
+
+
+
+
 
     } else {
         console.error("Eingabefeld .rechnungssteller nicht gefunden!");
