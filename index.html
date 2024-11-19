@@ -3849,19 +3849,33 @@ textarea:-webkit-autofill {
 
 
 
+.suggestion-box-container {
+    position: relative;  
+    width: 100%;
+    height: calc(400px - 0px);
+    margin-top: 0px;
+    box-sizing: border-box;
+}
+
+
+
+
 .suggestion-box {
     position: absolute;  
     width: 100%;
-    max-height: 400px;
-    overflow-y: scroll;
+    height: 400px;
+    max-height: calc(400px - 2px);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
     list-style-type: none;
     background-color: var(--company-logo-background);
     border-style: solid;
     border-width: 1px 2px 2px 2px;
     border-color: #000;
+    border-radius: 0 0 var(--primary-company-border-radius) var(--primary-company-border-radius);
     z-index: 10000;
-    padding: 0px 5px 25px 0px;
     margin-top: -16px;
+    padding-bottom: 2px;
     display: block;
     box-sizing: border-box;
 }
@@ -4155,7 +4169,12 @@ textarea:-webkit-autofill {
   <div id="factoring-container">
 
     <input type="text" class="rechnungssteller" name="rechnungssteller" placeholder="Rechnungssteller" maxlength="500" autocomplete="off" required />
-    <ul class="suggestion-box" style="display:none"></ul>
+    
+      <div class="suggestion-box-container" style="display:none">
+    
+        <ul class="suggestion-box"></ul>
+
+      </div>
 
     <input type="text" class="rechnungsnummer" name="rechnungsnummer" placeholder="Rechnungsnummer" maxlength="500" autocomplete="off" required />
 
@@ -6623,7 +6642,7 @@ function removeAllCollapsed() {
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOMContentLoaded: JavaScript geladen und DOM bereit.");
     const inputField = document.querySelector('.rechnungssteller');
-    const suggestionBox = document.querySelector('.suggestion-box');
+    const suggestionBox = document.querySelector('.suggestion-box-container');
     let currentFocus = -1;
 
     if (!inputField || !suggestionBox) {
@@ -6778,7 +6797,6 @@ function closeSuggestionBox() {
         });
     }
 });
-
 
 
 
