@@ -6615,6 +6615,8 @@ function removeAllCollapsed() {
 
 
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOMContentLoaded: JavaScript geladen und DOM bereit.");
     const inputField = document.querySelector('.rechnungssteller');
@@ -6731,39 +6733,25 @@ function updateSuggestions(suggestions) {
     if (suggestions.length > 0) {
         suggestionBox.style.display = 'block'; // Box einblenden
     }
+
+    if (suggestions.length > 0) {
+    currentFocus = 0; // Setze Fokus auf den ersten Eintrag
+    setActive(suggestionBox.querySelectorAll('.suggestion-item'), currentFocus);
+    }
+
 }
+
+
+
+
+
+
 
 function closeSuggestionBox() {
     suggestionBox.style.display = 'none';
     suggestionBox.innerHTML = '';
     currentFocus = -1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     // Vorschläge von der API abrufen
