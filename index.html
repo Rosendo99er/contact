@@ -3855,6 +3855,8 @@ textarea:-webkit-autofill {
     height: calc(400px - 0px);
     margin-top: 0px;
     box-sizing: border-box;
+    z-index: 99999;
+    margin-bottom: 10px;
 }
 
 
@@ -3869,10 +3871,6 @@ textarea:-webkit-autofill {
     scrollbar-gutter: stable;
     list-style-type: none;
     background-color: var(--company-logo-background);
-    border-style: solid;
-    border-width: 1px 2px 2px 2px;
-    border-color: #000;
-    border-radius: 0 0 var(--primary-company-border-radius) var(--primary-company-border-radius);
     z-index: 10000;
     margin-top: -16px;
     padding-bottom: 2px;
@@ -3884,6 +3882,7 @@ textarea:-webkit-autofill {
     padding: 10px 10px 10px 10px;
     cursor: pointer;
     border-bottom: 1px solid #ddd;
+    list-style-type: none;
 }
 
 .suggestion-item:hover {
