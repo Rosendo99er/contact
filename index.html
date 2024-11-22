@@ -20,6 +20,10 @@
   --rules-customer: creamco; 
   --company-main-url: "https://www.cream-collection.de";
   --company-logo-url: url("https://www.cream-collection.de/wp-content/uploads/go-x/u/59b84de7-525d-4992-99ec-ac57b73c25b6/image-640x211.png");
+  --company-logo-width: 200px;
+  --company-logo-height: 80px;
+  --media-company-logo-width: 200px;
+  --media-company-logo-height: 40px;
   --company-logo-background: var(--secondary-background-color);
   --company-name: "cream collection Stephan Vila";
   --company-street: "Roswithastraße 28";
@@ -50,21 +54,25 @@
 
 :root {
 
-  --rules-customer: Königs Inkasso; 
-  --company-main-url: "https://koenigs-inkasso.de";
-  --company-logo-url: url("https://koenigs-inkasso.de/wp-content/uploads/sites/5/2018/07/logo-kg-inkasso-small.svg");
+  --rules-customer: Adelta.Finanz; 
+  --company-main-url: "https://www.adeltafinanz.com/";
+  --company-logo-url: url("https://www.adeltafinanz.com/wp-content/uploads/2019/10/adelta-finanz-ag_factoring_abrechnungsservice.svg");
+  --company-logo-width: 300px;
+  --company-logo-height: 80px;
+  --media-company-logo-width: 300px;
+  --media-company-logo-height: 40px;
   --company-logo-background: var(--secondary-background-color);
-  --company-name: "Königs Inkasso GmbH";
-  --company-street: "Mühlenstr. 49";
-  --company-city: "47918 Tönisvorst";
-  --company-email: "post24@koenigs-inkasso.de";
-  --primary-company-color: #FF4438  ;
-  --secondary-company-color: #909090;
-  --tertiary-company-color: #DEDFE3;
-  --tertiary-company-color-light: #FDFDFD;
-  --website-standard-font-color-light: #FDFDFD;
+  --company-name: "ADELTA.FINANZ AG";
+  --company-street: "Marc-Chagall-Straße 2";
+  --company-city: "40477 Düsseldorf";
+  --company-email: "stephan.vila@cream-collection.de; s.vila@gmx.de";
+  --primary-company-color: #154D7F;
+  --secondary-company-color: #0085CD;
+  --tertiary-company-color: #939393;
+  --tertiary-company-color-light: #EAEAEA;
+  --website-standard-font-color-light: #fff;
   --website-standard-font-color-dark: #000;
-  --primary-company-border-radius: 0px;
+  --primary-company-border-radius: 8px;
   --company-font-family: 'Quicksand', sans-serif;
   --company-font-weight: 300;
   --company-font-size-title: 27px;
@@ -72,11 +80,11 @@
   --company-font-size-text: 18px;
   --company-font-size-finePrint: 18px;
   --company-font-size-button: 18px;
-  --form-and-field-company-color: #FDFDFD;
-  --form-and-field-border-company-color: #DEDFE3;
-  --primary-background-company-color: #ECECEC;
+  --form-and-field-company-color: #eaeaea;
+  --form-and-field-border-company-color: #D3E3F0;
+  --primary-background-company-color: #fff;
   --modal-background: rgba(0, 0, 0, 0.5);
-  --clara-image-url: url("https://rosendo99er.github.io/images/F70BB42B-E612-4FBD-89ED-91230C60F476.PNG");
+  --clara-image-url: url("https://rosendo99er.github.io/images/3BA32B98-B14A-41F6-9F4D-F2428F1E1E36.jpeg");
 
 ########################*/
 
@@ -172,9 +180,8 @@ html, body {
     background-image: var(--company-logo-url);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 200px; 
-    height: 80px;
-    
+    width: var(--company-logo-width); 
+    height: var(--company-logo-height);
 }
 
 
@@ -233,7 +240,7 @@ html, body {
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
 
 
   html, body {
@@ -276,8 +283,8 @@ html, body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center; 
-    width: 200px; 
-    height: 40px;
+    width: var(--media-company-logo-width); 
+    height: var(--media-company-logo-height);
   }
 
   #section-container {
@@ -341,6 +348,7 @@ html, body {
   flex-direction: column;
   box-sizing: border-box;
   z-index: 2; 
+  position: static;
 }
 
 
@@ -540,7 +548,7 @@ html, body {
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
 
     #title-container {
         width: 100%;
@@ -624,7 +632,7 @@ html, body {
 
 
 
-/* ++++++++++++++++++++++++ Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ 
+/* ++++++++++++++++++++++++ Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ */
 
 :root {
 --rules-context: ChatbotContact; 
@@ -672,8 +680,8 @@ html, body {
     background-image: var(--company-logo-url);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 200px; 
-    height: 80px;
+    width: var(--company-logo-width); 
+    height: var(--company-logo-height);
     
 }
 
@@ -831,11 +839,20 @@ html, body {
   position: relative;
 }
 
+
 .contact-form-aktennummer,
-.contact-form-aktennummer:focus,
-.contact-form-aktennummer:valid {
-    background-color: var(--form-and-field-company-color);
+.contact-form-aktennummer:valid
+{
+  background-color: var(--primary-background-company-color);
 }
+
+.contact-form-aktennummer:focus {
+    background-color: var(--primary-background-company-color);
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;    
+}
+
+
 
 
 .contact-form-aktennummer::placeholder {
@@ -872,10 +889,17 @@ html, body {
 }
 
 .contact-form-name,
-.contact-form-name:focus,
-.contact-form-name:valid {
-    background-color: var(--form-and-field-company-color);
+.contact-form-name:valid
+{
+  background-color: var(--primary-background-company-color);
 }
+
+.contact-form-name:focus {
+    background-color: var(--primary-background-company-color);
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;    
+}
+
 
 
 
@@ -914,10 +938,17 @@ html, body {
 }
 
 .contact-form-email,
-.contact-form-email:focus,
-.contact-form-email:valid {
-    background-color: var(--form-and-field-company-color);
+.contact-form-email:valid
+{
+  background-color: var(--primary-background-company-color);
 }
+
+.contact-form-email:focus {
+    background-color: var(--primary-background-company-color);
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;    
+}
+
 
 
 
@@ -982,18 +1013,29 @@ html, body {
 
 
 
-
-
 .contact-form-nachricht,
-.contact-form-nachricht:focus,
-.contact-form-nachricht:valid {
-    background-color: var(--form-and-field-company-color);
+.contact-form-nachricht:valid
+{
+  background-color: var(--primary-background-company-color);
 }
 
-#modalMessage,
-#modalMessage:focus,
-#modalMessage:valid {
-    background-color: var(--primary-background-color);
+.contact-form-nachricht:focus {
+    background-color: var(--primary-background-company-color);
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;
+}
+
+
+.modalMessage,
+.modalMessage:valid
+{
+  background-color: var(--primary-background-company-color);
+}
+
+.modalMessage:focus {
+    background-color: var(--primary-background-company-color);
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;
 }
 
 
@@ -1054,7 +1096,7 @@ html, body {
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
 
 
 html, body {
@@ -1096,8 +1138,8 @@ html, body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; 
-  width: 200px; 
-  height: 40px;
+  width: var(--media-company-logo-width); 
+  height: var(--media-company-logo-height);
 }
 
 
@@ -1305,6 +1347,7 @@ html, body {
   flex-direction: column;
   box-sizing: border-box;
   z-index: 2; 
+  position: static;
 }
 
 
@@ -1391,13 +1434,13 @@ padding-left: 0px;
 
 
 
-  ++++++++++++++++++++++++ ENDE Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ */
+  ++++++++++++++++++++++++ ENDE Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ 
 
 
-/* ++++++++++++++++++++++++ Anwendung Chatbot für Factoring ++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++ Anwendung Chatbot für Factoring ++++++++++++++++++++++++ 
 
 :root {
---rules-context: ChatbotContact; 
+--rules-context: ChatbotContactFactoring; 
 }
 
 
@@ -1443,9 +1486,8 @@ html, body {
     background-image: var(--company-logo-url);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 200px; 
-    height: 80px;
-    
+    width: var(--company-logo-width); 
+    height: var(--company-logo-height);
 }
 
 
@@ -1603,10 +1645,17 @@ html, body {
 }
 
 .rechnungssteller,
-.rechnungssteller:focus,
-.rechnungssteller:valid {
-    background-color: var(--form-and-field-company-color);
+.rechnungssteller:valid
+{
+  background-color: var(--primary-background-company-color);
 }
+
+.rechnungssteller:focus {
+    background-color: var(--primary-background-company-color);
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;
+}
+
 
 
 .rechnungssteller::placeholder {
@@ -1645,9 +1694,15 @@ html, body {
 }
 
 .rechnungsnummer,
-.rechnungsnummer:focus,
-.rechnungsnummer:valid {
-    background-color: var(--form-and-field-company-color);
+.rechnungsnummer:valid
+{
+  background-color: var(--primary-background-company-color);
+}
+
+.rechnungsnummer:focus {
+    background-color: var(--primary-background-company-color);
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;
 }
 
 
@@ -1685,10 +1740,19 @@ html, body {
 }
 
 .contact-form-name,
-.contact-form-name:focus,
-.contact-form-name:valid {
-    background-color: var(--form-and-field-company-color);
+.contact-form-name:valid
+{
+  background-color: var(--primary-background-company-color) !important;
 }
+
+.contact-form-name:focus {
+    background-color: var(--primary-background-company-color) !important;
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;
+}
+
+
+
 
 
 
@@ -1726,10 +1790,18 @@ html, body {
   position: relative;
 }
 
+
+
 .contact-form-email,
-.contact-form-email:focus,
-.contact-form-email:valid {
-    background-color: var(--form-and-field-company-color);
+.contact-form-email:valid
+{
+  background-color: var(--primary-background-company-color) !important;
+}
+
+.contact-form-email:focus {
+    background-color: var(--primary-background-company-color) !important;
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;
 }
 
 
@@ -1795,24 +1867,30 @@ html, body {
 
 
 
-
-
 .contact-form-nachricht,
-.contact-form-nachricht:focus,
-.contact-form-nachricht:valid {
-    background-color: var(--form-and-field-company-color);
+.contact-form-nachricht:valid
+{
+  background-color: var(--primary-background-company-color) !important;
 }
 
-#modalMessage,
-#modalMessage:focus,
-#modalMessage:valid {
-    background-color: var(--primary-background-color);
+.contact-form-nachricht:focus {
+    background-color: var(--primary-background-company-color) !important;
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;
 }
 
 
+.modalMessage,
+.modalMessage:valid
+{
+  background-color: var(--primary-background-company-color) !important;
+}
 
-
-
+.modalMessage:focus {
+    background-color: var(--primary-background-company-color) !important;
+    border: 2px solid var(--secondary-border-color) !important;
+    border-radius: var(--primary-border-radius) !important;
+}
 
 
 
@@ -1832,13 +1910,6 @@ html, body {
   font-style: italic;
   padding-left: 0px;
 }
-
-
-
-
-
-
-
 
 
 #contact-form-container {
@@ -1865,11 +1936,11 @@ html, body {
 }
 
 #factoring-instant-answer-dialog-button-container {
-  display: flex;
+  display: flex !important;
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
 
 
 html, body {
@@ -1911,8 +1982,8 @@ html, body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; 
-  width: 200px; 
-  height: 40px;
+  width: var(--media-company-logo-width); 
+  height: var(--media-company-logo-height);
 }
 
 
@@ -2230,7 +2301,7 @@ padding-left: 0px;
 
 
 
- /* ++++++++++++++++++++++++ ENDE Anwendung Chatbot für Factoring ++++++++++++++++++++++++ */
+  ++++++++++++++++++++++++ ENDE Anwendung Chatbot für Factoring ++++++++++++++++++++++++ */
 
 
 
@@ -2321,7 +2392,7 @@ padding-left: 0px;
 
 
 /* Für kleine Bildschirme (maximale Breite: 576px) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
 
     :root {
         --font-size-title: var(--media-font-size-title) !important;
@@ -2353,11 +2424,11 @@ padding-left: 0px;
     
     
     #chatbot-consent-label {
-      font-size: var(--media-font-size-fineprint) !important;
+      font-size: var(--font-size-fineprint) !important;
     }
 
     .special-link-consent {
-      font-size: var(--media-font-size-fineprint) !important;
+      font-size: var(--font-size-fineprint) !important;
     }
 
 
@@ -2614,6 +2685,19 @@ body.modal-open {
 
 
 
+#instant-answer-dialog-button-container {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 0px; /* Mindesthöhe für den Container */
+  box-sizing: border-box;
+  overflow-x: hidden; /* Verhindert ungewolltes Scrollen */
+  padding: 0px 9px 0px 8px;
+  margin-top: -20px;
+}
+
+
+
 
 #factoring-instant-answer-dialog-button-container {
   flex-direction: column;
@@ -2625,6 +2709,27 @@ body.modal-open {
   padding: 0px 9px 0px 8px;
   margin-top: -20px;
 }
+
+
+
+#instant-answer-dialog-button {
+  display: block;
+  width: 100%;
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-button);
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-button-color);
+  color: var(--tertiary-font-color);
+  cursor: pointer;
+  margin: 20px; /* Passt den Abstand an */
+  }
+
+#instant-answer-dialog-button:hover {
+  background-color: var(--secondary-button-color);
+}
+
 
 
 
@@ -2671,6 +2776,8 @@ body.modal-open {
 
 
 
+
+
 #factoring-message-send-button {
   display: none;
   z-index: 40;
@@ -2689,6 +2796,37 @@ body.modal-open {
 #factoring-message-send-button :hover {
   background-color: var(--secondary-button-color);
 }
+
+
+
+#message-send-button {
+  display: none;
+  z-index: 40;
+  width: 100%;
+  font-family: var(--company-font-family);
+  font-size: var(--font-size-button);
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--primary-border-radius);
+  background-color: var(--primary-button-color);
+  color: var(--tertiary-font-color);
+  cursor: pointer;
+  margin: 0px; /* Passt den Abstand an */
+  }
+
+#message-send-button :hover {
+  background-color: var(--secondary-button-color);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2726,6 +2864,7 @@ body.modal-open {
   flex-direction: column;
   box-sizing: border-box;
   z-index: 2; 
+  position: relative;
 }
 
 
@@ -2992,7 +3131,7 @@ body.modal-open {
 .special-link-consent {
   color: var(--primary-link-color) !important;
   font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
+  font-size: var(--font-size-fineprint) !important;
   text-decoration: underline; /* Optional, wenn du möchtest, dass Links unterstrichen sind */
 }
 
@@ -3004,7 +3143,7 @@ body.modal-open {
 /* Stil für den Consent-Text */
 #chatbot-consent-label {
   font-family: var(--company-font-family);
-  font-size: var(--font-size-text);
+  font-size: var(--font-size-fineprint) !important;
 }
 
 
@@ -4012,7 +4151,7 @@ textarea:-webkit-autofill {
   
       <div class="modal-standard-inner-large-content">
   
-        <h2 class="custom-h2">Ihre Nachricht wurde erfolgreich gesendet!</h2>
+        <h2 class="custom-h2" style="text-align:center;padding:20px;margin:0px">Ihre Nachricht wurde erfolgreich gesendet!</h2>
   
       </div>
   
@@ -4047,24 +4186,29 @@ textarea:-webkit-autofill {
       
       <div class="modal-standard-inner-large-content">
       
-          <h2 class="custom-h2">Wir möchten Ihnen weiterhelfen. Und zwar sofort.</h2>
-          <p class="modal-standard-inner-large-content p">Kennen Sie das? Sie schreiben eine Nachricht über ein Kontaktformular und müssen darauf warten, dass jemand auf Ihr Anliegen antwortet.  Mit unserem Sofortantwort-Chatbot ist das anders: Hier erhalten Sie in den allermeisten Fällen direkt eine Antwort auf Ihre Fragen – ohne Wartezeit!</p>
+        <h2 class="custom-h2">Ich bin Chati, Ihr persönlicher Chat-Assistant und ich möchte Ihnen weiterhelfen. Und zwar sofort.</h2>
+        <p class="modal-standard-inner-large-content p">Kennen Sie das? Sie schreiben eine Nachricht über ein Kontaktformular und müssen darauf warten, dass jemand auf Ihr Anliegen antwortet.  Mit mir ist das anders: In den allermeisten Fällen gebe ich Ihnen direkt eine Antwort auf Ihre Fragen – ohne Wartezeit!</p>
 
-          <h3 class="custom-h3">Funktionen des Chatbots:</h3>
-          <ul class="modal-standard-inner-large-content-ul">
-              <li><strong>Sofortantwort:</strong> Geben Sie Ihre Frage in das Textfeld ein oder übertragen Sie eine bereits verfasste Nachricht aus dem Kontaktformular. Der Chatbot gibt Ihnen sofort eine Antwort.</li>
-              <li><strong>Sprachauswahl:</strong> Wählen Sie Ihre bevorzugte Sprache im Dropdown-Menü. Der Chatbot antwortet dann in der von Ihnen gewählten Sprache.</li>
-              <li><strong>Chat-Historie:</strong> Ihre Konversation wird gespeichert. Über den „Historie leeren“-Button können Sie den Verlauf löschen.</li>
-          </ul>
+        <h3 class="custom-h3">Wie können wir miteinander kommunizieren?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Sofortantwort:</strong> Geben Sie Ihre Frage in das Textfeld am unteren Rand ein. Tippen Sie auf das Pfeilsymbol und ich schreibe Ihnen sofort zurück. Alternativ können Sie ein Thema aus der Liste auswählen. </li>
+            <li><strong>Sprachauswahl:</strong> Wählen Sie Ihre bevorzugte Sprache im Dropdown-Menü. Ich antworte dann in der von Ihnen gewählten Sprache.</li>
+            <li><strong>Chat-Historie:</strong> Unsere Konversation wird solange gespeichert, wie Sie auf dieser Seite verbleiben. Über das Papierkorb-Symbol können Sie den Verlauf sofort löschen.</li>
+        </ul>
 
-          <h3 class="custom-h3">Erklärung der Buttons:</h3>
-          <ul class="modal-standard-inner-large-content-ul">
-              <li><strong>Sofortantwort erhalten:</strong> Übertragen Sie Ihre Nachricht aus dem Kontaktformular in den Chatbot und erhalten Sie sofort eine Antwort.</li>
-              <li><strong>Sofortantwort-Fenster schließen:</strong> Schließen Sie den Chatbot und kehren Sie zum Kontaktformular zurück.</li>
-              <li><strong>Nachricht senden:</strong> Senden Sie Ihre Informationen direkt an das Support-Team.</li>
-              <li><strong>Frage senden:</strong> Stellen Sie dem Chatbot eine individuelle Frage und erhalten Sie sofort eine Antwort.</li>
-              <li><strong>Historie leeren:</strong> Löschen Sie den bisherigen Chatverlauf und starten Sie eine neue Konversation.</li>
-              <li><strong>Hilfe anzeigen:</strong> Zeigt diese Hilfeseite an.</li>
+        <h3 class="custom-h3">Welche Funktionen finden Sie hier?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+
+            <li><strong>Sprache auswählen:</strong> Wählen Sie die von Ihnen gewünschte Konversationssprache über die Sprachauswahl neben dem Flaggensymbol.</li>
+            <li><strong>Thema auswählen:</strong> Die häufigsten Themen können Sie über die Themenliste direkt auswählen. Die erste Frage wird so direkt für Sie an mich geschickt.</li>
+            <li><strong>Hilfe anzeigen:</strong> Das Symbol mit dem Fragezeichen zeigt diese Hilfeseite an.</li>
+            <li><strong>Konversation löschen:</strong> Unsere Konversation wird solange gespeichert, wie Sie auf dieser Seite verbleiben. Über das Papierkorb-Symbol können Sie den Verlauf sofort löschen.</li>
+            <li><strong>Chat schließen:</strong> Das Schließen-Symbol "x" löscht unsere Konversation und bringt Sie zurück zum Kontaktformular. Ihre Eingaben dort sind noch vorhanden, so dass Sie diese per E-Mail an unser Support-Team senden können.</li>
+            <li><strong>Sofortantwort erhalten:</strong> Übertragen Sie Ihre Nachricht aus dem Kontaktformular zu mir und erhalten Sie sofort eine Antwort.</li>
+            <li><strong>Frage senden:</strong> Das Symbol mit dem Pfeil neben dem Eingabefeld sendet Ihre Frage an mich. Warten Sie bitte einen kleinen Augenblick, damit ich eine Antwort formulieren kann.</li>
+            <li><strong>Dialog schließen:</strong> Schließen Sie den gesamten Dialog mit mir und kehren Sie zum Kontaktformular zurück. Alle Eingaben von Ihnen und unsere Konversation werden gelöscht.</li>
+            <li><strong>E-Mail senden:</strong> Senden Sie Ihre Daten aus dem Kontaktformular und unsere Konversation an das Support-Team. Sollte unsere Konversation in einer anderen Sprache stattgefunden haben, wird diese vorher ins Deutsche übersetzt, damit unser Support-Team das Anliegen besser versteht.</li>
+
           </ul>
       
       </div>
@@ -4080,45 +4224,368 @@ textarea:-webkit-autofill {
 
 
 <div id="user-help-container-en" class="send-confirmation" aria-modal="true" style="display:none">
+
+  <div class="modal-standard-inner-large">
+    
+    <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom-h2">I am Chati, your personal chat assistant, and I want to help you. Right away.</h2>
+        <p class="modal-standard-inner-large-content p"> Do you know this? You write a message via a contact form and have to wait for someone to respond to your request. With me, it's different: in most cases, I give you an immediate answer to your questions – no waiting time!</p>
+
+        <h3 class="custom-h3">How can we communicate with each other?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Instant reply:</strong> Enter your question in the text field at the bottom. Tap the arrow icon, and I will respond to you immediately. Alternatively, you can select a topic from the list.</li>
+            <li><strong>Language selection:</strong> Choose your preferred language from the dropdown menu. I will respond in the language you select.</li>
+            <li><strong>Chat history:</strong> Our conversation is saved as long as you stay on this page. You can delete the history immediately using the trash icon.</li>
+        </ul>
+
+        <h3 class="custom-h3">What functions are available here?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Select language:</strong> Choose the language you want to converse in using the language selection next to the flag icon.</li>
+            <li><strong>Select topic:</strong> The most common topics can be directly selected from the topic list. The first question will be sent to me directly.</li>
+            <li><strong>Show help:</strong> The question mark icon displays this help page.</li>
+            <li><strong>Delete conversation:</strong> Our conversation is saved as long as you stay on this page. You can delete the history immediately using the trash icon.</li>
+            <li><strong>Close chat:</strong> The close icon "x" deletes our conversation and takes you back to the contact form. Your inputs there are still available, so you can send them via email to our support team.</li>
+            <li><strong>Get an instant reply:</strong> Transfer your message from the contact form to me and receive an immediate reply.</li>
+            <li><strong>Send question:</strong> The arrow icon next to the input field sends your question to me. Please wait a moment while I formulate an answer.</li>
+            <li><strong>Close dialog:</strong> Close the entire dialog with me and return to the contact form. All your inputs and our conversation will be deleted.</li>
+            <li><strong>Send email:</strong> Send your data from the contact form and our conversation to the support team. If our conversation took place in another language, it will first be translated into German to help the support team understand your request better.</li>
+        </ul>
+
+    </div>
+
+    <div class="modal-standard-button-container">
+        <button id="confirm3button" class="modal-standard-button" onclick="closeHelpModal('Englisch')">OK</button>
+    </div>
+    
+  </div>
+
 </div>
+
+
 
 
 <div id="user-help-container-es" class="send-confirmation" aria-modal="true" style="display:none">
 
+  <div class="modal-standard-inner-large">
+    
+    <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom-h2">Soy Chati, tu asistente personal de chat, y quiero ayudarte. Ahora mismo.</h2>
+        <p class="modal-standard-inner-large-content p"> ¿Te ha pasado? Escribes un mensaje a través de un formulario de contacto y tienes que esperar a que alguien responda a tu solicitud. Conmigo es diferente: en la mayoría de los casos, te doy una respuesta inmediata a tus preguntas, sin tiempo de espera.</p>
+
+        <h3 class="custom-h3">¿Cómo podemos comunicarnos?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Respuesta instantánea:</strong> Escribe tu pregunta en el campo de texto en la parte inferior. Pulsa el ícono de flecha y te responderé de inmediato. Alternativamente, puedes seleccionar un tema de la lista.</li>
+            <li><strong>Selección de idioma:</strong> Elige tu idioma preferido en el menú desplegable. Responderé en el idioma que selecciones.</li>
+            <li><strong>Historial de chat:</strong> Nuestra conversación se guarda mientras permanezcas en esta página. Puedes borrar el historial inmediatamente usando el ícono de papelera.</li>
+        </ul>
+
+        <h3 class="custom-h3">¿Qué funciones están disponibles aquí?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Seleccionar idioma:</strong> Elige el idioma en el que deseas conversar utilizando la selección de idioma junto al ícono de la bandera.</li>
+            <li><strong>Seleccionar tema:</strong> Los temas más comunes se pueden seleccionar directamente desde la lista de temas. La primera pregunta se enviará directamente a mí.</li>
+            <li><strong>Mostrar ayuda:</strong> El ícono con el signo de interrogación muestra esta página de ayuda.</li>
+            <li><strong>Borrar conversación:</strong> Nuestra conversación se guarda mientras permanezcas en esta página. Puedes borrar el historial inmediatamente usando el ícono de papelera.</li>
+            <li><strong>Cerrar chat:</strong> El ícono de cerrar "x" elimina nuestra conversación y te lleva de vuelta al formulario de contacto. Tus datos allí permanecerán disponibles para que los envíes por correo electrónico a nuestro equipo de soporte.</li>
+            <li><strong>Obtener una respuesta instantánea:</strong> Transfiere tu mensaje desde el formulario de contacto a mí y recibe una respuesta inmediata.</li>
+            <li><strong>Enviar pregunta:</strong> El ícono de flecha junto al campo de entrada envía tu pregunta a mí. Por favor, espera un momento mientras formulo una respuesta.</li>
+            <li><strong>Cerrar diálogo:</strong> Cierra todo el diálogo conmigo y regresa al formulario de contacto. Todos tus datos y nuestra conversación serán eliminados.</li>
+            <li><strong>Enviar correo electrónico:</strong> Envía tus datos desde el formulario de contacto y nuestra conversación al equipo de soporte. Si nuestra conversación se realizó en otro idioma, primero se traducirá al alemán para que el equipo de soporte comprenda mejor tu solicitud.</li>
+        </ul>
+
+    </div>
+
+    <div class="modal-standard-button-container">
+        <button id="confirm3button" class="modal-standard-button" onclick="closeHelpModal('Spanisch')">OK</button>
+    </div>
+    
+  </div>
+
 </div>
 
 
+
+
 <div id="user-help-container-tr" class="send-confirmation" aria-modal="true" style="display:none">
+
+  <div class="modal-standard-inner-large">
+    
+    <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom-h2">Ben Chati, kişisel sohbet asistanınızım ve size hemen yardımcı olmak istiyorum.</h2>
+        <p class="modal-standard-inner-large-content p"> Bu durumu biliyor musunuz? Bir iletişim formu üzerinden mesaj yazıyorsunuz ve birinin talebinize yanıt vermesini beklemek zorunda kalıyorsunuz. Benimle bu farklı: Çoğu durumda sorularınıza anında cevap veriyorum – bekleme süresi olmadan!</p>
+
+        <h3 class="custom-h3">Nasıl iletişim kurabiliriz?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Anında cevap:</strong> Sorunuzu alt kısımdaki metin alanına yazın. Ok simgesine dokunun ve size hemen yanıt vereceğim. Alternatif olarak, listeden bir konu seçebilirsiniz.</li>
+            <li><strong>Dil seçimi:</strong> Açılır menüden tercih ettiğiniz dili seçin. Seçtiğiniz dilde yanıt vereceğim.</li>
+            <li><strong>Sohbet geçmişi:</strong> Sohbetimiz bu sayfada kaldığınız sürece kaydedilir. Çöp kutusu simgesini kullanarak geçmişi hemen silebilirsiniz.</li>
+        </ul>
+
+        <h3 class="custom-h3">Burada hangi işlevleri bulabilirsiniz?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Dil seçimi:</strong> Bayrak simgesinin yanındaki dil seçeneğini kullanarak konuşma yapmak istediğiniz dili seçin.</li>
+            <li><strong>Konu seçimi:</strong> En sık karşılaşılan konular liste üzerinden doğrudan seçilebilir. İlk soru doğrudan bana gönderilir.</li>
+            <li><strong>Yardımı göster:</strong> Soru işareti simgesi bu yardım sayfasını gösterir.</li>
+            <li><strong>Sohbeti sil:</strong> Sohbetimiz bu sayfada kaldığınız sürece kaydedilir. Çöp kutusu simgesini kullanarak geçmişi hemen silebilirsiniz.</li>
+            <li><strong>Sohbeti kapat:</strong> Kapatma simgesi "x" sohbetimizi siler ve sizi iletişim formuna geri götürür. Oradaki girdileriniz hâlâ mevcut olup, bunları destek ekibimize e-posta ile gönderebilirsiniz.</li>
+            <li><strong>Anında cevap alın:</strong> Mesajınızı iletişim formundan bana aktarın ve hemen bir yanıt alın.</li>
+            <li><strong>Soru gönder:</strong> Giriş alanının yanındaki ok simgesi sorularınızı bana gönderir. Bir yanıt hazırlamam için lütfen bir an bekleyin.</li>
+            <li><strong>Diyaloğu kapat:</strong> Benimle olan tüm diyaloğu kapatın ve iletişim formuna geri dönün. Tüm girdileriniz ve sohbetimiz silinecektir.</li>
+            <li><strong>E-posta gönder:</strong> İletişim formundan verilerinizi ve sohbetimizi destek ekibine gönderin. Sohbetimiz başka bir dilde gerçekleştiyse, bu önce Almanca'ya çevrilecektir, böylece destek ekibi isteğinizi daha iyi anlayabilir.</li>
+        </ul>
+
+    </div>
+
+    <div class="modal-standard-button-container">
+        <button id="confirm3button" class="modal-standard-button" onclick="closeHelpModal('Türkisch')">OK</button>
+    </div>
+    
+  </div>
 
 </div>
 
 
 <div id="user-help-container-sa" class="send-confirmation" aria-modal="true" style="display:none">
 
+  <div class="modal-standard-inner-large">
+    
+    <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom-h2">أنا شاتي، مساعد الدردشة الشخصي الخاص بك، وأرغب في مساعدتك. على الفور.</h2>
+        <p class="modal-standard-inner-large-content p"> هل تعرف هذا؟ تقوم بكتابة رسالة عبر نموذج الاتصال وتضطر إلى الانتظار حتى يرد شخص ما على طلبك. معي الأمر مختلف: في معظم الحالات، سأعطيك إجابة فورية على أسئلتك – بدون وقت انتظار!</p>
+
+        <h3 class="custom-h3">كيف يمكننا التواصل معًا؟</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>إجابة فورية:</strong> أدخل سؤالك في حقل النص في الأسفل. اضغط على أيقونة السهم وسأرد عليك فورًا. أو يمكنك اختيار موضوع من القائمة.</li>
+            <li><strong>اختيار اللغة:</strong> اختر لغتك المفضلة من القائمة المنسدلة. سأجيبك باللغة التي اخترتها.</li>
+            <li><strong>تاريخ المحادثة:</strong> يتم حفظ محادثتنا طالما أنك تبقى على هذه الصفحة. يمكنك حذف السجل فورًا باستخدام أيقونة سلة المهملات.</li>
+        </ul>
+
+        <h3 class="custom-h3">ما هي الوظائف المتاحة هنا؟</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>اختيار اللغة:</strong> اختر اللغة التي تريد التحدث بها باستخدام اختيار اللغة بجانب أيقونة العلم.</li>
+            <li><strong>اختيار الموضوع:</strong> يمكن اختيار الموضوعات الأكثر شيوعًا مباشرة من قائمة الموضوعات. سيتم إرسال السؤال الأول إلي مباشرة.</li>
+            <li><strong>عرض المساعدة:</strong> تعرض أيقونة علامة الاستفهام صفحة المساعدة هذه.</li>
+            <li><strong>حذف المحادثة:</strong> يتم حفظ محادثتنا طالما أنك تبقى على هذه الصفحة. يمكنك حذف السجل فورًا باستخدام أيقونة سلة المهملات.</li>
+            <li><strong>إغلاق الدردشة:</strong> يؤدي رمز الإغلاق "x" إلى حذف محادثتنا وإعادتك إلى نموذج الاتصال. لا تزال إدخالاتك هناك متاحة لإرسالها عبر البريد الإلكتروني إلى فريق الدعم الخاص بنا.</li>
+            <li><strong>الحصول على إجابة فورية:</strong> انقل رسالتك من نموذج الاتصال إلى وسأرد عليك على الفور.</li>
+            <li><strong>إرسال السؤال:</strong> ترسل أيقونة السهم بجانب حقل الإدخال سؤالك لي. يرجى الانتظار لحظة أثناء صياغة الرد.</li>
+            <li><strong>إغلاق الحوار:</strong> أغلق الحوار بالكامل معي وعد إلى نموذج الاتصال. سيتم حذف جميع إدخالاتك ومحادثتنا.</li>
+            <li><strong>إرسال بريد إلكتروني:</strong> أرسل بياناتك من نموذج الاتصال ومحادثتنا إلى فريق الدعم. إذا جرت محادثتنا بلغة أخرى، فسيتم ترجمتها أولاً إلى اللغة الألمانية لتسهيل فهم فريق الدعم لطلبك.</li>
+        </ul>
+
+    </div>
+
+    <div class="modal-standard-button-container">
+        <button id="confirm3button" class="modal-standard-button" onclick="closeHelpModal('Arabisch')">OK</button>
+    </div>
+    
+  </div>
+
 </div>
 
 
 <div id="user-help-container-ru" class="send-confirmation" aria-modal="true" style="display:none">
+
+  <div class="modal-standard-inner-large">
+    
+    <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom-h2">Я Чати, ваш личный чат-ассистент, и я хочу вам помочь. Прямо сейчас.</h2>
+        <p class="modal-standard-inner-large-content p"> Знакома ли вам эта ситуация? Вы пишете сообщение через контактную форму и вынуждены ждать, пока кто-то ответит на ваш запрос. Со мной все иначе: в большинстве случаев я сразу же дам вам ответ на ваши вопросы – без ожидания!</p>
+
+        <h3 class="custom-h3">Как мы можем общаться?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Мгновенный ответ:</strong> Введите ваш вопрос в текстовое поле внизу. Нажмите на значок стрелки, и я сразу же отвечу. Либо вы можете выбрать тему из списка.</li>
+            <li><strong>Выбор языка:</strong> Выберите предпочитаемый язык в выпадающем меню. Я отвечу на выбранном вами языке.</li>
+            <li><strong>История чата:</strong> Наш диалог сохраняется, пока вы находитесь на этой странице. Вы можете сразу удалить историю, нажав на значок корзины.</li>
+        </ul>
+
+        <h3 class="custom-h3">Какие функции доступны здесь?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Выбор языка:</strong> Выберите язык общения через меню выбора языка рядом с иконкой флага.</li>
+            <li><strong>Выбор темы:</strong> Наиболее распространенные темы можно выбрать прямо из списка. Первый вопрос будет отправлен мне сразу же.</li>
+            <li><strong>Показать помощь:</strong> Значок с вопросительным знаком отображает эту страницу помощи.</li>
+            <li><strong>Удалить диалог:</strong> Наш диалог сохраняется, пока вы находитесь на этой странице. Вы можете удалить историю, нажав на значок корзины.</li>
+            <li><strong>Закрыть чат:</strong> Значок закрытия "x" удаляет наш диалог и возвращает вас к контактной форме. Ваши записи там останутся, чтобы вы могли отправить их по электронной почте в нашу службу поддержки.</li>
+            <li><strong>Получить мгновенный ответ:</strong> Передайте ваше сообщение из контактной формы мне и получите немедленный ответ.</li>
+            <li><strong>Отправить вопрос:</strong> Значок стрелки рядом с полем ввода отправляет ваш вопрос мне. Пожалуйста, подождите немного, пока я формулирую ответ.</li>
+            <li><strong>Закрыть диалог:</strong> Закройте весь диалог со мной и вернитесь к контактной форме. Все ваши записи и наш диалог будут удалены.</li>
+            <li><strong>Отправить электронное письмо:</strong> Отправьте ваши данные из контактной формы и наш диалог в службу поддержки. Если наш диалог был на другом языке, он сначала будет переведен на немецкий, чтобы наша служба поддержки лучше поняла ваш запрос.</li>
+        </ul>
+
+    </div>
+
+    <div class="modal-standard-button-container">
+        <button id="confirm3button" class="modal-standard-button" onclick="closeHelpModal('Russisch')">OK</button>
+    </div>
+    
+  </div>
 
 </div>
 
 
 <div id="user-help-container-pl" class="send-confirmation" aria-modal="true" style="display:none">
 
+  <div class="modal-standard-inner-large">
+    
+    <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom-h2">Jestem Chati, twoim osobistym asystentem czatu i chcę Ci pomóc. Od razu.</h2>
+        <p class="modal-standard-inner-large-content p"> Znasz to? Piszesz wiadomość przez formularz kontaktowy i musisz czekać na odpowiedź na swoje zapytanie. Ze mną jest inaczej: w większości przypadków natychmiast odpowiadam na Twoje pytania – bez czekania!</p>
+
+        <h3 class="custom-h3">Jak możemy się komunikować?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Natychmiastowa odpowiedź:</strong> Wpisz swoje pytanie w polu tekstowym na dole. Naciśnij ikonę strzałki, a ja natychmiast odpowiem. Alternatywnie możesz wybrać temat z listy.</li>
+            <li><strong>Wybór języka:</strong> Wybierz preferowany język z menu rozwijanego. Odpowiem w wybranym przez Ciebie języku.</li>
+            <li><strong>Historia czatu:</strong> Nasza rozmowa jest zapisywana, dopóki pozostajesz na tej stronie. Możesz natychmiast usunąć historię, korzystając z ikony kosza.</li>
+        </ul>
+
+        <h3 class="custom-h3">Jakie funkcje są tutaj dostępne?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Wybierz język:</strong> Wybierz język, w którym chcesz rozmawiać, za pomocą wyboru języka obok ikony flagi.</li>
+            <li><strong>Wybierz temat:</strong> Najczęstsze tematy można wybrać bezpośrednio z listy tematów. Pierwsze pytanie zostanie wysłane bezpośrednio do mnie.</li>
+            <li><strong>Pokaż pomoc:</strong> Ikona znaku zapytania wyświetla tę stronę pomocy.</li>
+            <li><strong>Usuń rozmowę:</strong> Nasza rozmowa jest zapisywana, dopóki pozostajesz na tej stronie. Możesz natychmiast usunąć historię, korzystając z ikony kosza.</li>
+            <li><strong>Zamknij czat:</strong> Ikona zamknięcia "x" usuwa naszą rozmowę i przenosi Cię z powrotem do formularza kontaktowego. Twoje wpisy tam nadal będą dostępne, abyś mógł je wysłać e-mailem do naszego zespołu wsparcia.</li>
+            <li><strong>Otrzymaj natychmiastową odpowiedź:</strong> Prześlij swoją wiadomość z formularza kontaktowego do mnie i otrzymaj natychmiastową odpowiedź.</li>
+            <li><strong>Wyślij pytanie:</strong> Ikona strzałki obok pola wprowadzania wysyła Twoje pytanie do mnie. Proszę chwilę poczekać, aż sformułuję odpowiedź.</li>
+            <li><strong>Zamknij dialog:</strong> Zamknij całą rozmowę ze mną i wróć do formularza kontaktowego. Wszystkie Twoje wpisy i nasza rozmowa zostaną usunięte.</li>
+            <li><strong>Wyślij e-mail:</strong> Wyślij swoje dane z formularza kontaktowego i naszą rozmowę do zespołu wsparcia. Jeśli nasza rozmowa odbywała się w innym języku, najpierw zostanie przetłumaczona na niemiecki, aby nasz zespół wsparcia mógł lepiej zrozumieć Twoje zapytanie.</li>
+        </ul>
+
+    </div>
+
+    <div class="modal-standard-button-container">
+        <button id="confirm3button" class="modal-standard-button" onclick="closeHelpModal('Polnisch')">OK</button>
+    </div>
+    
+  </div>
+
 </div>
+
 
 
 <div id="user-help-container-ro" class="send-confirmation" aria-modal="true" style="display:none">
 
+  <div class="modal-standard-inner-large">
+    
+    <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom-h2">Sunt Chati, asistentul tău personal de chat și vreau să te ajut. Imediat.</h2>
+        <p class="modal-standard-inner-large-content p"> Cunoști această situație? Scrii un mesaj printr-un formular de contact și trebuie să aștepți ca cineva să răspundă la solicitarea ta. Cu mine este diferit: în cele mai multe cazuri, îți dau un răspuns imediat la întrebările tale – fără timp de așteptare!</p>
+
+        <h3 class="custom-h3">Cum putem comunica?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Răspuns instantaneu:</strong> Introdu întrebarea ta în câmpul de text din partea de jos. Apasă pe pictograma săgeată și îți voi răspunde imediat. Alternativ, poți selecta un subiect din listă.</li>
+            <li><strong>Selecție limbă:</strong> Alege limba preferată din meniul derulant. Voi răspunde în limba pe care o alegi.</li>
+            <li><strong>Istoric chat:</strong> Conversația noastră este salvată atât timp cât rămâi pe această pagină. Poți șterge istoricul imediat utilizând pictograma coșului de gunoi.</li>
+        </ul>
+
+        <h3 class="custom-h3">Ce funcții sunt disponibile aici?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Selectează limba:</strong> Alege limba în care dorești să conversezi utilizând selecția de limbă de lângă pictograma steagului.</li>
+            <li><strong>Selectează subiectul:</strong> Cele mai frecvente subiecte pot fi selectate direct din lista de subiecte. Prima întrebare va fi trimisă direct către mine.</li>
+            <li><strong>Afișează ajutor:</strong> Pictograma cu semnul întrebării afișează această pagină de ajutor.</li>
+            <li><strong>Șterge conversația:</strong> Conversația noastră este salvată atât timp cât rămâi pe această pagină. Poți șterge istoricul imediat utilizând pictograma coșului de gunoi.</li>
+            <li><strong>Închide chat-ul:</strong> Pictograma de închidere "x" șterge conversația noastră și te duce înapoi la formularul de contact. Datele tale rămân acolo, astfel încât să le poți trimite prin e-mail echipei noastre de suport.</li>
+            <li><strong>Primește un răspuns imediat:</strong> Transferă mesajul tău din formularul de contact către mine și primește un răspuns imediat.</li>
+            <li><strong>Trimite întrebarea:</strong> Pictograma săgeată de lângă câmpul de introducere trimite întrebarea ta către mine. Te rog să aștepți un moment până formulez un răspuns.</li>
+            <li><strong>Închide dialogul:</strong> Închide întreaga conversație cu mine și revino la formularul de contact. Toate datele tale și conversația noastră vor fi șterse.</li>
+            <li><strong>Trimite un e-mail:</strong> Trimite datele tale din formularul de contact și conversația noastră către echipa de suport. Dacă conversația noastră a avut loc într-o altă limbă, aceasta va fi tradusă mai întâi în germană, pentru ca echipa de suport să înțeleagă mai bine solicitarea ta.</li>
+        </ul>
+
+    </div>
+
+    <div class="modal-standard-button-container">
+        <button id="confirm3button" class="modal-standard-button" onclick="closeHelpModal('Rumänisch')">OK</button>
+    </div>
+    
+  </div>
+
 </div>
 
 
+
 <div id="user-help-container-gr" class="send-confirmation" aria-modal="true" style="display:none">
+
+
+  <div class="modal-standard-inner-large">
+    
+    <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom-h2">Είμαι η Chati, η προσωπική σας βοηθός συνομιλίας και θέλω να σας βοηθήσω. Αμέσως.</h2>
+        <p class="modal-standard-inner-large-content p"> Σας έχει συμβεί; Γράφετε ένα μήνυμα μέσω μιας φόρμας επικοινωνίας και πρέπει να περιμένετε να απαντήσει κάποιος στο αίτημά σας. Με εμένα είναι διαφορετικά: στις περισσότερες περιπτώσεις, σας δίνω άμεση απάντηση στις ερωτήσεις σας – χωρίς αναμονή!</p>
+
+        <h3 class="custom-h3">Πώς μπορούμε να επικοινωνήσουμε;</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Άμεση απάντηση:</strong> Εισάγετε την ερώτησή σας στο πεδίο κειμένου στο κάτω μέρος. Πατήστε το εικονίδιο με το βέλος και θα σας απαντήσω αμέσως. Εναλλακτικά, μπορείτε να επιλέξετε ένα θέμα από τη λίστα.</li>
+            <li><strong>Επιλογή γλώσσας:</strong> Επιλέξτε τη γλώσσα που προτιμάτε από το αναπτυσσόμενο μενού. Θα απαντήσω στη γλώσσα που επιλέγετε.</li>
+            <li><strong>Ιστορικό συνομιλίας:</strong> Η συνομιλία μας αποθηκεύεται όσο παραμένετε σε αυτή τη σελίδα. Μπορείτε να διαγράψετε το ιστορικό αμέσως χρησιμοποιώντας το εικονίδιο του κάδου απορριμμάτων.</li>
+        </ul>
+
+        <h3 class="custom-h3">Τι λειτουργίες είναι διαθέσιμες εδώ;</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Επιλογή γλώσσας:</strong> Επιλέξτε τη γλώσσα στην οποία θέλετε να συνομιλήσετε χρησιμοποιώντας την επιλογή γλώσσας δίπλα στο εικονίδιο της σημαίας.</li>
+            <li><strong>Επιλογή θέματος:</strong> Τα πιο συχνά θέματα μπορούν να επιλεγούν απευθείας από τη λίστα θεμάτων. Η πρώτη ερώτηση θα σταλεί απευθείας σε εμένα.</li>
+            <li><strong>Εμφάνιση βοήθειας:</strong> Το εικονίδιο με το ερωτηματικό εμφανίζει αυτή τη σελίδα βοήθειας.</li>
+            <li><strong>Διαγραφή συνομιλίας:</strong> Η συνομιλία μας αποθηκεύεται όσο παραμένετε σε αυτή τη σελίδα. Μπορείτε να διαγράψετε το ιστορικό αμέσως χρησιμοποιώντας το εικονίδιο του κάδου απορριμμάτων.</li>
+            <li><strong>Κλείσιμο συνομιλίας:</strong> Το εικονίδιο κλεισίματος "x" διαγράφει τη συνομιλία μας και σας επιστρέφει στη φόρμα επικοινωνίας. Οι καταχωρήσεις σας εκεί παραμένουν διαθέσιμες, ώστε να τις στείλετε μέσω email στην ομάδα υποστήριξής μας.</li>
+            <li><strong>Λάβετε άμεση απάντηση:</strong> Μεταφέρετε το μήνυμά σας από τη φόρμα επικοινωνίας σε εμένα και λάβετε άμεση απάντηση.</li>
+            <li><strong>Αποστολή ερώτησης:</strong> Το εικονίδιο με το βέλος δίπλα στο πεδίο εισαγωγής αποστέλλει την ερώτησή σας σε εμένα. Παρακαλώ περιμένετε λίγο μέχρι να διατυπώσω την απάντησή μου.</li>
+            <li><strong>Κλείσιμο διαλόγου:</strong> Κλείστε ολόκληρο τον διάλογο μαζί μου και επιστρέψτε στη φόρμα επικοινωνίας. Όλες οι καταχωρήσεις σας και η συνομιλία μας θα διαγραφούν.</li>
+            <li><strong>Αποστολή email:</strong> Στείλτε τα δεδομένα σας από τη φόρμα επικοινωνίας και τη συνομιλία μας στην ομάδα υποστήριξης. Αν η συνομιλία μας πραγματοποιήθηκε σε άλλη γλώσσα, πρώτα θα μεταφραστεί στα γερμανικά για να κατανοήσει καλύτερα το αίτημά σας.</li>
+        </ul>
+
+    </div>
+
+    <div class="modal-standard-button-container">
+        <button id="confirm3button" class="modal-standard-button" onclick="closeHelpModal('Griechisch')">OK</button>
+    </div>
+    
+  </div>
 
 </div>
 
 
 <div id="user-help-container-it" class="send-confirmation" aria-modal="true" style="display:none">
+
+  <div class="modal-standard-inner-large">
+    
+    <div class="modal-standard-inner-large-content">
+
+        <h2 class="custom-h2">Sono Chati, il tuo assistente personale di chat, e voglio aiutarti. Subito.</h2>
+        <p class="modal-standard-inner-large-content p"> Ti è mai successo? Scrivi un messaggio tramite un modulo di contatto e devi aspettare che qualcuno risponda alla tua richiesta. Con me è diverso: nella maggior parte dei casi ti fornisco subito una risposta alle tue domande – senza attese!</p>
+
+        <h3 class="custom-h3">Come possiamo comunicare?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Risposta immediata:</strong> Inserisci la tua domanda nel campo di testo in basso. Tocca l'icona della freccia e ti risponderò immediatamente. In alternativa, puoi selezionare un argomento dall'elenco.</li>
+            <li><strong>Selezione della lingua:</strong> Scegli la lingua preferita dal menu a discesa. Risponderò nella lingua selezionata.</li>
+            <li><strong>Cronologia della chat:</strong> La nostra conversazione viene salvata fintanto che rimani su questa pagina. Puoi eliminare immediatamente la cronologia utilizzando l'icona del cestino.</li>
+        </ul>
+
+        <h3 class="custom-h3">Quali funzioni sono disponibili qui?</h3>
+        <ul class="modal-standard-inner-large-content-ul">
+            <li><strong>Seleziona lingua:</strong> Scegli la lingua con cui desideri conversare utilizzando la selezione della lingua accanto all'icona della bandiera.</li>
+            <li><strong>Seleziona argomento:</strong> Gli argomenti più comuni possono essere selezionati direttamente dall'elenco degli argomenti. La prima domanda verrà inviata direttamente a me.</li>
+            <li><strong>Mostra aiuto:</strong> L'icona con il punto interrogativo mostra questa pagina di aiuto.</li>
+            <li><strong>Elimina conversazione:</strong> La nostra conversazione viene salvata fintanto che rimani su questa pagina. Puoi eliminare immediatamente la cronologia utilizzando l'icona del cestino.</li>
+            <li><strong>Chiudi chat:</strong> L'icona di chiusura "x" elimina la nostra conversazione e ti riporta al modulo di contatto. I tuoi dati rimangono lì disponibili per inviarli tramite e-mail al nostro team di supporto.</li>
+            <li><strong>Ottieni una risposta immediata:</strong> Trasferisci il tuo messaggio dal modulo di contatto a me e ricevi una risposta immediata.</li>
+            <li><strong>Invia domanda:</strong> L'icona della freccia accanto al campo di inserimento invia la tua domanda a me. Attendi un momento mentre formulo la risposta.</li>
+            <li><strong>Chiudi dialogo:</strong> Chiudi l'intero dialogo con me e torna al modulo di contatto. Tutti i tuoi dati e la nostra conversazione verranno eliminati.</li>
+            <li><strong>Invia e-mail:</strong> Invia i tuoi dati dal modulo di contatto e la nostra conversazione al team di supporto. Se la nostra conversazione è avvenuta in un'altra lingua, verrà prima tradotta in tedesco per aiutare il team di supporto a capire meglio la tua richiesta.</li>
+        </ul>
+
+    </div>
+
+    <div class="modal-standard-button-container">
+        <button id="confirm3button" class="modal-standard-button" onclick="closeHelpModal('Italienisch')">OK</button>
+    </div>
+    
+  </div>
 
 </div>
 
@@ -4217,7 +4684,7 @@ textarea:-webkit-autofill {
     <div class="title-content">
 
         <p class="custom0a-p">Hallo, ich bin Chati,</p>
-        <p class="custom0b-p">wenn Sie Fragen zum Thema Forderungsmanagement oder zu meinem Unternehmen haben, dann sind Sie hier genau richtig. Ich weiß aber noch viel mehr. Versuchen Sie es einfach.</p>
+        <p class="custom0b-p">wenn Sie Fragen zum Thema Factoring oder zu meinem Unternehmen haben, dann sind Sie hier genau richtig. Ich weiß aber noch viel mehr. Versuchen Sie es einfach.</p>
         <p class="custom0c-p">Chat Assistant</p>
 
 
@@ -4292,17 +4759,6 @@ textarea:-webkit-autofill {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
         <div id="chatbot-header">
 
           <div id="chatbot-language">
@@ -4328,11 +4784,11 @@ textarea:-webkit-autofill {
             <select id="theme" onchange="handleThemeChange()">
               <option value disabled selected>Themen:</option>
               <option value="Bitte zeige mir eine aktuelle Forderungsaufstellung an. Beachte die Formatierungsanweisungen.">Forderungsaufstellung</option>
-              <option value="Bitte erkläre mir den Grund der Forderung. Wer ist der Gläubiger und was habe ich genutzt?">Forderungsgrund</option>
+              <option value="Ich möchte die Rechnung bezahlen. Welche Zahlungsarten kann ich nutzen?">Bezahlung</option>
               <option value="Bitte zeige mir meine eingegangenen bzw. verbuchten Zahlungen an.">Zahlungseingang</option>
               <option value="Ich möchte eine Ratenzahlung beantragen.">Ratenzahlung</option>
-              <option value="Ich bin sicher, die Leistung nicht genutzt bzw. den Kauf getätigt zu haben. Was muss ich tun?">Widerspruch</option>
-              <option value="Wer oder was ist cream collection?">Über cream collection</option>
+              <option value="Ich bin mit der Rechnung nicht einverstanden. Wie kann ich einen Widerspruch einreichen?">Widerspruch</option>
+              <option value="Wer oder was ist die ADELTA.FINANZ AG?">Über ADELTA.FINANZ</option>
             </select>
 
           </div>
@@ -4427,18 +4883,7 @@ textarea:-webkit-autofill {
 
 
 
-
- 
-
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -4534,11 +4979,11 @@ const textTranslations = {
         ],   
         "themes": [
             "Forderungsaufstellung",
-            "Forderungsgrund",
+            "Bezahlung",
             "Zahlungseingang",
             "Ratenzahlung",
             "Widerspruch",
-            "Über cream collection"    
+            "Über ADELTA.FINANZ"    
         ],
     },
 
@@ -5110,7 +5555,7 @@ function saveUserMessage(userMessage) {
     conversationHistory.push({ role: 'user', content: userMessage });
     // Überprüfen, ob das Löschen deaktiviert werden soll
     if (!preventUserMessageDeletion) {
-        if (conversationHistory.length > 7) {
+        if (conversationHistory.length > 20) {
             conversationHistory.shift(); // Entferne das älteste Paar
         }
     }
@@ -5325,6 +5770,10 @@ async function sendMessage() {
           loaderElement.style.display = 'none';
           document.getElementById('loader-container').style.display = 'none';
           document.getElementById('loader-text').style.display = 'none';
+    } finally {
+        // Immer ausführen: Eingabefeld leeren und Cursor positionieren
+        inputElement.value = '';
+        inputElement.focus();
     }
 }
 
@@ -5529,26 +5978,26 @@ function updateFlagAndSendMessage() {
     //document.getElementById('message-send-button').textContent = translations.message2Button;
     //console.log("Message2-Button aktualisiert");
 
-    document.getElementById('confirm-delete-button').textContent = translations.confirmButton;
-    console.log("Confirm-Delete-Button aktualisiert");
+    //document.getElementById('confirm-delete-button').textContent = translations.confirmButton;
+    //console.log("Confirm-Delete-Button aktualisiert");
 
-    document.getElementById('confirm-delete-button2').textContent = translations.confirm2Button;
-    console.log("Confirm-Delete-Button2 aktualisiert");
+    //document.getElementById('confirm-delete-button2').textContent = translations.confirm2Button;
+    //console.log("Confirm-Delete-Button2 aktualisiert");
 
-    document.getElementById('modal-ok-button').textContent = translations.confirm4Button;
-    console.log("modal-ok-button aktualisiert");
+    //document.getElementById('modal-ok-button').textContent = translations.confirm4Button;
+    //console.log("modal-ok-button aktualisiert");
 
-    document.getElementById('cancel-button').textContent = translations.cancelButton;
-    console.log("Cancel-Button aktualisiert");
+    //document.getElementById('cancel-button').textContent = translations.cancelButton;
+    //console.log("Cancel-Button aktualisiert");
 
-    document.getElementById('cancel2-button').textContent = translations.cancel2Button;
-    console.log("Cancel2-Button aktualisiert");
+    //document.getElementById('cancel2-button').textContent = translations.cancel2Button;
+    //console.log("Cancel2-Button aktualisiert");
 
-    document.getElementById('resetPageText1').textContent = translations.resetPageText1;
-    console.log("Reset-Text 1 aktualisiert");
+    //document.getElementById('resetPageText1').textContent = translations.resetPageText1;
+    //console.log("Reset-Text 1 aktualisiert");
 
-    document.getElementById('resetPageText2').textContent = translations.resetPageText2;
-    console.log("Reset-Text 2 aktualisiert");
+    //document.getElementById('resetPageText2').textContent = translations.resetPageText2;
+    //console.log("Reset-Text 2 aktualisiert");
 
     // Aktualisiere den Loader-Text
     document.getElementById('loader-text').textContent = translations['loader-text'];
@@ -5560,11 +6009,11 @@ function updateFlagAndSendMessage() {
     console.log("Platzhalter im Eingabefeld aktualisiert");
 
     // Neue Texte für die Modalen Dialoge (Chat-Historie)
-    document.getElementById('chat-history-deleted').textContent = translations.chatHistoryDeleted;
-    console.log("Chat-History-Deleted-Text aktualisiert");
+    //document.getElementById('chat-history-deleted').textContent = translations.chatHistoryDeleted;
+    //console.log("Chat-History-Deleted-Text aktualisiert");
 
-    document.getElementById('chat-history-deleted-and-closed').textContent = translations.chatHistoryDeletedAndClosed;
-    console.log("Chat-History-Deleted-And-Closed-Text aktualisiert");
+    //document.getElementById('chat-history-deleted-and-closed').textContent = translations.chatHistoryDeletedAndClosed;
+    //console.log("Chat-History-Deleted-And-Closed-Text aktualisiert");
  
 
     // Nur senden, wenn die Checkbox aktiviert ist
@@ -5574,6 +6023,7 @@ function updateFlagAndSendMessage() {
     } else {
         console.log("Checkbox ist nicht aktiviert, keine Nachricht wird gesendet");
     }
+
 }
 
 
@@ -5943,9 +6393,15 @@ function transferMessageToChatbot() {
   
   // Prüfen, ob die Consent-Checkbox aktiv ist
   if (!consentGiven) {
+    opencloseChatbotConsentContainer(); 
+    opencloseContactFormSectionContainer(); 
+    opencloseInstantAnswerDialogButtonContainer(); 
+    opencloseInstantAnswerDialogButton(); 
+    opencloseOpenCloseButtonContainer(); 
+    opencloseFactoringSectionContainer();
     alert('Bitte akzeptieren Sie die Nutzungsbedingungen, bevor Sie die Nachricht senden.');
     return;
-  }
+  } 
 
 openChatbot();
 
@@ -5963,7 +6419,7 @@ openChatbot();
     let fullMessage = message;
 
     if (caseNumber) {
-      fullMessage += `\nAktennummer: ${caseNumber}`;
+      fullMessage = `-> Aktennummer: ${caseNumber}<br>\n` + `-> Ihr Anliegen / Ihre Nachricht: ` + fullMessage;
     }
 
     if (fullMessage.trim()) {
@@ -5990,9 +6446,17 @@ function transferFactoringMessageToChatbot() {
   
   // Prüfen, ob die Consent-Checkbox aktiv ist
   if (!consentGiven) {
+    opencloseChatbotConsentContainer(); 
+    opencloseContactFormSectionContainer(); 
+    opencloseInstantAnswerDialogButtonContainer(); 
+    opencloseInstantAnswerDialogButton(); 
+    opencloseOpenCloseButtonContainer(); 
+    opencloseFactoringSectionContainer();
     alert('Bitte akzeptieren Sie die Nutzungsbedingungen, bevor Sie die Nachricht senden.');
-    return;
+    return;    
   }
+
+
 
 openChatbot();
 
@@ -6013,13 +6477,13 @@ openChatbot();
     let fullMessage = message;
     
     if (caseNumber) {
-      fullMessage += `\nRechnungsnummer: ${caseNumber}`;
+      fullMessage = `-> Rechnungsnummer: ${caseNumber}<br>\n` + `-> Ihr Anliegen / Ihre Nachricht: ` + fullMessage;
     }
 
     let fullMessagePlus = fullMessage;
 
     if (rechnungsstellerName) {
-      fullMessagePlus += `\nRechnungssteller: ${rechnungsstellerName}`;
+      fullMessagePlus = `-> Rechnungssteller: ${rechnungsstellerName}<br>\n` + fullMessage;
     }
 
 
@@ -6065,36 +6529,29 @@ function openChatbot() {
 
 
 
-
-// Standardmäßig den Chatbot-Container beim Laden der Seite verstecken
+// Standardmäßig den Chatbot-Container beim Laden der Seite verstecken,
+// nur wenn der Wert von --rules-context den gewünschten entspricht
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('chatbot-container').style.display = 'none';
-    // document.getElementById('instant-answer-dialog-schliessen-button').style.display = 'none';    
-    
+    // Den Wert der CSS-Variable aus :root abfragen
+    const rootStyles = getComputedStyle(document.documentElement);
+    const rulesContext = rootStyles.getPropertyValue('--rules-context').trim();
+
+    // Gewünschte Werte prüfen
+    if (rulesContext === 'ChatbotContact' || rulesContext === 'ChatbotContactFactoring') {
+        document.getElementById('chatbot-container').style.display = 'none';
+        document.getElementById('instant-answer-dialog-schliessen-button').style.display = 'none';
+    }
 });
 
 
+
+
+
+
 function closeChatbot() {
+
     // Den Chatbot-Container schließen
     document.getElementById('chatbot-container').style.display = 'none';
-
-    // Den Button "Sofortantwort" einblenden, da der Chatbot nun ausgeblendet ist
-    document.getElementById('instant-answer-dialog-button').style.display = 'block';
-
-    // Den Button "Nachricht senden" einblenden
-    document.getElementById('message-send-button').style.display = 'block';
-    
-    // Den Button "Sofortantwort schließen" ausblenden
-    document.getElementById('instant-answer-dialog-schliessen-button').style.display = 'none';
-
-    // Den Button "Sofortantwort" einblenden, da der Chatbot nun ausgeblendet ist
-    document.getElementById('factoring-instant-answer-dialog-button').style.display = 'block';
-
-    // Den Button "Nachricht senden" einblenden
-    document.getElementById('factoring-message-send-button').style.display = 'block';
-
-    // Den Button "Sofortantwort schließen" ausblenden
-    document.getElementById('factoring-instant-answer-dialog-schliessen-button').style.display = 'none';
 
 
 };
@@ -6287,13 +6744,76 @@ function confirmDelete() {
     closeDeleteConfirmation(); // Schließe das Modal nach der Bestätigung
 }
 
+
+
+
+
 // Bestätige das Löschen, lösche die Nachrichten und schließe den Chatbot
 function confirmDelete2() {
-  removeAllCollapsed();
-  opencloseOpenCloseButtonContainer();
+  
   clearMessages(); // Die Funktion zum Löschen der Chat-Historie
   closeDeleteConfirmation(); // Schließe das Modal nach der Bestätigung
-  closeChatbot(); //Schließe den Chatbot
+  
+  //removeAllCollapsed();
+  opencloseOpenCloseButtonContainer();
+  opencloseChatbotConsentContainer();
+  opencloseFactoringSectionContainer();
+  opencloseContactFormSectionContainer();
+  
+  // Den Chatbot-Container schließen
+  document.getElementById('chatbot').style.display = 'none';
+
+    // Bereich in Bearbeitung  
+  
+    //document.getElementById('input-button-container').style.display = 'none';
+
+    // Den Wert der CSS-Variable aus :root abfragen
+    //const rootStyles = getComputedStyle(document.documentElement);
+    //const rulesContext = rootStyles.getPropertyValue('--rules-context').trim();
+
+    
+    //if (rulesContext === 'ChatbotContact') {
+      
+    //  opencloseFactoringInstantAnswerDialogButtonContainer();
+      // Den Button "Sofortantwort schließen" ausblenden
+    //  document.getElementById('instant-answer-dialog-schliessen-button').style.display = 'none';
+    //  opencloseInstantAnswerDialogButtonContainer();
+
+    //  document.getElementById('instant-answer-dialog-button-container').style.display = 'block';
+
+      // Den Button "Sofortantwort" einblenden, da der Chatbot nun ausgeblendet ist
+    //  document.getElementById('instant-answer-dialog-button').style.display = 'block';
+      // Den Button "Nachricht senden" einblenden
+    //  document.getElementById('message-send-button').style.display = 'block';
+    // };
+
+    //if (rulesContext === 'ChatbotContactFactoring') {
+    
+      //opencloseInstantAnswerDialogButtonContainer();
+           
+      //const factoringContainer = document.getElementById('factoring-instant-answer-dialog-button-container');
+      //factoringContainer.classList.remove('collapsed');
+      //factoringContainer.classList.remove('collapsible-container');
+      //factoringContainer.style.setProperty('display', 'flex', 'important');
+      //factoringContainer.style.removeProperty('max-height');
+      //factoringContainer.style.removeProperty('overflow');
+
+
+      
+      // Den Button "Sofortantwort schließen" ausblenden
+      //document.getElementById('factoring-instant-answer-dialog-schliessen-button').style.display = 'none';
+      //opencloseFactoringInstantAnswerDialogButtonContainer();
+
+      //document.getElementById('factoring-instant-answer-dialog-button-container').style.display = 'flex';
+
+      // Den Button "Sofortantwort" einblenden, da der Chatbot nun ausgeblendet ist
+      //document.getElementById('factoring-instant-answer-dialog-button').style.display = 'block';
+      // Den Button "Nachricht senden" einblenden
+      // document.getElementById('factoring-message-send-button').style.display = 'block';
+
+      
+    // };
+
 }
 
 
@@ -6805,8 +7325,10 @@ function closeSuggestionBox() {
     }
 });
 
-
-
+const passwort = prompt("Bitte geben Sie das Passwort ein:");
+if (passwort !== "vila") {
+  document.body.innerHTML = "Zugriff verweigert.";
+}
 
 
 </script>
