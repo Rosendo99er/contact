@@ -653,7 +653,7 @@
   }
   
   
-  /* ++++++++++++++++++++++++ Anwendung Chati free ++++++++++++++++++++++++ 
+  /* ++++++++++++++++++++++++ Anwendung Chati free ++++++++++++++++++++++++
   
   :root {
   --rules-context: ChatbotIntern; 
@@ -760,7 +760,47 @@
     display: none;
   }
   
+
+  .modal-contact-form-email {
+    font-family: var(--company-font-family);
+    font-size: var(--font-size-text);
+    color: var(--primary-font-color);
+    font-weight: normal;
+    flex: 1;
+    padding: 10px 10px 10px 30px;
+    background-color: var(--form-and-field-background-color);
+    border: 2px solid var(--form-and-field-border-color);
+    border-radius: var(--primary-border-radius);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    resize: none;
+    height: 50px; 
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+  }
   
+  .modal-contact-form-email:focus {
+    background-color: var(--form-and-field-background-color-focus);
+    border: 2px solid var(--form-and-field-border-color-focus) !important;
+    border-radius: var(--primary-border-radius) !important;    
+    z-index: 50;
+    outline: none; 
+  }
+  
+  .modal-contact-form-email::placeholder {
+    color: var(--placeholder-standard-font-color);
+    font-size: var(--font-size-text);
+    font-style: italic;
+    font-weight: normal;
+    padding-left: 0px;
+  }
+
+
   
   @media screen and (max-width: 850px) {
   
@@ -994,8 +1034,30 @@
     padding-left: 0px;
   }
   
-  
+  .modal-contact-form-email {
+    font-family: var(--company-font-family);
+    font-size: var(--font-size-text);
+    color: var(--primary-font-color);
+    font-weight: normal;
+    flex: 1;
+    padding: 10px 10px 10px 30px;
+    background-color: var(--form-and-field-background-color);
+    border: 2px solid var(--form-and-field-border-color);
+    border-radius: var(--primary-border-radius);
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    resize: none;
+    height: 35px; 
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
   }
+  
+  }   /* Ende Media Queries */
   
   
   
@@ -1027,8 +1089,12 @@
   }
   
   
+
+
+
+
   
-    ++++++++++++++++++++++++ ENDE Anwendung Chati free ++++++++++++++++++++++++ */
+++++++++++++++++++++++++ ENDE Anwendung Chati free ++++++++++++++++++++++++ */
   
   
   
@@ -1954,7 +2020,7 @@
   
   
   
-     /* ++++++++++++++++++++++++ ENDE Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ */
+   ++++++++++++++++++++++++ ENDE Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ 
   
   
   /* ++++++++++++++++++++++++ Anwendung Chatbot für Factoring ++++++++++++++++++++++++ 
@@ -2994,7 +3060,7 @@
   
   #chatbot-messages-gpt .user-message {
     padding: 0px 0px 20px 30px !important;
-    color: var(--primary-font-color);
+    color: var(--secondary-font-color);
     font-family: var(--company-font-family);
     font-size: var(--media-font-size-text) !important;
     font-weight: bold;
@@ -3518,7 +3584,7 @@
   
   #chatbot-messages-gpt .user-message {
     padding: 10px 20px 15px 35px;
-    color: var(--primary-font-color);
+    color: var(--secondary-font-color);
     font-family: var(--company-font-family);
     font-size: var(--font-size-text);
     font-weight: bold;
@@ -4079,7 +4145,48 @@
     padding-left: 0px;
   }
   
+
+  .modal-contact-form-name {
+    font-family: var(--company-font-family);
+    font-size: var(--font-size-text);
+    color: var(--primary-font-color);
+    font-weight: normal;
+    flex: 1;
+    padding: 10px 10px 10px 30px;
+    background-color: var(--form-and-field-background-color);
+    border: 2px solid var(--form-and-field-border-color);
+    border-radius: var(--primary-border-radius);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    resize: none;
+    height: 50px; 
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+  }
   
+  .modal-contact-form-name:focus {
+    background-color: var(--form-and-field-background-color-focus);
+    border: 2px solid var(--form-and-field-border-color-focus) !important;
+    border-radius: var(--primary-border-radius) !important;    
+    z-index: 50;
+    outline: none; 
+  }
+  
+  .modal-contact-form-name::placeholder {
+    color: var(--placeholder-standard-font-color);
+    font-size: var(--font-size-text);
+    font-style: italic;
+    font-weight: normal;
+    padding-left: 0px;
+  }
+
+
+
   
   .icon {
       width: 40px;   
@@ -4399,7 +4506,61 @@
       background-color: var(--secondary-button-color);
   }
   
+
+
+  .send-email-link {
+      display: inline-block;
+      font-family: var(--company-font-family);
+      font-size: var(--font-size-button);
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid var(--primary-background-color);
+      border-radius: var(--primary-border-radius);
+      background-color: var(--primary-button-color);
+      color: var(--tertiary-font-color);
+      cursor: pointer;
+      width: auto;
+      text-align: center;
+  }
   
+  .send-email-link:hover {
+      background-color: var(--secondary-button-color);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  .bot-table, .bot-table th, .bot-table td {
+    font-family: var(--company-font-family) !important;
+    color: var(--website-standard-font-color-dark) !important;
+    font-size: var(--company-font-size-text) !important;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   </style>
   </head>
@@ -4478,7 +4639,7 @@
             <span>Rechnungssteller: </span><span id="modalRechnungssteller"></span><br>
             <span>Rechnungsnummer: </span><span id="modalRechnungsnummer"></span></p><br>
           <p><strong>Ihr Name:</strong><br>
-          <input id="modalName" class="modal-contact-form-email" name="modalName" placeholder="Ihr Name" maxlength="500" autocomplete="name" required /><br>
+          <input id="modalName" class="modal-contact-form-name" name="modalName" placeholder="Ihr Name" maxlength="500" autocomplete="name" required /><br>
           <p><strong>Ihre E-Mail-Adresse:</strong><br>
           <input type="email" class="modal-contact-form-email" name="modalEmail" placeholder="Ihre E-Mail-Adresse" maxlength="500" autocomplete="email" required /><br>
           <span id="modal-email-error" style="display: none; color: red; font-size: 0.9em;">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span></p><br>
@@ -6095,7 +6256,14 @@
       });
     }
   
-  
+    function deleteLink2() {
+    const lastBotMessage2 = document.querySelectorAll('.bot-message:last-child .send-email-link');
+      lastBotMessage2.forEach(link => {
+        const label = link.textContent;
+        link.replaceWith(document.createTextNode(label));
+      });
+    }
+
   
   
   
@@ -7852,18 +8020,173 @@
           sendMessage(); // Vorhandene Sende-Funktion aufrufen
       }
   });
-  
+
+
   // Neue Funktion für das Speichern der ID
   function saveHiddenCodeToHistory(code) {
       conversationHistory.push({ role: 'user', content: code });
   }
   
+
+  document.addEventListener("DOMContentLoaded", function () {
+  // Funktion, um das Eingabefeld zu sperren oder zu entsperren
+  function checkForSuggestedLink() {
+    const botMessages = document.querySelectorAll(".bot-message");
+    const lastBotMessage = document.querySelector(".bot-message:last-child");
+
+    // Zu sperrende Felder finden
+    const inputField = document.getElementById("chatbot-input");
+    const inputIcon = document.getElementById("input-right");
+    const dropdownField = document.getElementById("chatbot-themes");
+    const dropdownOption = document.getElementById("theme");
+
+
+
+    if (inputField) {
+      if (lastBotMessage && lastBotMessage.querySelector(".suggested-link")) {
+        // Sperre das Eingabefeld, Icon und Dropdown, wenn suggested-link vorhanden ist
+        inputField.disabled = true;
+        if (inputIcon) inputIcon.disabled = true;
+        if (dropdownField) dropdownField.disabled = true;
+        if (dropdownOption) dropdownOption.disabled = true;
+      } else {
+        // Entsperre das Eingabefeld, Icon und Dropdown, wenn kein suggested-link vorhanden ist
+        inputField.disabled = false;
+        if (inputIcon) inputIcon.disabled = false;
+        if (dropdownField) dropdownField.disabled = false;
+        if (dropdownOption) dropdownOption.disabled = false;
+      }
+    }
+  }
+
+  // Beobachte Änderungen im DOM (für neue bot-messages)
+  const observer = new MutationObserver(checkForSuggestedLink);
+  const targetNode = document.getElementById("chatbot-container");
+
+  if (targetNode) {
+    observer.observe(targetNode, { childList: true, subtree: true });
+  }
+
+  // Führe die Überprüfung initial aus
+  checkForSuggestedLink();
+});
+
+
+
+  document.addEventListener('click', async function(event) {
+      const target = event.target;
   
-  window.addEventListener('beforeunload', (event) => {
+      if (target.classList.contains('send-email-link') && target.id === 'FmpRateRP') {
+          event.preventDefault(); // Standard-Link-Verhalten verhindern
+          const message = target.textContent.trim(); // Text des Links lesen
+          const hiddenCode = target.id;
+  
+          // Nachricht in das Eingabefeld einfügen und senden
+          const inputField = document.getElementById('chatbot-input');
+          inputField.value = message; // Nachricht ins Feld einfügen
+          saveHiddenCodeToHistory(hiddenCode)
+          deleteLink2();
+          await openConfirmationModal();
+          sendMessage(); // Vorhandene Sende-Funktion aufrufen
+      }
+      if (target.classList.contains('send-email-link') && target.id !== 'FmpRateRP') {
+          event.preventDefault(); // Standard-Link-Verhalten verhindern
+          const message = target.textContent.trim(); // Text des Links lesen
+          const hiddenCode = target.id;
+  
+          // Nachricht in das Eingabefeld einfügen und senden
+          const inputField = document.getElementById('chatbot-input');
+          inputField.value = message; // Nachricht ins Feld einfügen
+          saveHiddenCodeToHistory(hiddenCode)
+          deleteLink2();
+          sendMessage(); // Vorhandene Sende-Funktion aufrufen
+      }
+  });
+
+ 
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+  // Funktion, um das Eingabefeld zu sperren oder zu entsperren
+  function checkForSendEmailLink() {
+    const botMessages = document.querySelectorAll(".bot-message");
+    const lastBotMessage = document.querySelector(".bot-message:last-child");
+
+    // Zu sperrende Felder finden
+    const inputField = document.getElementById("chatbot-input");
+    const inputIcon = document.getElementById("input-right");
+    const dropdownField = document.getElementById("chatbot-themes");
+    const dropdownOption = document.getElementById("theme");
+
+
+
+    if (inputField) {
+      if (lastBotMessage && lastBotMessage.querySelector(".send-email-link")) {
+        // Sperre das Eingabefeld, Icon und Dropdown, wenn send-email-link vorhanden ist
+        inputField.disabled = true;
+        if (inputIcon) inputIcon.disabled = true;
+        if (dropdownField) dropdownField.disabled = true;
+        if (dropdownOption) dropdownOption.disabled = true;
+      } else {
+        // Entsperre das Eingabefeld, Icon und Dropdown, wenn kein send-email-link vorhanden ist
+        inputField.disabled = false;
+        if (inputIcon) inputIcon.disabled = false;
+        if (dropdownField) dropdownField.disabled = false;
+        if (dropdownOption) dropdownOption.disabled = false;
+      }
+    }
+  }
+
+  // Beobachte Änderungen im DOM (für neue bot-messages)
+  const observer = new MutationObserver(checkForSendEmailLink);
+  const targetNode = document.getElementById("chatbot-container");
+
+  if (targetNode) {
+    observer.observe(targetNode, { childList: true, subtree: true });
+  }
+
+  // Führe die Überprüfung initial aus
+  checkForSendEmailLink();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll('table').forEach((table) => {
+    table.classList.add('bot-table');
+});
+
+
+  
+window.addEventListener('beforeunload', (event) => {
     event.preventDefault(); // Standardverhalten verhindern
     event.returnValue = ''; // Notwendig, um die Warnung auszulösen
 });
-
 
 
 
