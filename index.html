@@ -904,7 +904,7 @@
 
 
   
- ++++++++++++++++++++++++ ENDE Anwendung Chati free ++++++++++++++++++++++++ */
+  ++++++++++++++++++++++++ ENDE Anwendung Chati free ++++++++++++++++++++++++ */
   
   
   
@@ -1829,8 +1829,7 @@
   }
   
   
-  
-     /* ++++++++++++++++++++++++ ENDE Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ */
+  /* ++++++++++++++++++++++++ ENDE Anwendung Chatbot mit Kontaktformular ++++++++++++++++++++++++ */
   
   
   /* ++++++++++++++++++++++++ Anwendung Chatbot für Factoring ++++++++++++++++++++++++ 
@@ -6119,8 +6118,9 @@
       console.log(`Übergebener Kunde: ${rulesCustomer}`);
   
   
+      
       try {
-          const response = await fetch(`https://vast-citadel-93222-f91f10e46ebf.herokuapp.com/api/chatbot`, {
+          const response = await fetch(`https://cream-collection-chati-main-1281403bbf31.herokuapp.com/api/chatbot`, {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
@@ -7155,7 +7155,7 @@
       
       try {
           // Anfrage an die Flask-API
-          const response = await fetch('https://app-translate-chat-translate-d90fae4da777.herokuapp.com/translate', {
+          const response = await fetch('https://cream-collection-chati-main-1281403bbf31.herokuapp.com/translate', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
@@ -7446,7 +7446,7 @@
   
           try {
               // POST-Anfrage an Flask senden, um die E-Mail zu versenden
-              const response = await fetch(`https://vast-citadel-93222-f91f10e46ebf.herokuapp.com/send-email`, {
+              const response = await fetch(`https://cream-collection-chati-main-1281403bbf31.herokuapp.com/send-email`, {
                   method: 'POST',
                   headers: {
                       'Content-Type': 'application/json'
@@ -7461,7 +7461,7 @@
                       name: nameValue,                         // Name des Chatbot-Benutzers
                       user_email: emailValue,                  // E-Mail des Chatbot-Benutzers
                       message: messageValue,                   // Nachricht des Chatbot-Benutzers
-                      chat_history: await getTranslatedChatHistoryForEmail() // Hol den übersetzten Chatverlauf
+                      chat_history: translatedChatHistory // Hol den übersetzten Chatverlauf
   
                   })
               });
@@ -7969,7 +7969,9 @@
 document.addEventListener('click', async function(event) {
     const target = event.target;
 
-    if (target.classList.contains('send-email-link') && target.id === 'FmpRateRP') {
+    const allowedIds = ['FmpRateRP', 'WQ_A1', 'WQ_A2', 'WQ_A3', 'WQ_A4'];
+
+    if (target.classList.contains('send-email-link') && allowedIds.includes(target.id)) {
         event.preventDefault(); // Standard-Link-Verhalten verhindern
         const message = target.textContent.trim(); // Text des Links lesen
         const hiddenCode = target.id;
@@ -7982,7 +7984,7 @@ document.addEventListener('click', async function(event) {
         await openConfirmationModal();
         sendMessage(); // Vorhandene Sende-Funktion aufrufen
     }
-    if (target.classList.contains('send-email-link') && target.id !== 'FmpRateRP') {
+    if (target.classList.contains('send-email-link') && !allowedIds.includes(target.id)) {
         event.preventDefault(); // Standard-Link-Verhalten verhindern
         const message = target.textContent.trim(); // Text des Links lesen
         const hiddenCode = target.id;
